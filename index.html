@@ -55,6 +55,7 @@ header{
   height:auto;
   display:block;
 }
+.text-logo{font-size:21px;font-weight:900;letter-spacing:1px}.text-logo span{color:var(--blue-dark)}
 .profile{
   width:40px;height:40px;border-radius:50%;
   background:var(--blue);
@@ -174,20 +175,6 @@ textarea{resize:vertical;min-height:75px}
 .line-svg{width:100%;height:100%;overflow:visible}
 .line-svg polyline{fill:none;stroke:var(--blue-dark);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .line-point{width:9px;height:9px;background:var(--blue-dark);border-radius:50%;position:absolute;transform:translate(-50%,50%);z-index:2}
-.running-highlight{
-  background:linear-gradient(135deg,#dff1ff,#eef8ff);
-  border:1px solid #cce6f8;border-radius:20px;padding:20px;margin-bottom:15px
-}
-.running-highlight .distance{font-size:42px;font-weight:850}
-.running-highlight .distance span{font-size:16px;color:var(--muted)}
-.run-type{
-  display:inline-block;background:#fff;border:1px solid var(--border);
-  border-radius:99px;padding:6px 10px;font-size:11px;color:var(--blue-dark);font-weight:800
-}
-.run-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
-.run-kpi{background:rgba(255,255,255,.7);border-radius:12px;padding:11px}
-.run-kpi small{display:block;color:var(--muted);font-size:10px}
-.run-kpi strong{display:block;margin-top:5px}
 .timer{
   position:fixed;right:18px;bottom:90px;background:var(--blue);
   color:#20313f;padding:11px 13px;border-radius:14px;display:none;
@@ -207,6 +194,196 @@ textarea{resize:vertical;min-height:75px}
 .nav-button.active{color:var(--blue-dark)}
 .empty{color:var(--muted);font-size:13px;padding:12px 0}
 .notice{background:var(--blue-soft);border:1px solid #cfe8fa;padding:12px;border-radius:12px;color:#527087;font-size:12px;margin-top:10px}
+
+.exercise-filters{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  padding:12px 0 5px;
+  scrollbar-width:none;
+}
+.exercise-filter{
+  flex:0 0 auto;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--muted);
+  border-radius:99px;
+  padding:8px 12px;
+  font-size:11px;
+}
+.exercise-filter.active{
+  background:var(--blue);
+  color:#20313f;
+  border-color:var(--blue);
+  font-weight:800;
+}
+.exercise-picker{
+  margin-top:10px;
+  max-height:330px;
+  overflow-y:auto;
+}
+.exercise-option{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 4px;
+  border-bottom:1px solid var(--border);
+}
+.exercise-option:last-child{border-bottom:none}
+.exercise-option-info{min-width:0}
+.exercise-option-name{font-weight:750;font-size:13px}
+.exercise-option-muscle{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:3px;
+}
+.add-exercise{
+  flex:0 0 auto;
+  border:none;
+  background:var(--blue);
+  color:#20313f;
+  border-radius:9px;
+  padding:9px 12px;
+  font-weight:800;
+  font-size:11px;
+}
+.builder-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:16px;
+  margin-bottom:12px;
+  box-shadow:var(--shadow);
+}
+.builder-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:13px;
+}
+.builder-title h3{font-size:17px}
+.builder-title small{color:var(--muted);display:block;margin-top:3px;font-size:10px}
+.remove-exercise{
+  border:none;
+  background:#fff1f1;
+  color:var(--danger);
+  border-radius:8px;
+  padding:7px 9px;
+  font-size:11px;
+}
+.builder-table{
+  width:100%;
+  border-collapse:collapse;
+}
+.builder-table th{
+  color:var(--muted);
+  font-size:10px;
+  font-weight:600;
+  text-align:left;
+  padding:6px 4px;
+}
+.builder-table td{padding:4px}
+.builder-table input{
+  width:100%;
+  min-width:0;
+  background:#fbfdff;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:9px 7px;
+  color:var(--text);
+}
+.builder-table .set-number{
+  width:28px;
+  color:var(--muted);
+  font-size:11px;
+}
+.add-set{
+  border:1px dashed #bdd9ec;
+  background:var(--blue-soft);
+  color:var(--blue-dark);
+  border-radius:9px;
+  padding:8px 11px;
+  font-size:11px;
+  font-weight:700;
+  margin-top:9px;
+}
+.remove-set{
+  border:none;
+  background:transparent;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.exercise-history{
+  margin-top:14px;
+  padding:12px 14px;
+  background:var(--blue-soft);
+  border:1px solid var(--border);
+  border-radius:12px;
+}
+.exercise-history-title{
+  font-size:11px;
+  font-weight:900;
+  color:var(--blue-dark);
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:6px;
+}
+.exercise-history-main{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.exercise-history-date{color:var(--muted);font-size:12px}
+.exercise-history-sets{font-weight:800;font-size:13px}
+.exercise-history-set{
+  display:inline-block;
+  margin:3px 5px 0 0;
+  padding:4px 7px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:7px;
+  font-size:12px;
+}
+.exercise-history-empty{color:var(--muted);font-size:12px}
+.exercise-volume{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:10px;
+}
+.saved-workout{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:15px;
+  margin-bottom:10px;
+}
+.saved-workout-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.saved-workout h3{font-size:15px}
+.saved-workout small{color:var(--muted);font-size:10px}
+.saved-workout-stats{
+  display:flex;
+  gap:16px;
+  margin-top:10px;
+}
+.saved-workout-stats strong{font-size:13px}
+.saved-workout-stats span{color:var(--muted);font-size:10px}
+.delete-workout{
+  border:none;
+  background:transparent;
+  color:var(--danger);
+  font-size:11px;
+}
+
 @media(max-width:650px){
   main{padding:15px 14px}
   .hero h1{font-size:32px}
@@ -223,9 +400,7 @@ textarea{resize:vertical;min-height:75px}
 <body>
 
 <header>
-  <div class="logo-wrap">
-    <img src="liam-logo.png" alt="Liam logo">
-  </div>
+  <div class="text-logo">FIT<span>TRACK</span></div>
   <div class="profile">JP</div>
 </header>
 
@@ -240,7 +415,7 @@ textarea{resize:vertical;min-height:75px}
 
   <div class="stats">
     <div class="stat"><small>Gewicht</small><strong id="homeWeight">-- kg</strong><small>Laatste meting</small></div>
-    <div class="stat"><small>Hardlopen</small><strong id="homeRunKm">0 km</strong><small>Deze week</small></div>
+    <div class="stat"><small>Trainingen</small><strong id="trainingCount">0</strong><small>Deze week</small></div>
     <div class="stat"><small>Calorieën</small><strong id="homeCalories">--</strong><small>Vandaag</small></div>
   </div>
 
@@ -255,22 +430,7 @@ textarea{resize:vertical;min-height:75px}
     </div>
     <button class="arrow">→</button>
   </div>
-
-  <div class="section-title"><h2>Hardlopen</h2></div>
-
-  <div class="running-highlight" onclick="showPage('running')">
-    <span class="run-type">LAATSTE RUN</span>
-    <div class="distance"><span id="homeLastRun">0</span> <span>km</span></div>
-    <p class="muted" id="homeLastRunInfo">Nog geen hardlooptraining gelogd.</p>
-    <div class="run-kpis">
-      <div class="run-kpi"><small>Tempo</small><strong id="homeRunPace">--</strong></div>
-      <div class="run-kpi"><small>Tijd</small><strong id="homeRunTime">--</strong></div>
-      <div class="run-kpi"><small>Gem. HR</small><strong id="homeRunHr">--</strong></div>
-      <div class="run-kpi"><small>Runs</small><strong id="homeRunCount">0</strong></div>
-    </div>
-  </div>
-
-  <div class="section-title"><h2>Deze week</h2></div>
+<div class="section-title"><h2>Deze week</h2></div>
   <div class="week">
     <div class="day done"><span>MA</span><b>✓</b></div>
     <div class="day done"><span>DI</span><b>✓</b></div>
@@ -282,16 +442,91 @@ textarea{resize:vertical;min-height:75px}
   </div>
 </section>
 
+
 <section id="workout" class="page">
-  <div class="page-header"><small>KRACHTTRAINING</small><h1>Upper Body</h1></div>
-  <div class="summary">
-    <div class="summary-box"><small>Oefeningen</small><strong>6</strong></div>
-    <div class="summary-box"><small>Sets</small><strong id="setCount">20</strong></div>
-    <div class="summary-box"><small>Volume</small><strong id="volume">0 kg</strong></div>
+
+  <div class="page-header">
+    <small>KRACHTTRAINING</small>
+    <h1>Workout builder</h1>
   </div>
-  <div id="exerciseList"></div>
-  <button class="finish" onclick="finishWorkout()">Training afronden ✓</button>
+
+  <div class="card">
+    <div class="input-row">
+      <div class="input-group">
+        <label>Naam van je training</label>
+        <input id="workoutName" class="data-input" type="text" placeholder="Bijv. Push A">
+      </div>
+      <div class="input-group">
+        <label>Datum</label>
+        <input id="workoutDate" class="data-input" type="date">
+      </div>
+    </div>
+    <button class="save-btn" onclick="saveCurrentWorkout()">Training opslaan</button>
+  </div>
+
+  <div class="summary">
+    <div class="summary-box">
+      <small>Oefeningen</small>
+      <strong id="workoutExerciseCount">0</strong>
+    </div>
+    <div class="summary-box">
+      <small>Sets</small>
+      <strong id="workoutSetCount">0</strong>
+    </div>
+    <div class="summary-box">
+      <small>Totaal volume</small>
+      <strong id="workoutVolume">0 kg</strong>
+    </div>
+  </div>
+
+  <div class="input-card">
+    <h3>Oefening toevoegen</h3>
+
+    <div class="input-group">
+      <label>Zoek oefening</label>
+      <input
+        id="exerciseSearch"
+        class="data-input"
+        type="search"
+        placeholder="Zoek bijvoorbeeld squat, borst, rug..."
+        oninput="renderExercisePicker()"
+      >
+    </div>
+
+    <div class="exercise-filters" id="muscleFilters"></div>
+    <div id="exercisePicker" class="exercise-picker"></div>
+  </div>
+
+  <div class="section-title">
+    <h2>Jouw training</h2>
+  </div>
+
+  <div id="builderExercises"></div>
+
+  <div id="emptyWorkout" class="card">
+    <h3>Nog geen oefeningen</h3>
+    <p class="muted">
+      Zoek hierboven een oefening en voeg hem toe aan je training.
+    </p>
+  </div>
+
+  <button
+    id="finishWorkoutButton"
+    class="finish"
+    onclick="finishBuilderWorkout()"
+    style="display:none"
+  >
+    Training afronden ✓
+  </button>
+
+  <div class="section-title">
+    <h2>Opgeslagen trainingen</h2>
+  </div>
+
+  <div id="savedWorkouts"></div>
+
 </section>
+
 
 <section id="weight" class="page">
   <div class="page-header"><small>LICHAAMSGEGEVENS</small><h1>Gewicht</h1></div>
@@ -385,78 +620,6 @@ textarea{resize:vertical;min-height:75px}
     <div class="table-wrapper"><table class="data-table"><thead><tr><th>Datum</th><th>Kcal</th><th>KH</th><th>Eiwit</th><th>Vet</th><th></th></tr></thead><tbody id="nutritionTable"></tbody></table></div>
   </div>
 </section>
-
-<section id="running" class="page">
-  <div class="page-header"><small>RUNNING</small><h1>Hardlopen</h1></div>
-
-  <div class="card">
-    <h3>Deze week</h3>
-    <div class="macro-grid">
-      <div class="macro-card"><small>Afstand</small><strong id="weeklyRunDistance">0 km</strong></div>
-      <div class="macro-card"><small>Runs</small><strong id="weeklyRunCount">0</strong></div>
-      <div class="macro-card"><small>Gem. tempo</small><strong id="weeklyRunPace">--</strong></div>
-    </div>
-  </div>
-
-  <div class="input-card">
-    <h3>Hardlooptraining loggen</h3>
-
-    <div class="input-row">
-      <div class="input-group"><label>Datum</label><input type="date" id="runDate" class="data-input"></div>
-      <div class="input-group">
-        <label>Type training</label>
-        <select id="runType" class="data-select">
-          <option>Easy run</option>
-          <option>Long run</option>
-          <option>Interval</option>
-          <option>Tempo</option>
-          <option>Progressief</option>
-          <option>Herstel</option>
-          <option>Wedstrijd</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="input-row">
-      <div class="input-group"><label>Afstand (km)</label><input type="number" id="runDistance" class="data-input" step="0.01" placeholder="10.00"></div>
-      <div class="input-group"><label>Totale tijd</label><input type="text" id="runDuration" class="data-input" placeholder="00:50:00"></div>
-    </div>
-
-    <div class="input-row">
-      <div class="input-group"><label>Gem. hartslag</label><input type="number" id="runHr" class="data-input" placeholder="155"></div>
-      <div class="input-group"><label>Calorieën</label><input type="number" id="runCalories" class="data-input" placeholder="700"></div>
-    </div>
-
-    <div class="input-row">
-      <div class="input-group"><label>Hoogtemeters</label><input type="number" id="runElevation" class="data-input" placeholder="50"></div>
-      <div class="input-group"><label>Notitie</label><input type="text" id="runNote" class="data-input" placeholder="Hoe voelde de training?"></div>
-    </div>
-
-    <div class="notice">
-      Het gemiddelde tempo wordt automatisch berekend uit afstand + totale tijd.
-    </div>
-
-    <br>
-    <button class="save-btn" onclick="saveRun()">Hardlooptraining opslaan</button>
-  </div>
-
-  <div class="chart-card">
-    <h3>Afstand per dag</h3>
-    <p class="muted">Laatste 7 dagen</p>
-    <div id="runChart" class="chart"></div>
-  </div>
-
-  <div class="card">
-    <h3>Laatste trainingen</h3>
-    <div class="table-wrapper">
-      <table class="data-table">
-        <thead><tr><th>Datum</th><th>Type</th><th>Km</th><th>Tempo</th><th>HR</th><th></th></tr></thead>
-        <tbody id="runTable"></tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
 <section id="progress" class="page">
   <div class="page-header"><small>JOUW DATA</small><h1>Progressie</h1></div>
 
@@ -464,21 +627,19 @@ textarea{resize:vertical;min-height:75px}
     <h3>Overzicht</h3>
     <div class="macro-grid">
       <div class="macro-card"><small>Gewicht</small><strong id="progressWeight">-- kg</strong></div>
-      <div class="macro-card"><small>Week km</small><strong id="progressKm">0 km</strong></div>
+      <div class="macro-card"><small>Weekvolume</small><strong id="progressKm">0 kg</strong></div>
       <div class="macro-card"><small>Trainingen</small><strong id="progressRuns">0</strong></div>
     </div>
   </div>
 
-  <div class="chart-card">
-    <h3>Hardloopafstand</h3>
-    <p class="muted">Laatste 7 dagen</p>
-    <div id="progressRunChart" class="chart"></div>
-  </div>
-
   <div class="card">
-    <h3>Bench Press</h3>
-    <div class="big-number">85 <span>kg PR</span></div>
-    <p class="muted">Jouw huidige persoonlijke record</p>
+    <h3>Krachttraining</h3>
+    <p class="muted">Je trainingen en totale trainingsvolume worden automatisch bijgehouden in Workout.</p>
+    <div class="macro-grid">
+      <div class="macro-card"><small>Deze week</small><strong id="progressWorkoutCount">0</strong></div>
+      <div class="macro-card"><small>Oefeningen</small><strong id="progressExerciseCount">0</strong></div>
+      <div class="macro-card"><small>Volume</small><strong id="progressVolume">0 kg</strong></div>
+    </div>
   </div>
 </section>
 
@@ -494,108 +655,636 @@ textarea{resize:vertical;min-height:75px}
   <button class="nav-button" onclick="showPage('workout',this)"><span>🏋️</span><small>Workout</small></button>
   <button class="nav-button" onclick="showPage('weight',this)"><span>⚖️</span><small>Gewicht</small></button>
   <button class="nav-button" onclick="showPage('nutrition',this)"><span>🔥</span><small>Voeding</small></button>
-  <button class="nav-button" onclick="showPage('running',this)"><span>🏃</span><small>Hardlopen</small></button>
   <button class="nav-button" onclick="showPage('progress',this)"><span>📈</span><small>Progressie</small></button>
 </nav>
 
 <script>
-const exercises=[
-  {name:"Bench Press",sets:4,reps:8,weight:70},
-  {name:"Lat Pulldown",sets:4,reps:10,weight:60},
-  {name:"Shoulder Press",sets:3,reps:10,weight:24},
-  {name:"Cable Row",sets:3,reps:10,weight:55},
-  {name:"Bicep Curl",sets:3,reps:12,weight:14},
-  {name:"Tricep Pushdown",sets:3,reps:12,weight:25}
-];
 
-let completedSets=0;
-let workoutCount=Number(localStorage.getItem("workoutCount"))||0;
-let weightData=JSON.parse(localStorage.getItem("weightData"))||[];
-let nutritionData=JSON.parse(localStorage.getItem("nutritionData"))||[];
-let runData=JSON.parse(localStorage.getItem("runData"))||[];
-let timerInterval;
+let weightData = JSON.parse(localStorage.getItem("weightData") || "[]");
+let nutritionData = JSON.parse(localStorage.getItem("nutritionData") || "[]");
+let timerInterval = null;
+let savedWorkouts = JSON.parse(localStorage.getItem("savedWorkouts") || "[]");
 
 function todayString(){
-  const d=new Date();
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+  return new Date().toISOString().slice(0,10);
 }
 
-["weightDate","nutritionDate","runDate"].forEach(id=>{
-  document.getElementById(id).value=todayString();
-});
+function showPage(page, button){
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  const target = document.getElementById(page);
+  if(!target) return;
+  target.classList.add("active");
 
-function showPage(page,button){
-  document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
-  document.getElementById(page).classList.add("active");
-  document.querySelectorAll(".nav-button").forEach(x=>x.classList.remove("active"));
-  if(button)button.classList.add("active");
+  document.querySelectorAll(".nav-button").forEach(b => b.classList.remove("active"));
+  if(button) button.classList.add("active");
 
-  if(page==="weight")renderWeightPage();
-  if(page==="nutrition")renderNutritionPage();
-  if(page==="running")renderRunningPage();
-  if(page==="progress")renderProgressPage();
+  if(page === "workout") renderWorkoutBuilder();
+  if(page === "weight") renderWeightPage();
+  if(page === "nutrition") renderNutritionPage();
+  if(page === "progress") updateProgressPage();
+
+  window.scrollTo({top:0, behavior:"smooth"});
 }
+
+function updateHome(){
+  const weights = weightData;
+  const nutrition = nutritionData;
+  const latestWeight = weights.slice().sort((a,b) => (b.date || "").localeCompare(a.date || ""))[0];
+  const today = todayString();
+
+  const homeWeight = document.getElementById("homeWeight");
+  if(homeWeight) homeWeight.textContent = latestWeight ? `${Number(latestWeight.weight).toFixed(1)} kg` : "-- kg";
+
+  const homeCalories = document.getElementById("homeCalories");
+  const todayFood = nutrition.find(x => x.date === today);
+  if(homeCalories) homeCalories.textContent = todayFood ? `${Number(todayFood.calories || 0).toLocaleString("nl-NL")} kcal` : "--";
+
+  const weekStart = new Date();
+  const day = weekStart.getDay();
+  const diff = day === 0 ? 6 : day - 1;
+  weekStart.setDate(weekStart.getDate() - diff);
+  const weekStartString = weekStart.toISOString().slice(0,10);
+  const trainingCount = savedWorkouts.filter(w => (w.date || "") >= weekStartString).length;
+  const countEl = document.getElementById("trainingCount");
+  if(countEl) countEl.textContent = trainingCount;
+}
+
+function updateProgressPage(){
+  const weights = weightData;
+  const latestWeight = weights.slice().sort((a,b) => (b.date || "").localeCompare(a.date || ""))[0];
+
+  const weightEl = document.getElementById("progressWeight");
+  if(weightEl) weightEl.textContent = latestWeight ? `${Number(latestWeight.weight).toFixed(1)} kg` : "-- kg";
+
+  const weekStart = new Date();
+  const day = weekStart.getDay();
+  const diff = day === 0 ? 6 : day - 1;
+  weekStart.setDate(weekStart.getDate() - diff);
+  const weekStartString = weekStart.toISOString().slice(0,10);
+  const weekWorkouts = savedWorkouts.filter(w => (w.date || "") >= weekStartString);
+  const count = weekWorkouts.length;
+  const exerciseCount = weekWorkouts.reduce((sum,w) => sum + (w.exercises?.length || 0), 0);
+  const volume = weekWorkouts.reduce((sum,w) => sum + (Number(w.volume) || 0), 0);
+
+  const kmEl = document.getElementById("progressKm");
+  const runsEl = document.getElementById("progressRuns");
+  if(kmEl) kmEl.textContent = "—";
+  if(runsEl) runsEl.textContent = count;
+  const workoutEl = document.getElementById("progressWorkoutCount");
+  const exerciseEl = document.getElementById("progressExerciseCount");
+  const volumeEl = document.getElementById("progressVolume");
+  if(workoutEl) workoutEl.textContent = count;
+  if(exerciseEl) exerciseEl.textContent = exerciseCount;
+  if(volumeEl) volumeEl.textContent = volume.toLocaleString("nl-NL") + " kg";
+}
+
+
+/* =====================================================
+   WORKOUT BUILDER
+===================================================== */
+
+const exerciseDatabase = [
+  // BORST
+  {name:"Bankdrukken",muscle:"Borst",secondary:"Triceps, voorkant schouder"},
+  {name:"Incline bankdrukken",muscle:"Borst",secondary:"Bovenkant borst, triceps"},
+  {name:"Decline bankdrukken",muscle:"Borst",secondary:"Onderkant borst, triceps"},
+  {name:"Bankdrukken met dumbbells",muscle:"Borst",secondary:"Triceps, schouders"},
+  {name:"Incline dumbbell press",muscle:"Borst",secondary:"Bovenkant borst"},
+  {name:"Chest press",muscle:"Borst",secondary:"Triceps, schouders"},
+  {name:"Incline chest press",muscle:"Borst",secondary:"Bovenkant borst"},
+  {name:"Borstvlieg machine",muscle:"Borst",secondary:"Voorste schouder"},
+  {name:"Dumbbell fly",muscle:"Borst",secondary:"Borst"},
+  {name:"Cable fly",muscle:"Borst",secondary:"Borst"},
+  {name:"Low-to-high cable fly",muscle:"Borst",secondary:"Bovenkant borst"},
+  {name:"High-to-low cable fly",muscle:"Borst",secondary:"Onderkant borst"},
+  {name:"Push-up",muscle:"Borst",secondary:"Triceps, core"},
+  {name:"Brede push-up",muscle:"Borst",secondary:"Triceps, schouders"},
+  {name:"Voeten-verhoogde push-up",muscle:"Borst",secondary:"Bovenkant borst"},
+  {name:"Dips",muscle:"Borst",secondary:"Triceps, schouders"},
+
+  // RUG
+  {name:"Lat pulldown",muscle:"Rug",secondary:"Biceps"},
+  {name:"Brede lat pulldown",muscle:"Rug",secondary:"Biceps"},
+  {name:"Smalle lat pulldown",muscle:"Rug",secondary:"Biceps"},
+  {name:"Pull-up",muscle:"Rug",secondary:"Biceps, core"},
+  {name:"Chin-up",muscle:"Rug",secondary:"Biceps"},
+  {name:"Roeien met halter",muscle:"Rug",secondary:"Biceps, achterkant schouder"},
+  {name:"Roeien met dumbbell",muscle:"Rug",secondary:"Biceps"},
+  {name:"Zittend kabelroeien",muscle:"Rug",secondary:"Biceps"},
+  {name:"Roeien aan machine",muscle:"Rug",secondary:"Biceps"},
+  {name:"Chest-supported row",muscle:"Rug",secondary:"Biceps"},
+  {name:"T-bar row",muscle:"Rug",secondary:"Biceps"},
+  {name:"Pendlay row",muscle:"Rug",secondary:"Biceps, onderrug"},
+  {name:"Straight-arm pulldown",muscle:"Rug",secondary:"Lats"},
+  {name:"Pullover machine",muscle:"Rug",secondary:"Borst"},
+  {name:"Dumbbell pullover",muscle:"Rug",secondary:"Borst"},
+  {name:"Hyperextension",muscle:"Rug",secondary:"Bilspieren, hamstrings"},
+
+  // SCHOUDERS
+  {name:"Shoulder press",muscle:"Schouders",secondary:"Triceps"},
+  {name:"Dumbbell shoulder press",muscle:"Schouders",secondary:"Triceps"},
+  {name:"Arnold press",muscle:"Schouders",secondary:"Triceps"},
+  {name:"Militaire press",muscle:"Schouders",secondary:"Triceps, core"},
+  {name:"Lateral raise",muscle:"Schouders",secondary:"Zijkant schouder"},
+  {name:"Lateral raise aan kabel",muscle:"Schouders",secondary:"Zijkant schouder"},
+  {name:"Front raise",muscle:"Schouders",secondary:"Voorkant schouder"},
+  {name:"Reverse fly",muscle:"Schouders",secondary:"Achterkant schouder"},
+  {name:"Face pull",muscle:"Schouders",secondary:"Achterkant schouder, bovenrug"},
+  {name:"Upright row",muscle:"Schouders",secondary:"Trapezius"},
+  {name:"Machine shoulder press",muscle:"Schouders",secondary:"Triceps"},
+
+  // BICEPS
+  {name:"Biceps curl",muscle:"Biceps",secondary:"Onderarm"},
+  {name:"Dumbbell biceps curl",muscle:"Biceps",secondary:"Onderarm"},
+  {name:"Hammer curl",muscle:"Biceps",secondary:"Brachialis, onderarm"},
+  {name:"Incline dumbbell curl",muscle:"Biceps",secondary:"Biceps"},
+  {name:"Preacher curl",muscle:"Biceps",secondary:"Biceps"},
+  {name:"Scott curl",muscle:"Biceps",secondary:"Biceps"},
+  {name:"Cable curl",muscle:"Biceps",secondary:"Onderarm"},
+  {name:"Concentration curl",muscle:"Biceps",secondary:"Biceps"},
+  {name:"Spider curl",muscle:"Biceps",secondary:"Biceps"},
+  {name:"Reverse curl",muscle:"Biceps",secondary:"Onderarm"},
+
+  // TRICEPS
+  {name:"Triceps pushdown",muscle:"Triceps",secondary:"Triceps"},
+  {name:"Triceps pushdown met touw",muscle:"Triceps",secondary:"Triceps"},
+  {name:"Triceps pushdown met stang",muscle:"Triceps",secondary:"Triceps"},
+  {name:"Skull crusher",muscle:"Triceps",secondary:"Triceps"},
+  {name:"Triceps extension",muscle:"Triceps",secondary:"Triceps"},
+  {name:"Overhead triceps extension",muscle:"Triceps",secondary:"Triceps"},
+  {name:"Dumbbell triceps extension",muscle:"Triceps",secondary:"Triceps"},
+  {name:"Close-grip bench press",muscle:"Triceps",secondary:"Borst"},
+  {name:"Triceps dip",muscle:"Triceps",secondary:"Borst, schouders"},
+  {name:"Kickback",muscle:"Triceps",secondary:"Triceps"},
+
+  // BENEN
+  {name:"Squat",muscle:"Benen",secondary:"Bilspieren, core"},
+  {name:"Front squat",muscle:"Benen",secondary:"Quadriceps, core"},
+  {name:"Goblet squat",muscle:"Benen",secondary:"Quadriceps, bilspieren"},
+  {name:"Hack squat",muscle:"Benen",secondary:"Quadriceps, bilspieren"},
+  {name:"Leg press",muscle:"Benen",secondary:"Quadriceps, bilspieren"},
+  {name:"Bulgarian split squat",muscle:"Benen",secondary:"Bilspieren, quadriceps"},
+  {name:"Walking lunge",muscle:"Benen",secondary:"Bilspieren, quadriceps"},
+  {name:"Reverse lunge",muscle:"Benen",secondary:"Bilspieren, quadriceps"},
+  {name:"Forward lunge",muscle:"Benen",secondary:"Bilspieren, quadriceps"},
+  {name:"Step-up",muscle:"Benen",secondary:"Bilspieren, quadriceps"},
+  {name:"Leg extension",muscle:"Benen",secondary:"Quadriceps"},
+  {name:"Leg curl",muscle:"Benen",secondary:"Hamstrings"},
+  {name:"Seated leg curl",muscle:"Benen",secondary:"Hamstrings"},
+  {name:"Romanian deadlift",muscle:"Benen",secondary:"Hamstrings, bilspieren"},
+  {name:"Stiff-leg deadlift",muscle:"Benen",secondary:"Hamstrings, onderrug"},
+  {name:"Hip thrust",muscle:"Benen",secondary:"Bilspieren, hamstrings"},
+  {name:"Glute bridge",muscle:"Benen",secondary:"Bilspieren"},
+  {name:"Kuitheffen staand",muscle:"Benen",secondary:"Kuiten"},
+  {name:"Kuitheffen zittend",muscle:"Benen",secondary:"Kuiten"},
+  {name:"Adductor machine",muscle:"Benen",secondary:"Adductoren"},
+  {name:"Abductor machine",muscle:"Benen",secondary:"Bilspieren"},
+
+  // BILLEN
+  {name:"Hip thrust met halter",muscle:"Billen",secondary:"Hamstrings"},
+  {name:"Cable kickback",muscle:"Billen",secondary:"Bilspieren"},
+  {name:"Glute kickback machine",muscle:"Billen",secondary:"Bilspieren"},
+  {name:"Frog pumps",muscle:"Billen",secondary:"Bilspieren"},
+  {name:"Cable pull-through",muscle:"Billen",secondary:"Hamstrings"},
+  {name:"Sumo squat",muscle:"Billen",secondary:"Adductoren, quadriceps"},
+  {name:"Sumo deadlift",muscle:"Billen",secondary:"Hamstrings, rug"},
+
+  // CORE
+  {name:"Crunch",muscle:"Buik",secondary:"Buikspieren"},
+  {name:"Cable crunch",muscle:"Buik",secondary:"Buikspieren"},
+  {name:"Ab machine",muscle:"Buik",secondary:"Buikspieren"},
+  {name:"Hanging leg raise",muscle:"Buik",secondary:"Heupflexoren"},
+  {name:"Hanging knee raise",muscle:"Buik",secondary:"Heupflexoren"},
+  {name:"Leg raise",muscle:"Buik",secondary:"Heupflexoren"},
+  {name:"Reverse crunch",muscle:"Buik",secondary:"Onderste buik"},
+  {name:"Plank",muscle:"Buik",secondary:"Core"},
+  {name:"Side plank",muscle:"Buik",secondary:"Schuine buikspieren"},
+  {name:"Russian twist",muscle:"Buik",secondary:"Schuine buikspieren"},
+  {name:"Dead bug",muscle:"Buik",secondary:"Core"},
+  {name:"Ab wheel rollout",muscle:"Buik",secondary:"Core, schouders"},
+  {name:"Pallof press",muscle:"Buik",secondary:"Schuine buikspieren"},
+  {name:"Mountain climber",muscle:"Buik",secondary:"Schouders, benen"},
+
+  // FULL BODY / COMPOUND
+  {name:"Deadlift",muscle:"Full body",secondary:"Hamstrings, bilspieren, rug"},
+  {name:"Trap bar deadlift",muscle:"Full body",secondary:"Benen, bilspieren, rug"},
+  {name:"Kettlebell swing",muscle:"Full body",secondary:"Bilspieren, hamstrings, core"},
+  {name:"Clean",muscle:"Full body",secondary:"Benen, schouders, rug"},
+  {name:"Clean & press",muscle:"Full body",secondary:"Benen, schouders"},
+  {name:"Thruster",muscle:"Full body",secondary:"Benen, schouders"},
+  {name:"Farmer's walk",muscle:"Full body",secondary:"Grip, core, trapezius"},
+  {name:"Turkish get-up",muscle:"Full body",secondary:"Schouders, core, benen"},
+  {name:"Sled push",muscle:"Full body",secondary:"Benen, bilspieren"},
+  {name:"Sled pull",muscle:"Full body",secondary:"Benen, rug"},
+  {name:"Burpee",muscle:"Full body",secondary:"Borst, benen, core"}
+];
+
+let currentWorkoutExercises = [];
+let selectedMuscle = "Alles";
+const workoutToday = document.getElementById("workoutDate");
+if(workoutToday) workoutToday.value = todayString();
 
 function openWorkout(){
-  showPage("workout",document.querySelectorAll(".nav-button")[1]);
-  renderExercises();
+  showPage("workout", document.querySelectorAll(".nav-button")[1]);
+  renderWorkoutBuilder();
 }
 
-function renderExercises(){
-  const container=document.getElementById("exerciseList");
-  container.innerHTML="";
-  let totalSets=0;
+function renderMuscleFilters(){
+  const container = document.getElementById("muscleFilters");
+  if(!container) return;
 
-  exercises.forEach(ex=>{
-    totalSets+=ex.sets;
-    const el=document.createElement("div");
-    el.className="exercise";
-    let sets="";
-    for(let i=1;i<=ex.sets;i++){
-      sets+=`
-        <div class="set">
-          <span class="set-number">${i}</span>
-          <input type="number" value="${ex.weight}" class="weight">
-          <input type="number" value="${ex.reps}" class="reps">
-          <button onclick="completeSet(this)">✓</button>
-        </div>`;
-    }
-    el.innerHTML=`
-      <div class="exercise-top">
-        <div><h3>${ex.name}</h3><small>${ex.sets} × ${ex.reps}</small></div>
-      </div>${sets}`;
-    container.appendChild(el);
+  const muscles = ["Alles", ...new Set(exerciseDatabase.map(e => e.muscle))];
+
+  container.innerHTML = muscles.map(m => `
+    <button
+      class="exercise-filter ${selectedMuscle === m ? "active" : ""}"
+      onclick="selectMuscle('${m.replace(/'/g,"\\'")}')"
+    >
+      ${m}
+    </button>
+  `).join("");
+}
+
+function selectMuscle(muscle){
+  selectedMuscle = muscle;
+  renderMuscleFilters();
+  renderExercisePicker();
+}
+
+function renderExercisePicker(){
+  const container = document.getElementById("exercisePicker");
+  if(!container) return;
+
+  const search = (document.getElementById("exerciseSearch")?.value || "").toLowerCase().trim();
+
+  const results = exerciseDatabase.filter(ex => {
+    const muscleMatch = selectedMuscle === "Alles" || ex.muscle === selectedMuscle;
+    const searchMatch =
+      !search ||
+      ex.name.toLowerCase().includes(search) ||
+      ex.muscle.toLowerCase().includes(search) ||
+      ex.secondary.toLowerCase().includes(search);
+
+    return muscleMatch && searchMatch;
   });
-  document.getElementById("setCount").textContent=totalSets;
-  updateVolume();
+
+  if(!results.length){
+    container.innerHTML = `<div class="empty">Geen oefeningen gevonden.</div>`;
+    return;
+  }
+
+  container.innerHTML = results.map((ex, index) => `
+    <div class="exercise-option">
+      <div class="exercise-option-info">
+        <div class="exercise-option-name">${ex.name}</div>
+        <span class="exercise-option-muscle">${ex.muscle} · ${ex.secondary}</span>
+      </div>
+      <button class="add-exercise" onclick="addExercise(${exerciseDatabase.indexOf(ex)})">+ Toevoegen</button>
+    </div>
+  `).join("");
 }
 
-function completeSet(button){
-  button.classList.toggle("completed");
-  completedSets += button.classList.contains("completed")?1:-1;
-  if(button.classList.contains("completed"))startTimer(90);
-  updateVolume();
-}
+function addExercise(index){
+  const exercise = exerciseDatabase[index];
+  if(!exercise) return;
 
-function updateVolume(){
-  let volume=0;
-  document.querySelectorAll(".set").forEach(set=>{
-    const btn=set.querySelector("button");
-    if(btn.classList.contains("completed")){
-      volume+=Number(set.querySelector(".weight").value)*Number(set.querySelector(".reps").value);
-    }
+  currentWorkoutExercises.push({
+    id: Date.now() + Math.random(),
+    name: exercise.name,
+    muscle: exercise.muscle,
+    secondary: exercise.secondary,
+    sets: [
+      {weight: "", reps: ""}
+    ]
   });
-  document.getElementById("volume").textContent=volume.toLocaleString("nl-NL")+" kg";
+
+  renderWorkoutBuilder();
+
+  setTimeout(() => {
+    const cards = document.querySelectorAll(".builder-card");
+    const last = cards[cards.length - 1];
+    if(last) last.scrollIntoView({behavior:"smooth", block:"center"});
+  }, 50);
 }
 
-function finishWorkout(){
-  if(completedSets===0){alert("Vink eerst minimaal één set af 💪");return}
-  workoutCount++;
-  localStorage.setItem("workoutCount",workoutCount);
-  alert("Training afgerond! 🔥");
-  completedSets=0;
-  showPage("home",document.querySelectorAll(".nav-button")[0]);
-  updateHome();
+function removeExercise(id){
+  currentWorkoutExercises =
+    currentWorkoutExercises.filter(ex => ex.id !== id);
+
+  renderWorkoutBuilder();
+}
+
+function addSet(exerciseId){
+  const exercise = currentWorkoutExercises.find(ex => ex.id === exerciseId);
+  if(!exercise) return;
+
+  exercise.sets.push({weight:"", reps:""});
+  renderWorkoutBuilder();
+}
+
+function removeSet(exerciseId, setIndex){
+  const exercise = currentWorkoutExercises.find(ex => ex.id === exerciseId);
+  if(!exercise) return;
+
+  if(exercise.sets.length <= 1){
+    exercise.sets[0] = {weight:"", reps:""};
+  } else {
+    exercise.sets.splice(setIndex, 1);
+  }
+
+  renderWorkoutBuilder();
+}
+
+function updateSet(exerciseId, setIndex, field, value){
+  const exercise = currentWorkoutExercises.find(ex => ex.id === exerciseId);
+  if(!exercise) return;
+
+  exercise.sets[setIndex][field] = value;
+  updateWorkoutTotalsOnly();
+}
+
+function exerciseVolume(exercise){
+  return exercise.sets.reduce((total, set) => {
+    const weight = Number(set.weight) || 0;
+    const reps = Number(set.reps) || 0;
+    return total + weight * reps;
+  }, 0);
+}
+
+function updateWorkoutTotalsOnly(){
+  const setCount = currentWorkoutExercises.reduce(
+    (sum, ex) => sum + ex.sets.length, 0
+  );
+
+  const volume = currentWorkoutExercises.reduce(
+    (sum, ex) => sum + exerciseVolume(ex), 0
+  );
+
+  document.getElementById("workoutExerciseCount").textContent =
+    currentWorkoutExercises.length;
+
+  document.getElementById("workoutSetCount").textContent =
+    setCount;
+
+  document.getElementById("workoutVolume").textContent =
+    volume.toLocaleString("nl-NL") + " kg";
+
+  const finishButton = document.getElementById("finishWorkoutButton");
+  if(finishButton){
+    finishButton.style.display =
+      currentWorkoutExercises.length ? "block" : "none";
+  }
+}
+
+function getExerciseHistory(exerciseName, currentDate){
+  return savedWorkouts
+    .filter(workout => {
+      if(workout.date && currentDate && workout.date >= currentDate) return false;
+      return workout.exercises?.some(ex => ex.name === exerciseName);
+    })
+    .sort((a,b) => {
+      const dateA = a.date || "";
+      const dateB = b.date || "";
+      if(dateA !== dateB) return dateB.localeCompare(dateA);
+      return Number(b.id) - Number(a.id);
+    });
+}
+
+function renderExerciseHistory(exerciseName){
+  const currentDate = document.getElementById("workoutDate")?.value || todayString();
+  const history = getExerciseHistory(exerciseName, currentDate);
+
+  if(!history.length){
+    return `
+      <div class="exercise-history">
+        <div class="exercise-history-title">Persoonlijke historie</div>
+        <div class="exercise-history-empty">Nog geen eerdere training met deze oefening.</div>
+      </div>`;
+  }
+
+  const previous = history[0];
+  const previousExercise = previous.exercises.find(ex => ex.name === exerciseName);
+  const sets = (previousExercise?.sets || []).filter(set => set.weight !== "" || set.reps !== "");
+
+  return `
+    <div class="exercise-history">
+      <div class="exercise-history-title">Vorige training</div>
+      <div class="exercise-history-main">
+        <span class="exercise-history-date">${formatDate(previous.date)}</span>
+        <span class="exercise-history-sets">${sets.length} sets</span>
+      </div>
+      <div>
+        ${sets.length ? sets.map((set,i) => `
+          <span class="exercise-history-set">Set ${i+1}: ${set.weight || "–"} kg × ${set.reps || "–"}</span>
+        `).join("") : `<span class="exercise-history-empty">Geen ingevulde gewichten/herhalingen.</span>`}
+      </div>
+    </div>`;
+}
+
+function renderWorkoutBuilder(){
+  renderMuscleFilters();
+  renderExercisePicker();
+
+  const container = document.getElementById("builderExercises");
+  const empty = document.getElementById("emptyWorkout");
+
+  if(!container) return;
+
+  container.innerHTML = "";
+
+  if(!currentWorkoutExercises.length){
+    empty.style.display = "block";
+    updateWorkoutTotalsOnly();
+    renderSavedWorkouts();
+    return;
+  }
+
+  empty.style.display = "none";
+
+  currentWorkoutExercises.forEach(exercise => {
+    const card = document.createElement("div");
+    card.className = "builder-card";
+
+    const rows = exercise.sets.map((set, index) => `
+      <tr>
+        <td class="set-number">${index + 1}</td>
+        <td>
+          <input
+            type="number"
+            min="0"
+            step="0.5"
+            placeholder="kg"
+            value="${set.weight}"
+            oninput="updateSet(${exercise.id},${index},'weight',this.value)"
+          >
+        </td>
+        <td>
+          <input
+            type="number"
+            min="0"
+            step="1"
+            placeholder="reps"
+            value="${set.reps}"
+            oninput="updateSet(${exercise.id},${index},'reps',this.value)"
+          >
+        </td>
+        <td>
+          <button
+            class="remove-set"
+            onclick="removeSet(${exercise.id},${index})"
+            title="Set verwijderen"
+          >×</button>
+        </td>
+      </tr>
+    `).join("");
+
+    card.innerHTML = `
+      <div class="builder-top">
+        <div class="builder-title">
+          <h3>${exercise.name}</h3>
+          <small>${exercise.muscle} · ${exercise.secondary}</small>
+        </div>
+        <button
+          class="remove-exercise"
+          onclick="removeExercise(${exercise.id})"
+        >
+          Verwijder
+        </button>
+      </div>
+
+      <table class="builder-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Gewicht</th>
+            <th>Herhalingen</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+
+      ${renderExerciseHistory(exercise.name)}
+
+      <button
+        class="add-set"
+        onclick="addSet(${exercise.id})"
+      >
+        + Set toevoegen
+      </button>
+
+      <div class="exercise-volume">
+        Volume oefening:
+        <strong>${exerciseVolume(exercise).toLocaleString("nl-NL")} kg</strong>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  updateWorkoutTotalsOnly();
+  renderSavedWorkouts();
+}
+
+function saveCurrentWorkout(){
+  if(!currentWorkoutExercises.length){
+    alert("Voeg eerst minimaal één oefening toe.");
+    return;
+  }
+
+  const name =
+    document.getElementById("workoutName").value.trim() ||
+    "Krachttraining";
+
+  const date =
+    document.getElementById("workoutDate").value ||
+    todayString();
+
+  const workout = {
+    id: Date.now(),
+    name,
+    date,
+    exercises: JSON.parse(JSON.stringify(currentWorkoutExercises)),
+    volume: currentWorkoutExercises.reduce(
+      (sum, ex) => sum + exerciseVolume(ex), 0
+    )
+  };
+
+  savedWorkouts.unshift(workout);
+  localStorage.setItem(
+    "savedWorkouts",
+    JSON.stringify(savedWorkouts)
+  );
+
+  alert("Training opgeslagen ✓");
+
+  currentWorkoutExercises = [];
+  document.getElementById("workoutName").value = "";
+
+  renderWorkoutBuilder();
+}
+
+function finishBuilderWorkout(){
+  saveCurrentWorkout();
+}
+
+function deleteSavedWorkout(id){
+  if(!confirm("Deze opgeslagen training verwijderen?")) return;
+
+  savedWorkouts =
+    savedWorkouts.filter(w => w.id !== id);
+
+  localStorage.setItem(
+    "savedWorkouts",
+    JSON.stringify(savedWorkouts)
+  );
+
+  renderSavedWorkouts();
+}
+
+function renderSavedWorkouts(){
+  const container = document.getElementById("savedWorkouts");
+  if(!container) return;
+
+  if(!savedWorkouts.length){
+    container.innerHTML =
+      `<div class="card"><p class="empty">Nog geen trainingen opgeslagen.</p></div>`;
+    return;
+  }
+
+  container.innerHTML = savedWorkouts.slice(0, 20).map(workout => {
+    const sets = workout.exercises.reduce(
+      (sum, ex) => sum + ex.sets.length, 0
+    );
+
+    return `
+      <div class="saved-workout">
+        <div class="saved-workout-top">
+          <div>
+            <h3>${workout.name}</h3>
+            <small>${formatDate(workout.date)} · ${workout.exercises.length} oefeningen</small>
+          </div>
+          <button
+            class="delete-workout"
+            onclick="deleteSavedWorkout(${workout.id})"
+          >
+            Verwijder
+          </button>
+        </div>
+
+        <div class="saved-workout-stats">
+          <div>
+            <span>Sets</span><br>
+            <strong>${sets}</strong>
+          </div>
+          <div>
+            <span>Volume</span><br>
+            <strong>${Number(workout.volume).toLocaleString("nl-NL")} kg</strong>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
 }
 
 function startTimer(seconds){
@@ -761,130 +1450,6 @@ function renderNutritionChart(){
   });
 }
 
-function saveRun(){
-  const date=document.getElementById("runDate").value;
-  const type=document.getElementById("runType").value;
-  const distance=Number(document.getElementById("runDistance").value);
-  const duration=document.getElementById("runDuration").value.trim();
-  const hr=Number(document.getElementById("runHr").value)||0;
-  const calories=Number(document.getElementById("runCalories").value)||0;
-  const elevation=Number(document.getElementById("runElevation").value)||0;
-  const note=document.getElementById("runNote").value.trim();
-
-  if(!date||distance<=0||!duration){alert("Vul minimaal datum, afstand en totale tijd in.");return}
-
-  const seconds=parseDuration(duration);
-  if(!seconds){alert("Gebruik bijvoorbeeld 00:50:00 of 50:00 voor je totale tijd.");return}
-
-  const entry={id:Date.now(),date,type,distance,duration,seconds,pace:seconds/distance,hr,calories,elevation,note};
-  runData.push(entry);
-  runData.sort((a,b)=>new Date(a.date)-new Date(b.date));
-  localStorage.setItem("runData",JSON.stringify(runData));
-
-  ["runDistance","runDuration","runHr","runCalories","runElevation","runNote"].forEach(id=>document.getElementById(id).value="");
-  renderRunningPage();updateHome();
-  alert("Hardlooptraining opgeslagen 🏃");
-}
-
-function parseDuration(value){
-  const parts=value.split(":").map(Number);
-  if(parts.some(isNaN))return 0;
-  if(parts.length===3)return parts[0]*3600+parts[1]*60+parts[2];
-  if(parts.length===2)return parts[0]*60+parts[1];
-  return 0;
-}
-
-function formatDuration(seconds){
-  seconds=Math.round(seconds);
-  const h=Math.floor(seconds/3600);
-  const m=Math.floor(seconds%3600/60);
-  const s=seconds%60;
-  return h?`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`:`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
-}
-
-function formatPace(secondsPerKm){
-  if(!secondsPerKm||!isFinite(secondsPerKm))return "--";
-  const sec=Math.round(secondsPerKm);
-  return `${Math.floor(sec/60)}:${String(sec%60).padStart(2,"0")}/km`;
-}
-
-function renderRunningPage(){
-  const last7=getLast7Days().map(d=>runData.filter(x=>x.date===d)).flat();
-  const km=last7.reduce((s,x)=>s+x.distance,0);
-  const time=last7.reduce((s,x)=>s+x.seconds,0);
-  document.getElementById("weeklyRunDistance").textContent=km.toFixed(1)+" km";
-  document.getElementById("weeklyRunCount").textContent=last7.length;
-  document.getElementById("weeklyRunPace").textContent=km?formatPace(time/km):"--";
-  renderRunChart();renderRunTable();
-}
-
-function renderRunChart(){
-  const chart=document.getElementById("runChart");chart.innerHTML="";
-  const days=getLast7Days();
-  const vals=days.map(d=>runData.filter(x=>x.date===d).reduce((s,x)=>s+x.distance,0));
-  const max=Math.max(...vals,1);
-  vals.forEach((v,i)=>{
-    const bar=document.createElement("div");bar.className="bar";bar.style.height=(v?Math.max(3,v/max*100):2)+"%";
-    bar.innerHTML=(v?`<span class="bar-value">${v.toFixed(1)}</span>`:"")+`<span class="bar-label">${formatShortDay(days[i])}</span>`;
-    chart.appendChild(bar);
-  });
-}
-
-function renderRunTable(){
-  const table=document.getElementById("runTable");table.innerHTML="";
-  [...runData].sort((a,b)=>new Date(b.date)-new Date(a.date)).forEach(e=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td>${formatDate(e.date)}</td><td>${e.type}</td><td>${e.distance.toFixed(2)}</td><td>${formatPace(e.pace)}</td><td>${e.hr?e.hr+" bpm":"--"}</td><td><button class="delete-btn" onclick="deleteRun(${e.id})">Verwijder</button></td>`;
-    table.appendChild(tr);
-  });
-  if(!runData.length)table.innerHTML='<tr><td colspan="6" class="empty">Nog geen hardlooptrainingen.</td></tr>';
-}
-
-function deleteRun(id){
-  runData=runData.filter(x=>x.id!==id);
-  localStorage.setItem("runData",JSON.stringify(runData));
-  renderRunningPage();updateHome();renderProgressPage();
-}
-
-function updateHome(){
-  const latest=[...weightData].sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-  document.getElementById("homeWeight").textContent=latest?latest.weight.toFixed(1)+" kg":"-- kg";
-
-  const todayNutrition=nutritionData.find(x=>x.date===todayString());
-  document.getElementById("homeCalories").textContent=todayNutrition?todayNutrition.calories.toLocaleString("nl-NL"):"--";
-
-  const weekRuns=getLast7Days().map(d=>runData.filter(x=>x.date===d)).flat();
-  document.getElementById("homeRunKm").textContent=weekRuns.reduce((s,x)=>s+x.distance,0).toFixed(1)+" km";
-
-  const lastRun=[...runData].sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-  document.getElementById("homeLastRun").textContent=lastRun?lastRun.distance.toFixed(1):"0";
-  document.getElementById("homeLastRunInfo").textContent=lastRun?`${lastRun.type} · ${formatDate(lastRun.date)}`:"Nog geen hardlooptraining gelogd.";
-  document.getElementById("homeRunPace").textContent=lastRun?formatPace(lastRun.pace):"--";
-  document.getElementById("homeRunTime").textContent=lastRun?formatDuration(lastRun.seconds):"--";
-  document.getElementById("homeRunHr").textContent=lastRun&&lastRun.hr?lastRun.hr+" bpm":"--";
-  document.getElementById("homeRunCount").textContent=runData.length;
-}
-
-function renderProgressPage(){
-  const latest=[...weightData].sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-  document.getElementById("progressWeight").textContent=latest?latest.weight.toFixed(1)+" kg":"-- kg";
-  const weekRuns=getLast7Days().map(d=>runData.filter(x=>x.date===d)).flat();
-  document.getElementById("progressKm").textContent=weekRuns.reduce((s,x)=>s+x.distance,0).toFixed(1)+" km";
-  document.getElementById("progressRuns").textContent=weekRuns.length;
-  renderProgressRunChart();
-}
-
-function renderProgressRunChart(){
-  const chart=document.getElementById("progressRunChart");chart.innerHTML="";
-  const days=getLast7Days();
-  const vals=days.map(d=>runData.filter(x=>x.date===d).reduce((s,x)=>s+x.distance,0));
-  const max=Math.max(...vals,1);
-  vals.forEach((v,i)=>{
-    const bar=document.createElement("div");bar.className="bar";bar.style.height=(v?Math.max(3,v/max*100):2)+"%";
-    bar.innerHTML=(v?`<span class="bar-value">${v.toFixed(1)}</span>`:"")+`<span class="bar-label">${formatShortDay(days[i])}</span>`;
-    chart.appendChild(bar);
-  });
-}
 
 function getLast7Days(){
   const days=[],today=new Date();
@@ -903,11 +1468,9 @@ function formatShortDay(s){
   return new Date(s+"T12:00:00").toLocaleDateString("nl-NL",{weekday:"short"}).replace(".","");
 }
 
-renderExercises();
 renderWeightPage();
 renderNutritionPage();
-renderRunningPage();
-renderProgressPage();
+renderWorkoutBuilder();
 updateHome();
 </script>
 </body>
