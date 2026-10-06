@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FitTrack</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0b0d10;
+    --card: #15181d;
+    --card2: #1d2128;
+    --border: #292e36;
+    --text: #ffffff;
+    --muted: #8d949e;
+    --accent: #b8ff3d;
+    --danger: #ff5c5c;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 90px;
+}
+
+/* HEADER */
+
+header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* MAIN */
+
+main {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* HERO */
+
+.hero {
+    margin: 15px 0 30px;
+}
+
+.hero p {
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.hero span {
+    color: var(--muted);
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.stat small {
+    color: var(--muted);
+    display: block;
+}
+
+.stat strong {
+    font-size: 23px;
+    display: block;
+    margin: 8px 0;
+}
+
+/* SECTION */
+
+.section-title {
+    margin: 32px 0 13px;
+}
+
+.section-title h2 {
+    font-size: 20px;
+}
+
+/* WORKOUT CARD */
+
+.workout-card {
+    background: var(--accent);
+    color: #000;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.workout-card:hover {
+    transform: translateY(-2px);
+}
+
+.workout-icon {
+    font-size: 38px;
+    margin-right: 15px;
+}
+
+.workout-info {
+    flex: 1;
+}
+
+.workout-info small {
+    font-weight: bold;
+    opacity: .6;
+}
+
+.workout-info h3 {
+    font-size: 23px;
+    margin: 4px 0;
+}
+
+.workout-info p {
+    opacity: .65;
+}
+
+.arrow {
+    width: 43px;
+    height: 43px;
+    border: none;
+    border-radius: 50%;
+    background: #000;
+    color: white;
+    font-size: 20px;
+}
+
+/* WEEK */
+
+.week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.day {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    padding: 11px 4px;
+}
+
+.day span {
+    color: var(--muted);
+    display: block;
+    font-size: 10px;
+    margin-bottom: 8px;
+}
+
+.day b {
+    font-size: 14px;
+}
+
+.day.done b {
+    color: var(--accent);
+}
+
+.day.today {
+    border-color: var(--accent);
+}
+
+/* PAGE HEADER */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.page-header small {
+    color: var(--muted);
+}
+
+.page-header h1 {
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+.back {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: white;
+    font-size: 20px;
+}
+
+/* WORKOUT SUMMARY */
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.summary-box {
+    background: var(--card);
+    border-radius: 13px;
+    padding: 13px;
+}
+
+.summary-box small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.summary-box strong {
+    display: block;
+    margin-top: 7px;
+}
+
+/* EXERCISE */
+
+.exercise {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 17px;
+    margin-bottom: 12px;
+}
+
+.exercise-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.exercise-top h3 {
+    font-size: 17px;
+}
+
+.exercise-top small {
+    color: var(--muted);
+}
+
+.set {
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr 45px;
+    gap: 7px;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.set-number {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.set input {
+    width: 100%;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    color: white;
+    padding: 10px;
+    border-radius: 9px;
+}
+
+.set button {
+    height: 39px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.set button.completed {
+    background: var(--accent);
+    color: #000;
+}
+
+.finish {
+    width: 100%;
+    padding: 17px;
+    border: none;
+    border-radius: 14px;
+    background: var(--accent);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* PROGRESS */
+
+.progress-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.progress-card > small {
+    color: var(--muted);
+}
+
+.big-number {
+    font-size: 44px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.big-number span {
+    font-size: 17px;
+    color: var(--muted);
+}
+
+.progress-card p {
+    color: var(--muted);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--card2);
+    border-radius: 10px;
+    margin-top: 18px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 65%;
+    background: var(--accent);
+}
+
+.chart {
+    height: 180px;
+    display: flex;
+    align-items: end;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.bar {
+    flex: 1;
+    background: var(--accent);
+    border-radius: 5px 5px 0 0;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 7px;
+}
+
+/* TIMER */
+
+.timer {
+    position: fixed;
+    right: 18px;
+    bottom: 90px;
+    background: var(--accent);
+    color: #000;
+    padding: 11px 13px;
+    border-radius: 14px;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+}
+
+.timer strong {
+    font-size: 18px;
+}
+
+.timer button {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+}
+
+/* NAVIGATION */
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 75px;
+    background: rgba(18,21,25,.97);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    z-index: 99;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.nav-button span {
+    font-size: 20px;
+}
+
+.nav-button small {
+    font-size: 10px;
+}
+
+.nav-button.active {
+    color: var(--accent);
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    main {
+        padding: 20px 14px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .stat {
+        padding: 12px;
+    }
+
+    .stat strong {
+        font-size: 18px;
+    }
+
+    .bottom-nav {
+        gap: 45px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        FIT<span>TRACK</span>
+    </div>
+
+    <div class="profile">
+        JP
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <p>Welkom terug 👋</p>
+
+        <h1>Jermain</h1>
+
+        <span>
+            Klaar om vandaag sterker te worden?
+        </span>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <small>Gewicht</small>
+
+            <strong>78.3 kg</strong>
+
+            <small>Doel: 75 kg</small>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>Trainingen</small>
+
+            <strong id="trainingCount">0</strong>
+
+            <small>Deze week</small>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>Streak</small>
+
+            <strong>6 🔥</strong>
+
+            <small>dagen</small>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <h2>Vandaag</h2>
+
+    </div>
+
+
+    <div
+        class="workout-card"
+        onclick="openWorkout()"
+    >
+
+        <div class="workout-icon">
+            🏋️
+        </div>
+
+        <div class="workout-info">
+
+            <small>TRAINING 01</small>
+
+            <h3>Upper Body</h3>
+
+            <p>
+                6 oefeningen · ±55 min
+            </p>
+
+        </div>
+
+        <button class="arrow">
+            →
+        </button>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <h2>Deze week</h2>
+
+    </div>
+
+
+    <div class="week">
+
+        <div class="day done">
+            <span>MA</span>
+            <b>✓</b>
+        </div>
+
+        <div class="day done">
+            <span>DI</span>
+            <b>✓</b>
+        </div>
+
+        <div class="day today">
+            <span>WO</span>
+            <b>●</b>
+        </div>
+
+        <div class="day">
+            <span>DO</span>
+            <b>–</b>
+        </div>
+
+        <div class="day">
+            <span>VR</span>
+            <b>–</b>
+        </div>
+
+        <div class="day">
+            <span>ZA</span>
+            <b>–</b>
+        </div>
+
+        <div class="day">
+            <span>ZO</span>
+            <b>–</b>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WORKOUT ================= -->
+
+<section id="workout" class="page">
+
+    <div class="page-header">
+
+        <button
+            class="back"
+            onclick="showPage('home')"
+        >
+            ←
+        </button>
+
+        <div>
+
+            <small>TRAINING 01</small>
+
+            <h1>Upper Body</h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="summary">
+
+        <div class="summary-box">
+
+            <small>Oefeningen</small>
+
+            <strong>6</strong>
+
+        </div>
+
+        <div class="summary-box">
+
+            <small>Tijd</small>
+
+            <strong>55 min</strong>
+
+        </div>
+
+        <div class="summary-box">
+
+            <small>Volume</small>
+
+            <strong id="volume">0 kg</strong>
+
+        </div>
+
+    </div>
+
+
+    <div id="exerciseList"></div>
+
+
+    <button
+        class="finish"
+        onclick="finishWorkout()"
+    >
+        Training afronden ✓
+    </button>
+
+</section>
+
+
+<!-- ================= PROGRESS ================= -->
+
+<section id="progress" class="page">
+
+    <div class="page-header">
+
+        <div>
+
+            <small>JOUW DATA</small>
+
+            <h1>Progressie</h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="progress-card">
+
+        <small>LICHAAMSGEWICHT</small>
+
+        <div class="big-number">
+            78.3
+            <span>kg</span>
+        </div>
+
+        <p>
+            Doelgewicht: 75 kg
+        </p>
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="progress-card">
+
+        <small>BENCH PRESS</small>
+
+        <div class="big-number">
+            85
+            <span>kg PR</span>
+        </div>
+
+
+        <div class="chart">
+
+            <div class="bar" style="height:40%"></div>
+
+            <div class="bar" style="height:52%"></div>
+
+            <div class="bar" style="height:58%"></div>
+
+            <div class="bar" style="height:68%"></div>
+
+            <div class="bar" style="height:75%"></div>
+
+            <div class="bar" style="height:88%"></div>
+
+            <div class="bar" style="height:100%"></div>
+
+        </div>
+
+
+        <div class="chart-labels">
+
+            <span>W1</span>
+            <span>W2</span>
+            <span>W3</span>
+            <span>W4</span>
+            <span>W5</span>
+            <span>W6</span>
+            <span>Nu</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= TIMER ================= -->
+
+<div id="timer" class="timer">
+
+    <strong id="timerValue">
+        01:30
+    </strong>
+
+    <button onclick="stopTimer()">
+        ×
+    </button>
+
+</div>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="bottom-nav">
+
+    <button
+        class="nav-button active"
+        onclick="showPage('home')"
+    >
+
+        <span>⌂</span>
+
+        <small>Home</small>
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        onclick="openWorkout()"
+    >
+
+        <span>🏋️</span>
+
+        <small>Workout</small>
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        onclick="showPage('progress')"
+    >
+
+        <span>📈</span>
+
+        <small>Progressie</small>
+
+    </button>
+
+</nav>
+
+
+<script>
+
+/* ==========================================
+   FITTRACK JAVASCRIPT
+========================================== */
+
+
+const exercises = [
+
+    {
+        name: "Bench Press",
+        sets: 4,
+        reps: 8,
+        weight: 70
+    },
+
+    {
+        name: "Lat Pulldown",
+        sets: 4,
+        reps: 10,
+        weight: 60
+    },
+
+    {
+        name: "Shoulder Press",
+        sets: 3,
+        reps: 10,
+        weight: 24
+    },
+
+    {
+        name: "Cable Row",
+        sets: 3,
+        reps: 10,
+        weight: 55
+    },
+
+    {
+        name: "Bicep Curl",
+        sets: 3,
+        reps: 12,
+        weight: 14
+    },
+
+    {
+        name: "Tricep Pushdown",
+        sets: 3,
+        reps: 12,
+        weight: 25
+    }
+
+];
+
+
+let completedSets = 0;
+
+let workoutCount =
+    Number(
+        localStorage.getItem("workoutCount")
+    ) || 0;
+
+
+document.getElementById(
+    "trainingCount"
+).textContent = workoutCount;
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+
+function showPage(page) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(function(section) {
+
+            section.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(page)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(function(button) {
+
+            button.classList.remove("active");
+
+        });
+
+}
+
+
+function openWorkout() {
+
+    showPage("workout");
+
+    renderExercises();
+
+}
+
+
+/* ==========================================
+   RENDER EXERCISES
+========================================== */
+
+
+function renderExercises() {
+
+    const container =
+        document.getElementById(
+            "exerciseList"
+        );
+
+
+    container.innerHTML = "";
+
+
+    exercises.forEach(
+        function(exercise, exerciseIndex) {
+
+            const exerciseElement =
+                document.createElement("div");
+
+
+            exerciseElement.className =
+                "exercise";
+
+
+            let setsHTML = "";
+
+
+            for (
+                let set = 1;
+                set <= exercise.sets;
+                set++
+            ) {
+
+                setsHTML += `
+
+                    <div class="set">
+
+                        <span class="set-number">
+                            ${set}
+                        </span>
+
+                        <input
+                            type="number"
+                            value="${exercise.weight}"
+                            class="weight"
+                        >
+
+                        <input
+                            type="number"
+                            value="${exercise.reps}"
+                            class="reps"
+                        >
+
+                        <button
+                            onclick="completeSet(this)"
+                        >
+                            ✓
+                        </button>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            exerciseElement.innerHTML = `
+
+                <div class="exercise-top">
+
+                    <div>
+
+                        <h3>
+                            ${exercise.name}
+                        </h3>
+
+                        <small>
+                            ${exercise.sets} × ${exercise.reps}
+                        </small>
+
+                    </div>
+
+                </div>
+
+                ${setsHTML}
+
+            `;
+
+
+            container.appendChild(
+                exerciseElement
+            );
+
+        }
+    );
+
+
+    updateVolume();
+
+}
+
+
+/* ==========================================
+   COMPLETE SET
+========================================== */
+
+
+function completeSet(button) {
+
+    button.classList.toggle(
+        "completed"
+    );
+
+
+    if (
+        button.classList.contains(
+            "completed"
+        )
+    ) {
+
+        completedSets++;
+
+        startTimer(90);
+
+    } else {
+
+        completedSets--;
+
+    }
+
+
+    updateVolume();
+
+}
+
+
+/* ==========================================
+   CALCULATE VOLUME
+========================================== */
+
+
+function updateVolume() {
+
+    let volume = 0;
+
+
+    document
+        .querySelectorAll(".set")
+        .forEach(function(set) {
+
+            const button =
+                set.querySelector("button");
+
+
+            if (
+                button.classList.contains(
+                    "completed"
+                )
+            ) {
+
+                const weight =
+                    Number(
+                        set.querySelector(
+                            ".weight"
+                        ).value
+                    );
+
+
+                const reps =
+                    Number(
+                        set.querySelector(
+                            ".reps"
+                        ).value
+                    );
+
+
+                volume +=
+                    weight * reps;
+
+            }
+
+        });
+
+
+    document.getElementById(
+        "volume"
+    ).textContent =
+        volume.toLocaleString("nl-NL")
+        + " kg";
+
+}
+
+
+/* ==========================================
+   FINISH WORKOUT
+========================================== */
+
+
+function finishWorkout() {
+
+    if (completedSets === 0) {
+
+        alert(
+            "Vink eerst minimaal één set af 💪"
+        );
+
+        return;
+
+    }
+
+
+    workoutCount++;
+
+
+    localStorage.setItem(
+        "workoutCount",
+        workoutCount
+    );
+
+
+    document.getElementById(
+        "trainingCount"
+    ).textContent =
+        workoutCount;
+
+
+    alert(
+        "Training afgerond! 🔥 Lekker bezig."
+    );
+
+
+    completedSets = 0;
+
+
+    showPage("home");
+
+}
+
+
+/* ==========================================
+   REST TIMER
+========================================== */
+
+
+let timerInterval;
+
+
+function startTimer(seconds) {
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    const timer =
+        document.getElementById(
+            "timer"
+        );
+
+
+    const timerValue =
+        document.getElementById(
+            "timerValue"
+        );
+
+
+    timer.style.display =
+        "flex";
+
+
+    let remaining = seconds;
+
+
+    updateTimer(
+        remaining
+    );
+
+
+    timerInterval =
+        setInterval(
+            function() {
+
+                remaining--;
+
+                updateTimer(
+                    remaining
+                );
+
+
+                if (
+                    remaining <= 0
+                ) {
+
+                    clearInterval(
+                        timerInterval
+                    );
+
+
+                    timerValue.textContent =
+                        "GO! 💪";
+
+                }
+
+            },
+            1000
+        );
+
+}
+
+
+function updateTimer(seconds) {
+
+    const minutes =
+        Math.floor(
+            seconds / 60
+        )
+        .toString()
+        .padStart(2, "0");
+
+
+    const secs =
+        (seconds % 60)
+        .toString()
+        .padStart(2, "0");
+
+
+    document.getElementById(
+        "timerValue"
+    ).textContent =
+        minutes + ":" + secs;
+
+}
+
+
+function stopTimer() {
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    document.getElementById(
+        "timer"
+    ).style.display =
+        "none";
+
+}
+
+
+/* ==========================================
+   START APP
+========================================== */
+
+renderExercises();
+
+</script>
+
+</body>
+</html>
