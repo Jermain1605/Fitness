@@ -451,6 +451,42 @@ body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f
 .dashboard-grid .dashboard-wide{grid-column:auto !important;}
 @media(max-width:900px){.dashboard-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}}
 @media(max-width:600px){.dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}}
+
+/* Header tab dropdown */
+.header-menu-wrap{position:relative;display:inline-flex}
+.header-menu-button{cursor:pointer}
+.header-tab-menu{
+  position:absolute;top:48px;right:0;width:190px;padding:7px;
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  box-shadow:0 14px 35px rgba(15,23,42,.16);display:none;z-index:1200;
+}
+.header-tab-menu.open{display:block}
+.header-tab-menu button{
+  width:100%;border:0;background:transparent;color:var(--text);
+  text-align:left;padding:10px 11px;border-radius:9px;font-size:13px;
+  font-weight:750;cursor:pointer;
+}
+.header-tab-menu button:hover{background:var(--blue-soft);color:var(--blue-dark)}
+@media(max-width:640px){.header-tab-menu{right:-4px;width:180px}}
+
+
+/* Mobile: bottom navigation must stay fixed to the viewport */
+@media (max-width: 700px){
+  .bottom-nav{
+    position:fixed !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    top:auto !important;
+    width:100% !important;
+    z-index:9999 !important;
+    transform:none !important;
+  }
+  body{
+    padding-bottom:88px !important;
+  }
+}
+
 </style>
 </head>
 <body><div class="trust-process-side">TRUST THE PROCESS</div>
@@ -459,6 +495,17 @@ body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f
 <div class="header-actions">
 <div class="profile" id="headerProfile">JP</div>
 <button aria-label="Home" class="settings-button home-header-button" onclick="showPage('home')">⌂</button>
+<div class="header-menu-wrap">
+<button type="button" aria-label="Tabbladen openen" aria-expanded="false" class="settings-button header-menu-button" onclick="toggleHeaderTabMenu(event)">☰</button>
+<div class="header-tab-menu" id="headerTabMenu">
+<button type="button" onclick="goHeaderTab('home')">⌂ Home</button>
+<button type="button" onclick="goHeaderTab('workout')">🏋️ Workout</button>
+<button type="button" onclick="goHeaderTab('weight')">⚖️ Gewicht</button>
+<button type="button" onclick="goHeaderTab('nutrition')">🔥 Voeding</button>
+<button type="button" onclick="goHeaderTab('progress')">📈 Progressie</button>
+<button type="button" onclick="goHeaderTab('challenges')">🎯 Challenges</button>
+</div>
+</div>
 <button aria-label="Instellingen" class="settings-button" onclick="openSettings()">⚙️</button>
 </div>
 </header>
@@ -816,17 +863,50 @@ function challengeStatus(key){const h=getChallengeHistory();const a=Array.isArra
 function renderDailyChallenges(){const el=document.getElementById("dailyChallenges");if(!el)return;const a=challengeState(),d=challengeDone();let h='<div class="challenge-table-grid"><div class="challenge-table-group"><div class="challenge-group-label"><span>VASTE CHALLENGES</span><b>5</b></div>';for(let i=0;i<5;i++){h+=challengeSlotHtml(i,a[i],d[i],false)}h+='</div><div class="challenge-table-group bonus-group"><div class="challenge-group-label"><span>BONUS CHALLENGES</span><b>2</b></div>';for(let i=5;i<7;i++){h+=challengeSlotHtml(i,a[i],d[i],true)}h+='</div></div>';el.innerHTML=h;const p=document.getElementById("challengeProgress");if(p)p.textContent=`${fixedDoneCount()}/5 · bonus ${bonusDoneCount()}/2`;updateDashboardChallenges()}
 function challengeSlotHtml(i,text,done,bonus){return `<div class="challenge-slot ${bonus?"bonus-slot":""} ${done?"completed":""}"><div class="challenge-slot-top"><span>Challenge ${bonus?i-4:i+1}</span><span>${bonus?"BONUS":"VAST"}</span></div><div class="challenge-slot-main"><input class="challenge-input" id="challenge-${i}" maxlength="80" placeholder="Vul je challenge in..." value="${esc(text)}" onchange="saveChallengeText(${i},this.value)"><button type="button" class="challenge-check ${done?"done":""}" onclick="toggleDailyChallenge(${i})" aria-label="Challenge ${i+1} afvinken">${done?"✓":""}</button></div></div>`}
 function saveChallengeText(i,value){const a=challengeState();a[i]=(value||"").trim();saveChallengeState(a);renderChallengeExamples("easyChallengeExamples",CHALLENGE_EXAMPLES.easy);renderChallengeExamples("hardChallengeExamples",CHALLENGE_EXAMPLES.hard);updateDashboardChallenges()}
-function toggleDailyChallenge(i){const a=challengeState();if(!a[i]){alert("Vul eerst een challenge in.");return}const d=challengeDone();d[i]=!d[i];saveChallengeDone(d);syncTodayChallengeHistory();renderDailyChallenges();renderChallengesCalendar();updateHome()}
+function toggleDailyChallenge(i){const a=challengeState();if(!a[i]){alert("Vul eerst een challenge in.");return}const d=challengeDone();d[i]=!d[i];saveChallengeDone(d);syncTodayChallengeHistory();renderDailyChallenges();renderChallengesCalendar();
+  focusCurrentChallengeMonth();updateHome()}
 function openChallengeInfo(){const o=document.getElementById("challengeInfoOverlay");if(!o)return;renderChallengeExamples("easyChallengeExamples",CHALLENGE_EXAMPLES.easy);renderChallengeExamples("hardChallengeExamples",CHALLENGE_EXAMPLES.hard);o.style.display="flex"}
 function closeChallengeInfo(e){if(e&&e.target!==e.currentTarget)return;const o=document.getElementById("challengeInfoOverlay");if(o)o.style.display="none"}
 function renderChallengeExamples(id,list){const el=document.getElementById(id);if(!el)return;const current=challengeState();el.innerHTML=list.map(x=>{const added=current.includes(x);return `<div class="challenge-example"><div class="challenge-example-text">${esc(x)}</div><button type="button" class="challenge-add-btn" ${added?"disabled":""} data-challenge="${esc(x)}" onclick="addChallengeIdea(this.dataset.challenge)">${added?"Toegevoegd":"Toevoegen"}</button></div>`}).join("")}
 function addChallengeIdea(text){const a=challengeState();const i=a.findIndex(x=>!x);if(i===-1){alert("Alle 7 challenge-vakken zijn gevuld.");return}a[i]=text;saveChallengeState(a);renderDailyChallenges();renderChallengeExamples("easyChallengeExamples",CHALLENGE_EXAMPLES.easy);renderChallengeExamples("hardChallengeExamples",CHALLENGE_EXAMPLES.hard);updateHome()}
 let challengeCalendarYear=new Date().getFullYear();
 function streakStats(){const h=getChallengeHistory();const keys=Object.keys(h).filter(k=>["green","gold"].includes(challengeStatus(k))).sort();let longest=0,run=0,prev=null;for(const k of keys){const d=new Date(k+"T12:00:00");if(prev){const p=new Date(prev+"T12:00:00");const diff=Math.round((d-p)/86400000);run=diff===1?run+1:1}else run=1;longest=Math.max(longest,run);prev=k}let current=0;const t=new Date();for(let i=0;i<370;i++){const d=new Date(t);d.setDate(t.getDate()-i);const k=localDateKey(d);if(["green","gold"].includes(challengeStatus(k)))current++;else break}return {current,longest,completed:keys.length}}
+
+function focusCurrentChallengeMonth(){
+  const current = document.querySelector('#challengesPage .challenge-month.current-month, #challengesPage .calendar-month.current-month');
+  if(current){
+    current.scrollIntoView({block:'start', behavior:'auto'});
+  }
+}
+
 function renderChallengesCalendar(){const grid=document.getElementById("challengeCalendar");if(!grid)return;document.getElementById("challengeYearLabel").textContent=challengeCalendarYear;const names=["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus","September","Oktober","November","December"];let out="";for(let m=0;m<12;m++){const first=new Date(challengeCalendarYear,m,1);const days=new Date(challengeCalendarYear,m+1,0).getDate();const offset=(first.getDay()+6)%7;let cells="";for(let i=0;i<offset;i++)cells+='<div class="calendar-day empty"></div>';for(let day=1;day<=days;day++){const dt=new Date(challengeCalendarYear,m,day);const key=localDateKey(dt);const future=dt>new Date();cells+=`<div class="calendar-day ${challengeStatus(key)||""} ${key===localDateKey()?"today":""} ${future?"future":""}" title="${key}">${day}</div>`}out+=`<div class="month-card"><div class="month-title">${names[m]}</div><div class="weekday-row"><span>MA</span><span>DI</span><span>WO</span><span>DO</span><span>VR</span><span>ZA</span><span>ZO</span></div><div class="month-grid">${cells}</div></div>`}grid.innerHTML=out;const s=streakStats();document.getElementById("challengeCurrentStreak").textContent=`${s.current} dagen`;document.getElementById("challengeLongestStreak").textContent=`${s.longest} dagen`;document.getElementById("challengeCompletedDays").textContent=s.completed;updateDashboardChallenges()}
 function changeChallengeYear(delta){challengeCalendarYear+=delta;renderChallengesCalendar()}
 function updateDashboardChallenges(){const v=document.getElementById("dashChallengeValue"),m=document.getElementById("dashChallengeMeta");if(v)v.textContent=`${fixedDoneCount()}/5`;if(m)m.textContent=`bonus ${bonusDoneCount()}/2 · streak ${streakStats().current} dagen`}
 function goDashboard(page){const btn=document.querySelector(`.nav-button[data-page="${page}"]`);showPage(page,btn)}
+
+
+function toggleHeaderTabMenu(event){
+  event.stopPropagation();
+  const menu=document.getElementById("headerTabMenu");
+  const btn=document.querySelector(".header-menu-button");
+  if(!menu)return;
+  const open=menu.classList.toggle("open");
+  if(btn)btn.setAttribute("aria-expanded",open?"true":"false");
+}
+function closeHeaderTabMenu(){
+  const menu=document.getElementById("headerTabMenu");
+  const btn=document.querySelector(".header-menu-button");
+  if(menu)menu.classList.remove("open");
+  if(btn)btn.setAttribute("aria-expanded","false");
+}
+function goHeaderTab(page){
+  closeHeaderTabMenu();
+  goDashboard(page);
+}
+document.addEventListener("click",function(event){
+  const wrap=document.querySelector(".header-menu-wrap");
+  if(wrap && !wrap.contains(event.target))closeHeaderTabMenu();
+});
 
 function showPage(page, button){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
