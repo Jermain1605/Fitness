@@ -692,6 +692,46 @@ html,body{overflow-x:hidden}
   .nav-button small{font-size:7.5px}
 }
 
+
+/* MOBILE SETTINGS FIX */
+@media(max-width:640px){
+  .settings-overlay{
+    z-index:5000;
+    padding:8px;
+    align-items:flex-start;
+    justify-content:center;
+    overflow:hidden;
+    height:100dvh;
+    min-height:100dvh;
+  }
+  .settings-panel{
+    width:100%;
+    max-width:none;
+    max-height:calc(100dvh - 16px);
+    height:auto;
+    overflow-y:auto;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    padding:16px 16px 28px;
+    margin:0;
+  }
+  .settings-head{
+    position:sticky;
+    top:-16px;
+    z-index:2;
+    background:var(--card);
+    padding:2px 0 12px;
+    margin-bottom:10px;
+  }
+  .settings-save{
+    position:relative;
+    z-index:1;
+    margin-bottom:4px;
+  }
+  body.settings-open{overflow:hidden;}
+}
+
 </style>
 </head>
 <body><div class="trust-process-side">TRUST THE PROCESS</div>
@@ -1141,14 +1181,14 @@ function openSettings(focus){
   document.getElementById("settingsWeight").value=s.weight || "";
   document.getElementById("settingsGoalWeight").value=s.goalWeight || "75";
   document.getElementById("settingsGym").value=s.gym || "";
-  document.getElementById("settingsOverlay").classList.add("open");
+  document.getElementById("settingsOverlay").classList.add("open"); document.body.classList.add("settings-open");
   applyTheme(); updateAvatar();
   if(focus === "name") setTimeout(()=>document.getElementById("settingsName")?.focus(),80);
 }
 
 function closeSettings(e){
   if(e && e.target !== document.getElementById("settingsOverlay")) return;
-  document.getElementById("settingsOverlay").classList.remove("open");
+  document.getElementById("settingsOverlay").classList.remove("open"); document.body.classList.remove("settings-open");
 }
 
 function setTheme(theme){
