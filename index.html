@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#b9ddff">
-<title>Liam Fitness</title>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0f172a" name="theme-color"/>
+<title>FOCUS</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -394,270 +394,323 @@ textarea{resize:vertical;min-height:75px}
   .bottom-nav{gap:7px;justify-content:space-around}
   .nav-button{min-width:52px}
 }
+
+/* MODERN UI */
+:root{--bg:#f5f7fb;--card:#fff;--card2:#f1f5f9;--border:#e5e9f0;--text:#0f172a;--muted:#64748b;--blue:#2563eb;--blue-dark:#1d4ed8;--blue-soft:#eff6ff;--gold:#f59e0b;--danger:#ef4444;--shadow:0 6px 24px rgba(15,23,42,.055)}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+header{max-width:980px;padding:18px 20px 8px}.text-logo{font-size:20px;letter-spacing:-.4px}.text-logo span{color:var(--blue)}
+.profile{width:42px;height:42px;background:#0f172a;color:#fff;border:3px solid #fff;box-shadow:0 3px 12px rgba(15,23,42,.12)}
+main{max-width:980px;padding:20px}.page-header{margin:18px 0 24px}.page-header small{color:var(--blue);letter-spacing:1.5px}.page-header h1{font-size:32px;letter-spacing:-1px}
+.hero{padding:18px 2px 26px}.hero p{font-size:13px}.hero h1{font-size:40px;letter-spacing:-1.5px}.hero span{font-size:14px}
+.card,.input-card,.chart-card,.stat,.exercise,.summary-box{border-color:var(--border);border-radius:16px;box-shadow:var(--shadow)}
+.stat{padding:18px}.stat strong{font-size:24px;letter-spacing:-.5px}.stat small{font-size:11px}
+.stats{gap:12px}.workout-card{background:#0f172a;border-radius:18px;padding:20px;box-shadow:0 12px 30px rgba(15,23,42,.13)}.workout-info small,.workout-info p{color:#94a3b8}.workout-info h3{color:#fff}.arrow{background:#fff;color:#0f172a}
+.section-title{margin:30px 0 13px}.section-title h2{font-size:18px;letter-spacing:-.3px}.day{border-color:var(--border);background:#fff}.day.today{border-color:var(--blue);background:var(--blue-soft)}
+.summary{gap:10px}.summary-box{background:#fff}.summary-box strong{font-size:18px}
+.data-input,.data-select,.data-textarea,.set input{background:#fff;border-color:#dce2ea;border-radius:10px}.data-input:focus,.data-select:focus,.data-textarea:focus,.set input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
+.save-btn,.finish{background:var(--blue);color:#fff;border-radius:11px}.save-btn:hover,.finish:hover{background:var(--blue-dark)}
+.exercise-filter{background:#fff;border-color:var(--border)}.exercise-filter.active{background:var(--blue);border-color:var(--blue);color:#fff}.exercise-option{border-bottom:1px solid #eef1f5}.notice{background:var(--blue-soft);border-color:#dbeafe;color:#475569}
+.bottom-nav{height:74px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--border);box-shadow:0 -5px 20px rgba(15,23,42,.04);gap:28px}.nav-button{min-width:62px}.nav-button.active{color:var(--blue)}.nav-button.active span{transform:translateY(-1px)}
+.profile-settings{display:flex;gap:10px;align-items:end}.profile-settings .input-group{flex:1}.profile-save{width:auto;padding:11px 16px;background:#0f172a;color:#fff;border:0;border-radius:10px;font-weight:700}.profile-save:hover{background:#1e293b}
+@media(max-width:640px){main{padding:16px}.hero h1{font-size:34px}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:1/-1}.bottom-nav{gap:10px}.nav-button{min-width:56px}.profile-settings{align-items:stretch}.profile-save{padding:0 14px}}
+
+
+.header-actions{display:flex;align-items:center;gap:9px}.settings-button{width:40px;height:40px;border:1px solid var(--border);border-radius:12px;background:var(--card);font-size:18px;box-shadow:var(--shadow)}
+.home-name-row{display:flex;align-items:center;gap:12px}.edit-name{border:1px solid var(--border);background:var(--card);color:var(--blue-dark);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800}.edit-name:hover{background:var(--blue-soft)}
+.settings-overlay{position:fixed;inset:0;background:rgba(15,23,42,.48);backdrop-filter:blur(5px);z-index:1000;display:none;padding:20px;align-items:center;justify-content:center}.settings-overlay.open{display:flex}.settings-panel{width:min(620px,100%);max-height:90vh;overflow:auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 25px 70px rgba(15,23,42,.22)}.settings-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}.settings-head small{font-size:10px;font-weight:900;letter-spacing:1.4px;color:var(--blue-dark)}.settings-head h2{font-size:27px;margin-top:4px}.close-settings{width:34px;height:34px;border:0;border-radius:50%;background:var(--blue-soft);font-size:23px}.settings-section{padding:18px 0;border-top:1px solid var(--border)}.settings-section:first-of-type{border-top:0}.settings-section h3{font-size:14px;margin-bottom:13px}.avatar-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}.settings-avatar{width:58px;height:58px;border-radius:18px;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;overflow:hidden;background-size:cover;background-position:center}.avatar-row p{font-size:12px;color:var(--muted);margin-top:3px}.upload-btn{margin-left:auto;background:var(--blue);color:#fff;border-radius:10px;padding:10px 13px;font-size:12px;font-weight:800;cursor:pointer}.upload-btn input{display:none}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.settings-grid label,.settings-section>label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}.settings-save{width:100%;margin-top:8px;padding:13px;border:0;border-radius:12px;background:#0f172a;color:#fff;font-weight:800}.theme-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}.theme-option{padding:12px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:12px;font-weight:800}.theme-option.active{border-color:var(--blue-dark);background:var(--blue-soft)}
+body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f3f6fb;--muted:#9aa8ba;--blue:#2563eb;--blue-dark:#60a5fa;--blue-soft:#172554;--shadow:0 8px 25px rgba(0,0,0,.22)}body.dark .bottom-nav{background:rgba(17,24,39,.94)}body.dark .settings-button,body.dark .edit-name,body.dark .theme-option{background:var(--card);color:var(--text)}body.dark .data-input,body.dark .data-select,body.dark .data-textarea,body.dark .set input{background:#0f172a;color:var(--text);border-color:var(--border)}
+@media(max-width:640px){.settings-overlay{padding:10px}.settings-panel{border-radius:20px;padding:18px}.settings-grid{grid-template-columns:1fr}.home-name-row{gap:8px}.edit-name{padding:6px 9px}}
+.brand-lockup{display:flex;flex-direction:column;gap:2px}.brand-slogan{font-size:9px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}body.dark main,.bottom-nav,.topbar{position:relative;z-index:1}.welcome-overlay{position:fixed;inset:0;background:var(--bg);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px}.welcome-card{width:min(620px,100%);text-align:center}.welcome-brand{font-size:13px;font-weight:900;letter-spacing:4px;color:var(--blue);margin-bottom:28px}.welcome-card h1{font-size:clamp(36px,7vw,58px);letter-spacing:-.04em;margin:0 0 8px}.welcome-name{color:var(--blue-dark)}.daily-quote{font-size:clamp(21px,4vw,30px);line-height:1.35;font-weight:700;letter-spacing:-.02em;max-width:520px;margin:28px auto 12px}.quote-day{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);margin-bottom:28px}.welcome-enter{border:0;background:#0f172a;color:#fff;border-radius:14px;padding:14px 24px;font-weight:800;font-size:14px;cursor:pointer}body.dark .welcome-enter{background:#fff;color:#0b1120}
+/* FOCUS dashboard + Daily Challenges rebuild */
+.trust-process-side{position:fixed;left:8px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;text-orientation:mixed;font-size:clamp(26px,3.2vw,52px);font-weight:900;letter-spacing:.16em;color:rgba(25,115,232,.18);z-index:0;pointer-events:none;white-space:nowrap}
+.dashboard-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 26px}
+.dashboard-card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:17px;cursor:pointer;transition:.18s;box-shadow:0 5px 18px rgba(15,23,42,.04);position:relative}
+.dashboard-card:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 9px 24px rgba(15,23,42,.08)}
+.dashboard-card .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.dashboard-card .dash-icon{font-size:22px}.dashboard-card .dash-arrow{font-size:18px;color:var(--muted)}
+.dashboard-card h3{margin:0 0 5px;font-size:16px}.dashboard-card p{margin:0;color:var(--muted);font-size:12px}.dashboard-value{font-size:24px;font-weight:900;margin-top:6px}
+.dashboard-wide{grid-column:1/-1}
+.challenges-home-card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:17px;margin-bottom:26px}.challenges-home-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.challenges-home-head h2{margin:0}.challenge-home-status{font-size:13px;font-weight:800;color:var(--blue-dark)}
+.challenge-info-button{border:0;background:var(--blue);color:#fff;border-radius:999px;width:30px;height:30px;font-weight:900;font-size:16px;cursor:pointer}.challenge-info-button:hover{filter:brightness(.94)}
+.challenge-table-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.challenge-table-group{border:1px solid var(--border);border-radius:16px;padding:12px;background:var(--soft)}.challenge-table-group.bonus-group{border-color:#d6a800}.challenge-group-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px;font-weight:900;letter-spacing:.08em}.challenge-group-label b{background:var(--card);border:1px solid var(--border);border-radius:999px;padding:3px 8px}.bonus-group .challenge-group-label{color:#9a6d00}
+.challenge-slot{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:10px;margin-top:9px}.challenge-slot.completed{border-color:#24a148;background:rgba(36,161,72,.06)}.bonus-slot.completed{border-color:#d6a800;background:rgba(214,168,0,.08)}
+.challenge-slot-top{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:7px}.challenge-slot-main{display:flex;gap:8px;align-items:center}.challenge-input{width:100%;min-width:0;border:1px solid var(--border);border-radius:10px;padding:9px 10px;background:var(--card);color:var(--text);font:inherit;font-size:13px}.challenge-check{width:36px;height:36px;min-width:36px;border:1px solid var(--border);border-radius:10px;background:var(--card);cursor:pointer;font-size:20px;font-weight:900;color:#24a148}.challenge-check.done{background:#24a148;color:#fff;border-color:#24a148}.bonus-slot .challenge-check.done{background:#d6a800;border-color:#d6a800;color:#fff}
+.challenge-progress{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:13px}.challenge-progress strong{font-size:16px}
+.challenge-info-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000}.challenge-info-modal{width:min(760px,100%);max-height:85vh;overflow:auto;background:var(--card);border-radius:22px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.22)}.challenge-info-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.challenge-info-close{border:0;background:var(--soft);width:34px;height:34px;border-radius:50%;font-size:22px;cursor:pointer}.challenge-example-section{margin-top:18px}.challenge-example-section h3{margin:0 0 10px}.challenge-example-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}.challenge-example{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--border);border-radius:11px;padding:9px 10px}.challenge-example-text{font-size:12px}.challenge-add-btn{border:1px solid var(--blue);color:var(--blue);background:var(--card);border-radius:8px;padding:6px 8px;font-weight:800;font-size:11px;cursor:pointer;white-space:nowrap}.challenge-add-btn:disabled{opacity:.55;cursor:default}
+.challenge-calendar-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.challenge-calendar-controls button{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:8px 12px;cursor:pointer}.challenge-calendar-year{font-size:20px;font-weight:900}.calendar-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted)}.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.legend-green{background:#24a148}.legend-gold{background:#d6a800}.legend-red{background:#dc3545}
+.calendar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.month-card{border:1px solid var(--border);border-radius:14px;padding:10px;background:var(--card)}.month-title{font-weight:900;margin-bottom:8px}.weekday-row,.month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.weekday-row{font-size:9px;color:var(--muted);text-align:center;margin-bottom:4px}.calendar-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:7px;font-size:11px;background:var(--soft)}.calendar-day.empty{background:transparent}.calendar-day.green{background:#24a148;color:#fff}.calendar-day.gold{background:#d6a800;color:#fff}.calendar-day.red{background:#dc3545;color:#fff}.calendar-day.today{outline:2px solid var(--blue);outline-offset:1px}.calendar-day.future{opacity:.45}
+@media(max-width:800px){.calendar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trust-process-side{font-size:24px;left:3px}.dashboard-grid{grid-template-columns:1fr}.dashboard-wide{grid-column:auto}}
+@media(max-width:560px){.challenge-table-grid,.challenge-example-list,.calendar-grid{grid-template-columns:1fr}.trust-process-side{display:none}}
+
+/* Compact dashboard: requested Home layout only */
+.dashboard-grid{grid-template-columns:repeat(5,minmax(0,1fr)) !important;gap:8px !important;}
+.dashboard-grid .dashboard-card{min-width:0;padding:12px !important;}
+.dashboard-grid .dashboard-card h3{font-size:13px;margin-bottom:4px;}
+.dashboard-grid .dashboard-card .dash-icon{font-size:18px;}
+.dashboard-grid .dashboard-card .dashboard-value{font-size:19px;}
+.dashboard-grid .dashboard-card p{font-size:10px;line-height:1.25;}
+.dashboard-grid .dashboard-wide{grid-column:auto !important;}
+@media(max-width:900px){.dashboard-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}}
+@media(max-width:600px){.dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}}
 </style>
 </head>
-
-<body>
-
+<body><div class="trust-process-side">TRUST THE PROCESS</div>
 <header>
-  <div class="text-logo">FIT<span>TRACK</span></div>
-  <div class="profile">JP</div>
+<div class="brand-lockup"><div class="text-logo">FOCUS</div><div class="brand-slogan">Trust the process.</div></div>
+<div class="header-actions">
+<div class="profile" id="headerProfile">JP</div>
+<button aria-label="Instellingen" class="settings-button" onclick="openSettings()">⚙️</button>
+</div>
 </header>
-
 <main>
-
-<section id="home" class="page active">
-  <div class="hero">
-    <p>Welkom terug 👋</p>
-    <h1>Jermain</h1>
-    <span>Train slim. Loop sterk. Houd je progressie bij.</span>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><small>Gewicht</small><strong id="homeWeight">-- kg</strong><small>Laatste meting</small></div>
-    <div class="stat"><small>Trainingen</small><strong id="trainingCount">0</strong><small>Deze week</small></div>
-    <div class="stat"><small>Calorieën</small><strong id="homeCalories">--</strong><small>Vandaag</small></div>
-  </div>
-
-  <div class="section-title"><h2>Vandaag</h2></div>
-
-  <div class="workout-card" onclick="openWorkout()">
-    <div class="workout-icon">🏋️</div>
-    <div class="workout-info">
-      <small>TRAINING</small>
-      <h3>Upper Body</h3>
-      <p>6 oefeningen · ±55 min</p>
-    </div>
-    <button class="arrow">→</button>
-  </div>
-<div class="section-title"><h2>Deze week</h2></div>
-  <div class="week">
-    <div class="day done"><span>MA</span><b>✓</b></div>
-    <div class="day done"><span>DI</span><b>✓</b></div>
-    <div class="day today"><span>WO</span><b>●</b></div>
-    <div class="day"><span>DO</span><b>–</b></div>
-    <div class="day"><span>VR</span><b>–</b></div>
-    <div class="day"><span>ZA</span><b>–</b></div>
-    <div class="day"><span>ZO</span><b>–</b></div>
-  </div>
-</section>
-
-
-<section id="workout" class="page">
-
-  <div class="page-header">
-    <small>KRACHTTRAINING</small>
-    <h1>Workout builder</h1>
-  </div>
-
-  <div class="card">
-    <div class="input-row">
-      <div class="input-group">
-        <label>Naam van je training</label>
-        <input id="workoutName" class="data-input" type="text" placeholder="Bijv. Push A">
-      </div>
-      <div class="input-group">
-        <label>Datum</label>
-        <input id="workoutDate" class="data-input" type="date">
-      </div>
-    </div>
-    <button class="save-btn" onclick="saveCurrentWorkout()">Training opslaan</button>
-  </div>
-
-  <div class="summary">
-    <div class="summary-box">
-      <small>Oefeningen</small>
-      <strong id="workoutExerciseCount">0</strong>
-    </div>
-    <div class="summary-box">
-      <small>Sets</small>
-      <strong id="workoutSetCount">0</strong>
-    </div>
-    <div class="summary-box">
-      <small>Totaal volume</small>
-      <strong id="workoutVolume">0 kg</strong>
-    </div>
-  </div>
-
-  <div class="input-card">
-    <h3>Oefening toevoegen</h3>
-
-    <div class="input-group">
-      <label>Zoek oefening</label>
-      <input
-        id="exerciseSearch"
-        class="data-input"
-        type="search"
-        placeholder="Zoek bijvoorbeeld squat, borst, rug..."
-        oninput="renderExercisePicker()"
-      >
-    </div>
-
-    <div class="exercise-filters" id="muscleFilters"></div>
-    <div id="exercisePicker" class="exercise-picker"></div>
-  </div>
-
-  <div class="section-title">
-    <h2>Jouw training</h2>
-  </div>
-
-  <div id="builderExercises"></div>
-
-  <div id="emptyWorkout" class="card">
-    <h3>Nog geen oefeningen</h3>
-    <p class="muted">
-      Zoek hierboven een oefening en voeg hem toe aan je training.
-    </p>
-  </div>
-
-  <button
-    id="finishWorkoutButton"
-    class="finish"
-    onclick="finishBuilderWorkout()"
-    style="display:none"
-  >
-    Training afronden ✓
-  </button>
-
-  <div class="section-title">
-    <h2>Opgeslagen trainingen</h2>
-  </div>
-
-  <div id="savedWorkouts"></div>
-
-</section>
-
-
-<section id="weight" class="page">
-  <div class="page-header"><small>LICHAAMSGEGEVENS</small><h1>Gewicht</h1></div>
-
-  <div class="card">
-    <div class="current-value">
-      <div><small class="muted">Laatste meting</small><div class="big-number"><span id="currentWeight">--</span> <span>kg</span></div></div>
-      <div class="goal">Doel<br><strong>75 kg</strong></div>
-    </div>
-  </div>
-
-  <div class="input-card">
-    <h3>Gewicht toevoegen</h3>
-    <div class="input-row">
-      <div class="input-group"><label>Datum</label><input type="date" id="weightDate" class="data-input"></div>
-      <div class="input-group"><label>Gewicht (kg)</label><input type="number" id="weightInput" class="data-input" step="0.1" placeholder="78.3"></div>
-    </div>
-    <button class="save-btn" onclick="saveWeight()">Gewicht opslaan</button>
-  </div>
-
-  <div class="chart-card">
-    <h3>Gewichtsverloop</h3><p class="muted">Laatste 7 dagen</p>
-    <div id="weightChart" class="line-chart"></div>
-  </div>
-
-  <div class="card">
-    <h3>Weekoverzicht</h3>
-    <div class="macro-grid">
-      <div class="macro-card"><small>Gemiddeld</small><strong id="weeklyWeightAvg">-- kg</strong></div>
-      <div class="macro-card"><small>Laagste</small><strong id="weeklyWeightMin">-- kg</strong></div>
-      <div class="macro-card"><small>Hoogste</small><strong id="weeklyWeightMax">-- kg</strong></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Metingen</h3>
-    <div class="table-wrapper"><table class="data-table"><thead><tr><th>Datum</th><th>Gewicht</th><th></th></tr></thead><tbody id="weightTable"></tbody></table></div>
-  </div>
-</section>
-
-<section id="nutrition" class="page">
-  <div class="page-header"><small>ENERGIE & MACRO'S</small><h1>Voeding</h1></div>
-
-  <div class="card">
-    <small class="muted">Vandaag</small>
-    <div class="kcal-total"><span id="todayCalories">0</span> <span>kcal</span></div>
-    <div class="macro-grid">
-      <div class="macro-card"><small>Koolhydraten</small><strong id="todayCarbs">0 g</strong></div>
-      <div class="macro-card"><small>Eiwitten</small><strong id="todayProtein">0 g</strong></div>
-      <div class="macro-card"><small>Vetten</small><strong id="todayFat">0 g</strong></div>
-    </div>
-  </div>
-
-  <div class="input-card">
-    <h3>Dagelijkse inname</h3>
-    <div class="input-row">
-      <div class="input-group"><label>Datum</label><input type="date" id="nutritionDate" class="data-input"></div>
-      <div class="input-group"><label>Calorieën (kcal)</label><input type="number" id="calorieInput" class="data-input" placeholder="2300"></div>
-    </div>
-    <div class="input-row">
-      <div class="input-group"><label>Koolhydraten (g)</label><input type="number" id="carbsInput" class="data-input" placeholder="250"></div>
-      <div class="input-group"><label>Eiwitten (g)</label><input type="number" id="proteinInput" class="data-input" placeholder="170"></div>
-    </div>
-    <div class="input-row">
-      <div class="input-group"><label>Vetten (g)</label><input type="number" id="fatInput" class="data-input" placeholder="70"></div>
-    </div>
-    <button class="save-btn" onclick="saveNutrition()">Dag opslaan</button>
-  </div>
-
-  <div class="chart-card">
-    <h3>Calorieën per dag</h3><p class="muted">Laatste 7 dagen</p>
-    <div id="calorieChart" class="chart"></div>
-  </div>
-
-  <div class="card">
-    <h3>Weektotalen</h3>
-    <div class="macro-grid">
-      <div class="macro-card"><small>Calorieën</small><strong id="weeklyCalories">0</strong></div>
-      <div class="macro-card"><small>Gem. kcal</small><strong id="averageCalories">0</strong></div>
-      <div class="macro-card"><small>Eiwit totaal</small><strong id="weeklyProtein">0 g</strong></div>
-    </div>
-    <div class="macro-grid">
-      <div class="macro-card"><small>Koolhydraten</small><strong id="weeklyCarbs">0 g</strong></div>
-      <div class="macro-card"><small>Vetten</small><strong id="weeklyFat">0 g</strong></div>
-      <div class="macro-card"><small>Gem. eiwit</small><strong id="averageProtein">0 g</strong></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Dagoverzicht</h3>
-    <div class="table-wrapper"><table class="data-table"><thead><tr><th>Datum</th><th>Kcal</th><th>KH</th><th>Eiwit</th><th>Vet</th><th></th></tr></thead><tbody id="nutritionTable"></tbody></table></div>
-  </div>
-</section>
-<section id="progress" class="page">
-  <div class="page-header"><small>JOUW DATA</small><h1>Progressie</h1></div>
-
-  <div class="card">
-    <h3>Overzicht</h3>
-    <div class="macro-grid">
-      <div class="macro-card"><small>Gewicht</small><strong id="progressWeight">-- kg</strong></div>
-      <div class="macro-card"><small>Weekvolume</small><strong id="progressKm">0 kg</strong></div>
-      <div class="macro-card"><small>Trainingen</small><strong id="progressRuns">0</strong></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Krachttraining</h3>
-    <p class="muted">Je trainingen en totale trainingsvolume worden automatisch bijgehouden in Workout.</p>
-    <div class="macro-grid">
-      <div class="macro-card"><small>Deze week</small><strong id="progressWorkoutCount">0</strong></div>
-      <div class="macro-card"><small>Oefeningen</small><strong id="progressExerciseCount">0</strong></div>
-      <div class="macro-card"><small>Volume</small><strong id="progressVolume">0 kg</strong></div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<div id="timer" class="timer">
-  <strong id="timerValue">01:30</strong>
-  <button onclick="stopTimer()">×</button>
+<section class="page active" id="home">
+<div class="hero">
+<p>Welkom terug 👋</p>
+<div class="home-name-row"><h1 id="homeUserName">Jermain</h1><button class="edit-name" onclick="openSettings('name')">Aanpassen</button></div>
+<span>Train slim. Houd je progressie bij.</span>
 </div>
 
-<nav class="bottom-nav">
-  <button class="nav-button active" onclick="showPage('home',this)"><span>⌂</span><small>Home</small></button>
-  <button class="nav-button" onclick="showPage('workout',this)"><span>🏋️</span><small>Workout</small></button>
-  <button class="nav-button" onclick="showPage('weight',this)"><span>⚖️</span><small>Gewicht</small></button>
-  <button class="nav-button" onclick="showPage('nutrition',this)"><span>🔥</span><small>Voeding</small></button>
-  <button class="nav-button" onclick="showPage('progress',this)"><span>📈</span><small>Progressie</small></button>
-</nav>
 
+
+
+
+<div class="section-title"><h2>Mijn dashboard</h2></div>
+<div class="dashboard-grid">
+<div class="dashboard-card" onclick="goDashboard('workout')"><div class="dash-top"><span class="dash-icon">🏋️</span><span class="dash-arrow">→</span></div><h3>Workout</h3><div class="dashboard-value" id="dashWorkoutValue">0</div><p id="dashWorkoutMeta">trainingen deze week</p></div>
+<div class="dashboard-card" onclick="goDashboard('weight')"><div class="dash-top"><span class="dash-icon">⚖️</span><span class="dash-arrow">→</span></div><h3>Gewicht</h3><div class="dashboard-value" id="dashWeightValue">-- kg</div><p>laatste meting</p></div>
+<div class="dashboard-card" onclick="goDashboard('nutrition')"><div class="dash-top"><span class="dash-icon">🔥</span><span class="dash-arrow">→</span></div><h3>Voeding</h3><div class="dashboard-value" id="dashNutritionValue">--</div><p>calorieën vandaag</p></div>
+<div class="dashboard-card" onclick="goDashboard('progress')"><div class="dash-top"><span class="dash-icon">📈</span><span class="dash-arrow">→</span></div><h3>Progressie</h3><div class="dashboard-value" id="dashProgressValue">0</div><p>trainingen deze week</p></div>
+<div class="dashboard-card dashboard-wide" onclick="goDashboard('challenges')"><div class="dash-top"><span class="dash-icon">🎯</span><span class="dash-arrow">→</span></div><h3>Challenges</h3><div class="dashboard-value" id="dashChallengeValue">0/5</div><p id="dashChallengeMeta">vaste challenges voltooid</p></div>
+</div>
+<div class="challenges-home-card">
+<div class="challenges-home-head"><div><h2>DAILY CHALLENGES</h2><div class="muted" style="font-size:12px;margin-top:4px">5 vaste + 2 bonus</div></div><button aria-label="Challenge inspiratie" class="challenge-info-button" onclick="openChallengeInfo()" type="button">i</button></div>
+<div id="dailyChallenges"></div>
+<div class="challenge-progress"><span>Vandaag</span><strong id="challengeProgress">0/5</strong></div>
+</div><div class="section-title"><h2>Deze week</h2></div><div class="week">
+<div class="day done"><span>MA</span><b>✓</b></div>
+<div class="day done"><span>DI</span><b>✓</b></div>
+<div class="day today"><span>WO</span><b>●</b></div>
+<div class="day"><span>DO</span><b>–</b></div>
+<div class="day"><span>VR</span><b>–</b></div>
+<div class="day"><span>ZA</span><b>–</b></div>
+<div class="day"><span>ZO</span><b>–</b></div>
+</div>
+</section>
+<section class="page" id="workout">
+<div class="page-header">
+<small>KRACHTTRAINING</small>
+<h1>Workout builder</h1>
+</div>
+<div class="card">
+<div class="input-row">
+<div class="input-group">
+<label>Naam van je training</label>
+<input class="data-input" id="workoutName" placeholder="Bijv. Push A" type="text"/>
+</div>
+<div class="input-group">
+<label>Datum</label>
+<input class="data-input" id="workoutDate" type="date"/>
+</div>
+</div>
+<button class="save-btn" onclick="saveCurrentWorkout()">Training opslaan</button>
+</div>
+<div class="summary">
+<div class="summary-box">
+<small>Oefeningen</small>
+<strong id="workoutExerciseCount">0</strong>
+</div>
+<div class="summary-box">
+<small>Sets</small>
+<strong id="workoutSetCount">0</strong>
+</div>
+<div class="summary-box">
+<small>Totaal volume</small>
+<strong id="workoutVolume">0 kg</strong>
+</div>
+</div>
+<div class="input-card">
+<h3>Oefening toevoegen</h3>
+<div class="input-group">
+<label>Zoek oefening</label>
+<input class="data-input" id="exerciseSearch" oninput="renderExercisePicker()" placeholder="Zoek bijvoorbeeld squat, borst, rug..." type="search"/>
+</div>
+<div class="exercise-filters" id="muscleFilters"></div>
+<div class="exercise-picker" id="exercisePicker"></div>
+</div>
+<div class="section-title">
+<h2>Jouw training</h2>
+</div>
+<div id="builderExercises"></div>
+<div class="card" id="emptyWorkout">
+<h3>Nog geen oefeningen</h3>
+<p class="muted">
+      Zoek hierboven een oefening en voeg hem toe aan je training.
+    </p>
+</div>
+<button class="finish" id="finishWorkoutButton" onclick="finishBuilderWorkout()" style="display:none">
+    Training afronden ✓
+  </button>
+<div class="section-title">
+<h2>Opgeslagen trainingen</h2>
+</div>
+<div id="savedWorkouts"></div>
+</section>
+<section class="page" id="weight">
+<div class="page-header"><small>LICHAAMSGEGEVENS</small><h1>Gewicht</h1></div>
+<div class="card">
+<div class="current-value">
+<div><small class="muted">Laatste meting</small><div class="big-number"><span id="currentWeight">--</span> <span>kg</span></div></div>
+<div class="goal">Doel<br/><strong>75 kg</strong></div>
+</div>
+</div>
+<div class="input-card">
+<h3>Gewicht toevoegen</h3>
+<div class="input-row">
+<div class="input-group"><label>Datum</label><input class="data-input" id="weightDate" type="date"/></div>
+<div class="input-group"><label>Gewicht (kg)</label><input class="data-input" id="weightInput" placeholder="78.3" step="0.1" type="number"/></div>
+</div>
+<button class="save-btn" onclick="saveWeight()">Gewicht opslaan</button>
+</div>
+<div class="chart-card">
+<h3>Gewichtsverloop</h3><p class="muted">Laatste 7 dagen</p>
+<div class="line-chart" id="weightChart"></div>
+</div>
+<div class="card">
+<h3>Weekoverzicht</h3>
+<div class="macro-grid">
+<div class="macro-card"><small>Gemiddeld</small><strong id="weeklyWeightAvg">-- kg</strong></div>
+<div class="macro-card"><small>Laagste</small><strong id="weeklyWeightMin">-- kg</strong></div>
+<div class="macro-card"><small>Hoogste</small><strong id="weeklyWeightMax">-- kg</strong></div>
+</div>
+</div>
+<div class="card">
+<h3>Metingen</h3>
+<div class="table-wrapper"><table class="data-table"><thead><tr><th>Datum</th><th>Gewicht</th><th></th></tr></thead><tbody id="weightTable"></tbody></table></div>
+</div>
+</section>
+<section class="page" id="nutrition">
+<div class="page-header"><small>ENERGIE &amp; MACRO'S</small><h1>Voeding</h1></div>
+<div class="card">
+<small class="muted">Vandaag</small>
+<div class="kcal-total"><span id="todayCalories">0</span> <span>kcal</span></div>
+<div class="macro-grid">
+<div class="macro-card"><small>Koolhydraten</small><strong id="todayCarbs">0 g</strong></div>
+<div class="macro-card"><small>Eiwitten</small><strong id="todayProtein">0 g</strong></div>
+<div class="macro-card"><small>Vetten</small><strong id="todayFat">0 g</strong></div>
+</div>
+</div>
+<div class="input-card">
+<h3>Dagelijkse inname</h3>
+<div class="input-row">
+<div class="input-group"><label>Datum</label><input class="data-input" id="nutritionDate" type="date"/></div>
+<div class="input-group"><label>Calorieën (kcal)</label><input class="data-input" id="calorieInput" placeholder="2300" type="number"/></div>
+</div>
+<div class="input-row">
+<div class="input-group"><label>Koolhydraten (g)</label><input class="data-input" id="carbsInput" placeholder="250" type="number"/></div>
+<div class="input-group"><label>Eiwitten (g)</label><input class="data-input" id="proteinInput" placeholder="170" type="number"/></div>
+</div>
+<div class="input-row">
+<div class="input-group"><label>Vetten (g)</label><input class="data-input" id="fatInput" placeholder="70" type="number"/></div>
+</div>
+<button class="save-btn" onclick="saveNutrition()">Dag opslaan</button>
+</div>
+<div class="chart-card">
+<h3>Calorieën per dag</h3><p class="muted">Laatste 7 dagen</p>
+<div class="chart" id="calorieChart"></div>
+</div>
+<div class="card">
+<h3>Weektotalen</h3>
+<div class="macro-grid">
+<div class="macro-card"><small>Calorieën</small><strong id="weeklyCalories">0</strong></div>
+<div class="macro-card"><small>Gem. kcal</small><strong id="averageCalories">0</strong></div>
+<div class="macro-card"><small>Eiwit totaal</small><strong id="weeklyProtein">0 g</strong></div>
+</div>
+<div class="macro-grid">
+<div class="macro-card"><small>Koolhydraten</small><strong id="weeklyCarbs">0 g</strong></div>
+<div class="macro-card"><small>Vetten</small><strong id="weeklyFat">0 g</strong></div>
+<div class="macro-card"><small>Gem. eiwit</small><strong id="averageProtein">0 g</strong></div>
+</div>
+</div>
+<div class="card">
+<h3>Dagoverzicht</h3>
+<div class="table-wrapper"><table class="data-table"><thead><tr><th>Datum</th><th>Kcal</th><th>KH</th><th>Eiwit</th><th>Vet</th><th></th></tr></thead><tbody id="nutritionTable"></tbody></table></div>
+</div>
+</section>
+<section class="page" id="challenges">
+<div class="page-header"><small>GEWOONTES &amp; CONSISTENTIE</small><h1>Challenges</h1></div>
+<div class="card">
+<div class="challenge-calendar-controls"><button onclick="changeChallengeYear(-1)" type="button">←</button><div class="challenge-calendar-year" id="challengeYearLabel"></div><button onclick="changeChallengeYear(1)" type="button">→</button></div>
+<div class="macro-grid"><div class="macro-card"><small>Huidige streak</small><strong id="challengeCurrentStreak">0 dagen</strong></div><div class="macro-card"><small>Langste streak</small><strong id="challengeLongestStreak">0 dagen</strong></div><div class="macro-card"><small>Voltooide dagen</small><strong id="challengeCompletedDays">0</strong></div></div>
+<div class="calendar-legend"><span><i class="legend-dot legend-green"></i>5/5 vaste</span><span><i class="legend-dot legend-gold"></i>7/7 inclusief bonus</span><span><i class="legend-dot legend-red"></i>niet compleet</span></div>
+</div>
+<div class="calendar-grid" id="challengeCalendar"></div>
+</section>
+<section class="page" id="progress">
+<div class="page-header"><small>JOUW DATA</small><h1>Progressie</h1></div>
+<div class="card">
+<h3>Overzicht</h3>
+<div class="macro-grid">
+<div class="macro-card"><small>Gewicht</small><strong id="progressWeight">-- kg</strong></div>
+<div class="macro-card"><small>Weekvolume</small><strong id="progressKm">0 kg</strong></div>
+<div class="macro-card"><small>Trainingen</small><strong id="progressRuns">0</strong></div>
+</div>
+</div>
+<div class="card">
+<h3>Krachttraining</h3>
+<p class="muted">Je trainingen en totale trainingsvolume worden automatisch bijgehouden in Workout.</p>
+<div class="macro-grid">
+<div class="macro-card"><small>Deze week</small><strong id="progressWorkoutCount">0</strong></div>
+<div class="macro-card"><small>Oefeningen</small><strong id="progressExerciseCount">0</strong></div>
+<div class="macro-card"><small>Volume</small><strong id="progressVolume">0 kg</strong></div>
+</div>
+</div>
+</section>
+</main>
+<div class="timer" id="timer">
+<strong id="timerValue">01:30</strong>
+<button onclick="stopTimer()">×</button>
+</div>
+<div class="welcome-overlay" id="welcomeOverlay"><div class="welcome-card"><div class="welcome-brand">FOCUS</div><h1>Welkom terug, <span class="welcome-name" id="welcomeName">Jermain</span>.</h1><div class="daily-quote" id="dailyQuote"></div><div class="quote-day" id="quoteDay"></div><button class="welcome-enter" onclick="enterApp()">Naar mijn Home</button></div></div><div class="settings-overlay" id="settingsOverlay" onclick="closeSettings(event)">
+<div class="settings-panel" onclick="event.stopPropagation()">
+<div class="settings-head">
+<div><small>FOCUS</small><h2>Instellingen</h2></div>
+<button class="close-settings" onclick="closeSettings()">×</button>
+</div>
+<div class="settings-section">
+<h3>Profiel</h3>
+<div class="avatar-row">
+<div class="settings-avatar" id="settingsAvatar">JP</div>
+<div><strong>Profielfoto</strong><p>Kies een foto voor je profiel.</p></div>
+<label class="upload-btn">Toevoegen<input accept="image/*" id="profilePhotoInput" onchange="saveProfilePhoto(event)" type="file"/></label>
+</div>
+<div class="settings-grid">
+<label>Naam<input class="data-input" id="settingsName" maxlength="30"/></label>
+<label>Geslacht<select class="data-select" id="settingsGender"><option value="">Niet opgegeven</option><option>Man</option><option>Vrouw</option><option>Anders</option></select></label>
+<label>Leeftijd<input class="data-input" id="settingsAge" max="120" min="1" type="number"/></label>
+<label>Gewicht (kg)<input class="data-input" id="settingsWeight" max="300" min="20" step="0.1" type="number"/></label>
+</div>
+</div>
+<div class="settings-section">
+<h3>Thuisbasis</h3>
+<label>Mijn gym<input class="data-input" id="settingsGym" placeholder="Bijv. Basic-Fit Roden"/></label>
+</div>
+<div class="settings-section">
+<h3>Uiterlijk</h3>
+<div class="theme-choice">
+<button class="theme-option" id="themeLight" onclick="setTheme('light')">☀️ Licht</button>
+<button class="theme-option" id="themeDark" onclick="setTheme('dark')">🌙 Donker</button>
+</div>
+</div>
+<button class="settings-save" onclick="saveSettings()">Instellingen opslaan</button>
+</div>
+</div>
+<nav class="bottom-nav">
+<button class="nav-button active" data-page="home" onclick="showPage('home',this)"><span>⌂</span><small>Home</small></button>
+<button class="nav-button" data-page="workout" onclick="showPage('workout',this)"><span>🏋️</span><small>Workout</small></button>
+<button class="nav-button" data-page="weight" onclick="showPage('weight',this)"><span>⚖️</span><small>Gewicht</small></button>
+<button class="nav-button" data-page="nutrition" onclick="showPage('nutrition',this)"><span>🔥</span><small>Voeding</small></button>
+<button class="nav-button" data-page="progress" onclick="showPage('progress',this)"><span>📈</span><small>Progressie</small></button>
+<button class="nav-button" data-page="challenges" onclick="showPage('challenges',this)"><span>🎯</span><small>Challenges</small></button>
+</nav>
 <script>
 
 let weightData = JSON.parse(localStorage.getItem("weightData") || "[]");
@@ -665,48 +718,158 @@ let nutritionData = JSON.parse(localStorage.getItem("nutritionData") || "[]");
 let timerInterval = null;
 let savedWorkouts = JSON.parse(localStorage.getItem("savedWorkouts") || "[]");
 
+function getSettings(){
+  return JSON.parse(localStorage.getItem("fittrackSettings") || "{}");
+}
+
+function applyTheme(){
+  const settings=getSettings();
+  const theme=settings.theme || "light";
+  document.body.classList.toggle("dark", theme === "dark");
+  const light=document.getElementById("themeLight"), dark=document.getElementById("themeDark");
+  if(light) light.classList.toggle("active",theme === "light");
+  if(dark) dark.classList.toggle("active",theme === "dark");
+}
+
+function updateAvatar(){
+  const settings=getSettings();
+  const name=settings.name || localStorage.getItem("fittrackUserName") || "Jermain";
+  const initials=name.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join("").toUpperCase() || "FT";
+  [document.getElementById("headerProfile"),document.getElementById("settingsAvatar")].forEach(el=>{
+    if(!el) return;
+    if(settings.photo){el.style.backgroundImage=`url(${settings.photo})`;el.textContent="";}
+    else {el.style.backgroundImage="";el.textContent=initials;}
+  });
+}
+
+function openSettings(focus){
+  const s=getSettings();
+  document.getElementById("settingsName").value=s.name || localStorage.getItem("fittrackUserName") || "Jermain";
+  document.getElementById("settingsGender").value=s.gender || "";
+  document.getElementById("settingsAge").value=s.age || "";
+  document.getElementById("settingsWeight").value=s.weight || "";
+  document.getElementById("settingsGym").value=s.gym || "";
+  document.getElementById("settingsOverlay").classList.add("open");
+  applyTheme(); updateAvatar();
+  if(focus === "name") setTimeout(()=>document.getElementById("settingsName")?.focus(),80);
+}
+
+function closeSettings(e){
+  if(e && e.target !== document.getElementById("settingsOverlay")) return;
+  document.getElementById("settingsOverlay").classList.remove("open");
+}
+
+function setTheme(theme){
+  const s=getSettings(); s.theme=theme; localStorage.setItem("fittrackSettings",JSON.stringify(s)); applyTheme();
+}
+
+function saveProfilePhoto(event){
+  const file=event.target.files?.[0]; if(!file) return;
+  const reader=new FileReader(); reader.onload=()=>{const s=getSettings();s.photo=reader.result;localStorage.setItem("fittrackSettings",JSON.stringify(s));updateAvatar();}; reader.readAsDataURL(file);
+}
+
+function saveSettings(){
+  const s=getSettings();
+  s.name=(document.getElementById("settingsName").value||"").trim() || "Jermain";
+  s.gender=document.getElementById("settingsGender").value;
+  s.age=document.getElementById("settingsAge").value;
+  s.weight=document.getElementById("settingsWeight").value;
+  s.gym=(document.getElementById("settingsGym").value||"").trim();
+  localStorage.setItem("fittrackSettings",JSON.stringify(s));
+  localStorage.setItem("fittrackUserName",s.name);
+  loadUserName(); updateAvatar(); applyTheme(); updateHome(); closeSettings();
+}
+
+const dailyQuotes = ["Begin klein.", "Begin vandaag.", "Begin zonder twijfel.", "Eén stap is genoeg.", "Blijf trouw aan je plan.", "Herhaling bouwt kracht.", "Focus op wat telt.", "Eén ding tegelijk.", "Kleine winst is winst.", "Word één procent beter.", "Rust is ook vooruitgang.", "Blijf gaan.", "Hou koers.", "Train met intentie.", "Kwaliteit boven haast.", "Vergelijk met jezelf.", "Vertrouw op je werk.", "Slaap is training.", "Herstel hoort erbij.", "Maak je doel concreet.", "Plan. Doe. Herhaal.", "Hou het simpel.", "Basis eerst.", "Consistent boven extreem.", "Je kunt dit leren.", "Laat actie spreken.", "Geef jezelf tijd.", "Kom opdagen.", "Vandaag telt mee.", "Blijf bij het proces.", "Je routine bouwt resultaat.", "Je routine maakt verschil.", "Je routine verdient vertrouwen.", "Je routine mag rustig groeien.", "Je routine wordt sterker door herhaling.", "Je routine is vandaag genoeg.", "Je routine brengt je dichterbij.", "Je routine hoeft niet perfect te zijn.", "Je routine is onderdeel van het proces.", "Je routine telt mee.", "Je routine geeft richting.", "Je routine maakt morgen makkelijker.", "Je routine is je voordeel.", "Je routine begint met aandacht.", "Je routine wordt sterker door consistentie.", "Je routine verdient geduld.", "Je routine groeit door actie.", "Je inzet bouwt resultaat.", "Je inzet maakt verschil.", "Je inzet verdient vertrouwen.", "Je inzet mag rustig groeien.", "Je inzet wordt sterker door herhaling.", "Je inzet is vandaag genoeg.", "Je inzet brengt je dichterbij.", "Je inzet hoeft niet perfect te zijn.", "Je inzet is onderdeel van het proces.", "Je inzet telt mee.", "Je inzet geeft richting.", "Je inzet maakt morgen makkelijker.", "Je inzet is je voordeel.", "Je inzet begint met aandacht.", "Je inzet wordt sterker door consistentie.", "Je inzet verdient geduld.", "Je inzet groeit door actie.", "Je aandacht bouwt resultaat.", "Je aandacht maakt verschil.", "Je aandacht verdient vertrouwen.", "Je aandacht mag rustig groeien.", "Je aandacht wordt sterker door herhaling.", "Je aandacht is vandaag genoeg.", "Je aandacht brengt je dichterbij.", "Je aandacht hoeft niet perfect te zijn.", "Je aandacht is onderdeel van het proces.", "Je aandacht telt mee.", "Je aandacht geeft richting.", "Je aandacht maakt morgen makkelijker.", "Je aandacht is je voordeel.", "Je aandacht begint met aandacht.", "Je aandacht wordt sterker door consistentie.", "Je aandacht verdient geduld.", "Je aandacht groeit door actie.", "Je geduld bouwt resultaat.", "Je geduld maakt verschil.", "Je geduld verdient vertrouwen.", "Je geduld mag rustig groeien.", "Je geduld wordt sterker door herhaling.", "Je geduld is vandaag genoeg.", "Je geduld brengt je dichterbij.", "Je geduld hoeft niet perfect te zijn.", "Je geduld is onderdeel van het proces.", "Je geduld telt mee.", "Je geduld geeft richting.", "Je geduld maakt morgen makkelijker.", "Je geduld is je voordeel.", "Je geduld begint met aandacht.", "Je geduld wordt sterker door consistentie.", "Je geduld verdient geduld.", "Je geduld groeit door actie.", "Je keuze bouwt resultaat.", "Je keuze maakt verschil.", "Je keuze verdient vertrouwen.", "Je keuze mag rustig groeien.", "Je keuze wordt sterker door herhaling.", "Je keuze is vandaag genoeg.", "Je keuze brengt je dichterbij.", "Je keuze hoeft niet perfect te zijn.", "Je keuze is onderdeel van het proces.", "Je keuze telt mee.", "Je keuze geeft richting.", "Je keuze maakt morgen makkelijker.", "Je keuze is je voordeel.", "Je keuze begint met aandacht.", "Je keuze wordt sterker door consistentie.", "Je keuze verdient geduld.", "Je keuze groeit door actie.", "Je training bouwt resultaat.", "Je training maakt verschil.", "Je training verdient vertrouwen.", "Je training mag rustig groeien.", "Je training wordt sterker door herhaling.", "Je training is vandaag genoeg.", "Je training brengt je dichterbij.", "Je training hoeft niet perfect te zijn.", "Je training is onderdeel van het proces.", "Je training telt mee.", "Je training geeft richting.", "Je training maakt morgen makkelijker.", "Je training is je voordeel.", "Je training begint met aandacht.", "Je training wordt sterker door consistentie.", "Je training verdient geduld.", "Je training groeit door actie.", "Je herstel bouwt resultaat.", "Je herstel maakt verschil.", "Je herstel verdient vertrouwen.", "Je herstel mag rustig groeien.", "Je herstel wordt sterker door herhaling.", "Je herstel is vandaag genoeg.", "Je herstel brengt je dichterbij.", "Je herstel hoeft niet perfect te zijn.", "Je herstel is onderdeel van het proces.", "Je herstel telt mee.", "Je herstel geeft richting.", "Je herstel maakt morgen makkelijker.", "Je herstel is je voordeel.", "Je herstel begint met aandacht.", "Je herstel wordt sterker door consistentie.", "Je herstel verdient geduld.", "Je herstel groeit door actie.", "Je discipline bouwt resultaat.", "Je discipline maakt verschil.", "Je discipline verdient vertrouwen.", "Je discipline mag rustig groeien.", "Je discipline wordt sterker door herhaling.", "Je discipline is vandaag genoeg.", "Je discipline brengt je dichterbij.", "Je discipline hoeft niet perfect te zijn.", "Je discipline is onderdeel van het proces.", "Je discipline telt mee.", "Je discipline geeft richting.", "Je discipline maakt morgen makkelijker.", "Je discipline is je voordeel.", "Je discipline begint met aandacht.", "Je discipline wordt sterker door consistentie.", "Je discipline verdient geduld.", "Je discipline groeit door actie.", "Je focus bouwt resultaat.", "Je focus maakt verschil.", "Je focus verdient vertrouwen.", "Je focus mag rustig groeien.", "Je focus wordt sterker door herhaling.", "Je focus is vandaag genoeg.", "Je focus brengt je dichterbij.", "Je focus hoeft niet perfect te zijn.", "Je focus is onderdeel van het proces.", "Je focus telt mee.", "Je focus geeft richting.", "Je focus maakt morgen makkelijker.", "Je focus is je voordeel.", "Je focus begint met aandacht.", "Je focus wordt sterker door consistentie.", "Je focus verdient geduld.", "Je focus groeit door actie.", "Je vertrouwen bouwt resultaat.", "Je vertrouwen maakt verschil.", "Je vertrouwen verdient vertrouwen.", "Je vertrouwen mag rustig groeien.", "Je vertrouwen wordt sterker door herhaling.", "Je vertrouwen is vandaag genoeg.", "Je vertrouwen brengt je dichterbij.", "Je vertrouwen hoeft niet perfect te zijn.", "Je vertrouwen is onderdeel van het proces.", "Je vertrouwen telt mee.", "Je vertrouwen geeft richting.", "Je vertrouwen maakt morgen makkelijker.", "Je vertrouwen is je voordeel.", "Je vertrouwen begint met aandacht.", "Je vertrouwen wordt sterker door consistentie.", "Je vertrouwen verdient geduld.", "Je vertrouwen groeit door actie.", "Je energie bouwt resultaat.", "Je energie maakt verschil.", "Je energie verdient vertrouwen.", "Je energie mag rustig groeien.", "Je energie wordt sterker door herhaling.", "Je energie is vandaag genoeg.", "Je energie brengt je dichterbij.", "Je energie hoeft niet perfect te zijn.", "Je energie is onderdeel van het proces.", "Je energie telt mee.", "Je energie geeft richting.", "Je energie maakt morgen makkelijker.", "Je energie is je voordeel.", "Je energie begint met aandacht.", "Je energie wordt sterker door consistentie.", "Je energie verdient geduld.", "Je energie groeit door actie.", "Je tempo bouwt resultaat.", "Je tempo maakt verschil.", "Je tempo verdient vertrouwen.", "Je tempo mag rustig groeien.", "Je tempo wordt sterker door herhaling.", "Je tempo is vandaag genoeg.", "Je tempo brengt je dichterbij.", "Je tempo hoeft niet perfect te zijn.", "Je tempo is onderdeel van het proces.", "Je tempo telt mee.", "Je tempo geeft richting.", "Je tempo maakt morgen makkelijker.", "Je tempo is je voordeel.", "Je tempo begint met aandacht.", "Je tempo wordt sterker door consistentie.", "Je tempo verdient geduld.", "Je tempo groeit door actie.", "Je houding bouwt resultaat.", "Je houding maakt verschil.", "Je houding verdient vertrouwen.", "Je houding mag rustig groeien.", "Je houding wordt sterker door herhaling.", "Je houding is vandaag genoeg.", "Je houding brengt je dichterbij.", "Je houding hoeft niet perfect te zijn.", "Je houding is onderdeel van het proces.", "Je houding telt mee.", "Je houding geeft richting.", "Je houding maakt morgen makkelijker.", "Je houding is je voordeel.", "Je houding begint met aandacht.", "Je houding wordt sterker door consistentie.", "Je houding verdient geduld.", "Je houding groeit door actie.", "Je voorbereiding bouwt resultaat.", "Je voorbereiding maakt verschil.", "Je voorbereiding verdient vertrouwen.", "Je voorbereiding mag rustig groeien.", "Je voorbereiding wordt sterker door herhaling.", "Je voorbereiding is vandaag genoeg.", "Je voorbereiding brengt je dichterbij.", "Je voorbereiding hoeft niet perfect te zijn.", "Je voorbereiding is onderdeel van het proces.", "Je voorbereiding telt mee.", "Je voorbereiding geeft richting.", "Je voorbereiding maakt morgen makkelijker.", "Je voorbereiding is je voordeel.", "Je voorbereiding begint met aandacht.", "Je voorbereiding wordt sterker door consistentie.", "Je voorbereiding verdient geduld.", "Je voorbereiding groeit door actie.", "Je volgende stap bouwt resultaat.", "Je volgende stap maakt verschil.", "Je volgende stap verdient vertrouwen.", "Je volgende stap mag rustig groeien.", "Je volgende stap wordt sterker door herhaling.", "Je volgende stap is vandaag genoeg.", "Je volgende stap brengt je dichterbij.", "Je volgende stap hoeft niet perfect te zijn.", "Je volgende stap is onderdeel van het proces.", "Je volgende stap telt mee.", "Je volgende stap geeft richting.", "Je volgende stap maakt morgen makkelijker.", "Je volgende stap is je voordeel.", "Je volgende stap begint met aandacht.", "Je volgende stap wordt sterker door consistentie.", "Je volgende stap verdient geduld.", "Je volgende stap groeit door actie.", "Je gewoontes bouwt resultaat.", "Je gewoontes maakt verschil.", "Je gewoontes verdient vertrouwen.", "Je gewoontes mag rustig groeien.", "Je gewoontes wordt sterker door herhaling.", "Je gewoontes is vandaag genoeg.", "Je gewoontes brengt je dichterbij.", "Je gewoontes hoeft niet perfect te zijn.", "Je gewoontes is onderdeel van het proces.", "Je gewoontes telt mee.", "Je gewoontes geeft richting.", "Je gewoontes maakt morgen makkelijker.", "Je gewoontes is je voordeel.", "Je gewoontes begint met aandacht.", "Je gewoontes wordt sterker door consistentie.", "Je gewoontes verdient geduld.", "Je gewoontes groeit door actie.", "Je werk bouwt resultaat.", "Je werk maakt verschil.", "Je werk verdient vertrouwen.", "Je werk mag rustig groeien.", "Je werk wordt sterker door herhaling.", "Je werk is vandaag genoeg.", "Je werk brengt je dichterbij.", "Je werk hoeft niet perfect te zijn.", "Je werk is onderdeel van het proces.", "Je werk telt mee.", "Je werk geeft richting.", "Je werk maakt morgen makkelijker.", "Je werk is je voordeel.", "Je werk begint met aandacht.", "Je werk wordt sterker door consistentie.", "Je werk verdient geduld.", "Je werk groeit door actie.", "Je basis bouwt resultaat.", "Je basis maakt verschil.", "Je basis verdient vertrouwen.", "Je basis mag rustig groeien.", "Je basis wordt sterker door herhaling.", "Je basis is vandaag genoeg.", "Je basis brengt je dichterbij.", "Je basis hoeft niet perfect te zijn.", "Je basis is onderdeel van het proces.", "Je basis telt mee.", "Je basis geeft richting.", "Je basis maakt morgen makkelijker.", "Je basis is je voordeel.", "Je basis begint met aandacht.", "Je basis wordt sterker door consistentie.", "Je basis verdient geduld.", "Je basis groeit door actie.", "Je mindset bouwt resultaat.", "Je mindset maakt verschil.", "Je mindset verdient vertrouwen.", "Je mindset mag rustig groeien.", "Je mindset wordt sterker door herhaling.", "Je mindset is vandaag genoeg.", "Je mindset brengt je dichterbij.", "Je mindset hoeft niet perfect te zijn.", "Je mindset is onderdeel van het proces.", "Je mindset telt mee.", "Je mindset geeft richting.", "Je mindset maakt morgen makkelijker.", "Je mindset is je voordeel.", "Je mindset begint met aandacht.", "Je mindset wordt sterker door consistentie.", "Je mindset verdient geduld.", "Je mindset groeit door actie.", "Je richting bouwt resultaat.", "Je richting maakt verschil.", "Je richting verdient vertrouwen.", "Je richting mag rustig groeien.", "Je richting wordt sterker door herhaling.", "Je richting is vandaag genoeg.", "Je richting brengt je dichterbij.", "Je richting hoeft niet perfect te zijn.", "Je richting is onderdeel van het proces.", "Je richting telt mee.", "Je richting geeft richting.", "Je richting maakt morgen makkelijker."];
+function getDayOfYear(date=new Date()){const start=new Date(date.getFullYear(),0,1);const current=new Date(date.getFullYear(),date.getMonth(),date.getDate());return Math.floor((current-start)/86400000)+1;}
+function showWelcome(){const s=getSettings();const name=s.name||localStorage.getItem("fittrackUserName")||"Jermain";const day=getDayOfYear();document.getElementById("welcomeName").textContent=name;document.getElementById("dailyQuote").textContent=`“${dailyQuotes[day-1]}”`;document.getElementById("quoteDay").textContent=`Dag ${day} · ${new Date().toLocaleDateString("nl-NL",{day:"numeric",month:"long"})}`;document.getElementById("welcomeOverlay").style.display="flex";}
+function enterApp(){document.getElementById("welcomeOverlay").style.display="none";}
 function todayString(){
   return new Date().toISOString().slice(0,10);
 }
 
+
+function esc(value){return String(value??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/\'/g,"&#39;")}
+/* --- DAILY CHALLENGES: single source of truth --- */
+const CHALLENGE_COUNT=7;
+const FIXED_CHALLENGE_COUNT=5;
+const DAILY_CHALLENGES_KEY="focusDailyChallengesV2";
+const DAILY_CHALLENGE_DONE_KEY="focusDailyChallengeDoneV2";
+const DAILY_CHALLENGE_HISTORY_KEY="focusDailyChallengeHistoryV2";
+const CHALLENGE_EXAMPLES={
+ easy:["Drink 2 liter water","10 minuten wandelen","5 minuten rekken","Maak je bed op","Eet één stuk fruit","Neem de trap","Ga 5 minuten naar buiten","Schrijf 3 dingen op waar je dankbaar voor bent","Doe 10 squats","Doe 10 push-ups","Lees 5 pagina's","Ga 10 minuten eerder naar bed","Geen frisdrank vandaag","Eet bij elke maaltijd groente","Plan morgen in 5 minuten","Ruim 10 minuten op","Doe 5 minuten ademhaling","Loop tijdens één telefoongesprek","Neem een eiwitrijk ontbijt","Maak een gezonde snack klaar","Eet zonder scherm","Sta ieder uur even op","Doe 10 lunges per been","Maak een korte wandeling na het eten","Drink water direct na het opstaan","Schrijf je belangrijkste taak op","Doe 5 minuten mobiliteit","Ga 15 minuten naar buiten","Kies één gezonde lunch","Leg sportkleding de avond ervoor klaar","Doe 20 calf raises","Doe 20 glute bridges","Vermijd snacken tussen maaltijden","Eet langzaam één maaltijd","Doe 2 minuten plank verspreid over de dag","Strek je heupen 5 minuten","Maak je keuken direct schoon na het eten","Neem een trap in plaats van lift","Doe 10 minuten zonder social media","Drink een glas water bij elke hoofdmaaltijd","Maak een korte to-do van maximaal 3 punten","Loop 1000 extra stappen","Doe 5 minuten foamrollen","Zet je wekker 10 minuten eerder","Kies vandaag één gezonde gewoonte","Sluit je dag af zonder scherm","Noteer één kleine overwinning","Doe 5 minuten rustige yoga","Maak 10 minuten tijd voor jezelf","Neem vandaag bewust 5 minuten rust"],
+ hard:["Train 60 minuten volgens plan","10.000 stappen halen","Geen toegevoegde suiker vandaag","Geen alcohol vandaag","30 minuten extra wandelen","12.000 stappen halen","Lees 20 pagina's","Mediteer 15 minuten","Bereid alle maaltijden voor morgen","Doe 100 squats verdeeld over de dag","Doe 50 push-ups verdeeld over de dag","Voltooi een volledige mobiliteitssessie","Ga 30 minuten hardlopen","Fiets 45 minuten","Zwem 30 minuten","Doe een volledige krachttraining","Houd je slaapdoel exact aan","Geen social media voor 3 uur","Geen scherm tijdens alle maaltijden","Drink alleen water en koffie/thee zonder suiker","Bereik je eiwitdoel","Bereik je groente- en fruitdoel","Bereik je calorie-doel binnen je planning","Loop 15.000 stappen","Doe 20 minuten core training","Doe 20 minuten yoga","Maak een weekplanning voor training en voeding","Kook alle maaltijden zelf","Eet vandaag geen fastfood","Geen snoep of chips vandaag","Doe 100 lunges verdeeld over de dag","Doe 100 calf raises","Neem elke trap vandaag","Sta elk uur minimaal 5 minuten op","Doe 10 minuten ademhaling","Maak 30 minuten tijd voor een hobby zonder telefoon","Ruim één complete kamer op","Doe 30 minuten huishoudelijk werk","Ga buiten sporten","Voltooi een geplande intervaltraining","Doe een lange wandeling van 60 minuten","Bereid je sporttas voor morgen","Leg alle maaltijden voor morgen klaar","Ga 30 minuten eerder naar bed","Word wakker zonder snooze","Begin de dag met 15 minuten bewegen","Schrijf een volledige dagreflectie","Schrijf 3 concrete doelen voor morgen","Plan volgende week volledig vooruit","Voltooi vandaag alle vijf je eigen challenges"]
+};
+function localDateKey(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+function challengeState(){let a=[];try{a=JSON.parse(localStorage.getItem(DAILY_CHALLENGES_KEY)||localStorage.getItem("focusDailyChallenges")||"[]")}catch(e){};a=Array.isArray(a)?a:[];return Array.from({length:CHALLENGE_COUNT},(_,i)=>typeof a[i]==="string"?a[i]:"")}
+function saveChallengeState(a){localStorage.setItem(DAILY_CHALLENGES_KEY,JSON.stringify(Array.from({length:CHALLENGE_COUNT},(_,i)=>(a[i]||"").trim())))}
+function challengeDone(){let a=[];try{a=JSON.parse(localStorage.getItem(DAILY_CHALLENGE_DONE_KEY)||localStorage.getItem("focusDailyChallengesDone")||"[]")}catch(e){};a=Array.isArray(a)?a:[];return Array.from({length:CHALLENGE_COUNT},(_,i)=>!!a[i])}
+function saveChallengeDone(a){localStorage.setItem(DAILY_CHALLENGE_DONE_KEY,JSON.stringify(Array.from({length:CHALLENGE_COUNT},(_,i)=>!!a[i])))}
+function getChallengeHistory(){try{const h=JSON.parse(localStorage.getItem(DAILY_CHALLENGE_HISTORY_KEY)||localStorage.getItem("focusChallengeHistory")||"{}");return h&&typeof h==="object"?h:{}}catch(e){return {}}}
+function saveChallengeHistory(h){localStorage.setItem(DAILY_CHALLENGE_HISTORY_KEY,JSON.stringify(h))}
+function challengeDoneCount(){return challengeDone().filter(Boolean).length}
+function fixedDoneCount(){return challengeDone().slice(0,FIXED_CHALLENGE_COUNT).filter(Boolean).length}
+function bonusDoneCount(){return challengeDone().slice(FIXED_CHALLENGE_COUNT).filter(Boolean).length}
+function syncTodayChallengeHistory(){const h=getChallengeHistory();h[localDateKey()]=challengeDone();saveChallengeHistory(h)}
+function challengeStatus(key){const h=getChallengeHistory();const a=Array.isArray(h[key])?h[key]:null;if(!a)return null;const fixed=a.slice(0,FIXED_CHALLENGE_COUNT).filter(Boolean).length;const bonus=a.slice(FIXED_CHALLENGE_COUNT).filter(Boolean).length;if(fixed===FIXED_CHALLENGE_COUNT&&bonus===2)return "gold";if(fixed===FIXED_CHALLENGE_COUNT)return "green";return "red"}
+function renderDailyChallenges(){const el=document.getElementById("dailyChallenges");if(!el)return;const a=challengeState(),d=challengeDone();let h='<div class="challenge-table-grid"><div class="challenge-table-group"><div class="challenge-group-label"><span>VASTE CHALLENGES</span><b>5</b></div>';for(let i=0;i<5;i++){h+=challengeSlotHtml(i,a[i],d[i],false)}h+='</div><div class="challenge-table-group bonus-group"><div class="challenge-group-label"><span>BONUS CHALLENGES</span><b>2</b></div>';for(let i=5;i<7;i++){h+=challengeSlotHtml(i,a[i],d[i],true)}h+='</div></div>';el.innerHTML=h;const p=document.getElementById("challengeProgress");if(p)p.textContent=`${fixedDoneCount()}/5 · bonus ${bonusDoneCount()}/2`;updateDashboardChallenges()}
+function challengeSlotHtml(i,text,done,bonus){return `<div class="challenge-slot ${bonus?"bonus-slot":""} ${done?"completed":""}"><div class="challenge-slot-top"><span>Challenge ${bonus?i-4:i+1}</span><span>${bonus?"BONUS":"VAST"}</span></div><div class="challenge-slot-main"><input class="challenge-input" id="challenge-${i}" maxlength="80" placeholder="Vul je challenge in..." value="${esc(text)}" onchange="saveChallengeText(${i},this.value)"><button type="button" class="challenge-check ${done?"done":""}" onclick="toggleDailyChallenge(${i})" aria-label="Challenge ${i+1} afvinken">${done?"✓":""}</button></div></div>`}
+function saveChallengeText(i,value){const a=challengeState();a[i]=(value||"").trim();saveChallengeState(a);renderChallengeExamples("easyChallengeExamples",CHALLENGE_EXAMPLES.easy);renderChallengeExamples("hardChallengeExamples",CHALLENGE_EXAMPLES.hard);updateDashboardChallenges()}
+function toggleDailyChallenge(i){const a=challengeState();if(!a[i]){alert("Vul eerst een challenge in.");return}const d=challengeDone();d[i]=!d[i];saveChallengeDone(d);syncTodayChallengeHistory();renderDailyChallenges();renderChallengesCalendar();updateHome()}
+function openChallengeInfo(){const o=document.getElementById("challengeInfoOverlay");if(!o)return;renderChallengeExamples("easyChallengeExamples",CHALLENGE_EXAMPLES.easy);renderChallengeExamples("hardChallengeExamples",CHALLENGE_EXAMPLES.hard);o.style.display="flex"}
+function closeChallengeInfo(e){if(e&&e.target!==e.currentTarget)return;const o=document.getElementById("challengeInfoOverlay");if(o)o.style.display="none"}
+function renderChallengeExamples(id,list){const el=document.getElementById(id);if(!el)return;const current=challengeState();el.innerHTML=list.map(x=>{const added=current.includes(x);return `<div class="challenge-example"><div class="challenge-example-text">${esc(x)}</div><button type="button" class="challenge-add-btn" ${added?"disabled":""} data-challenge="${esc(x)}" onclick="addChallengeIdea(this.dataset.challenge)">${added?"Toegevoegd":"Toevoegen"}</button></div>`}).join("")}
+function addChallengeIdea(text){const a=challengeState();const i=a.findIndex(x=>!x);if(i===-1){alert("Alle 7 challenge-vakken zijn gevuld.");return}a[i]=text;saveChallengeState(a);renderDailyChallenges();renderChallengeExamples("easyChallengeExamples",CHALLENGE_EXAMPLES.easy);renderChallengeExamples("hardChallengeExamples",CHALLENGE_EXAMPLES.hard);updateHome()}
+let challengeCalendarYear=new Date().getFullYear();
+function streakStats(){const h=getChallengeHistory();const keys=Object.keys(h).filter(k=>["green","gold"].includes(challengeStatus(k))).sort();let longest=0,run=0,prev=null;for(const k of keys){const d=new Date(k+"T12:00:00");if(prev){const p=new Date(prev+"T12:00:00");const diff=Math.round((d-p)/86400000);run=diff===1?run+1:1}else run=1;longest=Math.max(longest,run);prev=k}let current=0;const t=new Date();for(let i=0;i<370;i++){const d=new Date(t);d.setDate(t.getDate()-i);const k=localDateKey(d);if(["green","gold"].includes(challengeStatus(k)))current++;else break}return {current,longest,completed:keys.length}}
+function renderChallengesCalendar(){const grid=document.getElementById("challengeCalendar");if(!grid)return;document.getElementById("challengeYearLabel").textContent=challengeCalendarYear;const names=["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus","September","Oktober","November","December"];let out="";for(let m=0;m<12;m++){const first=new Date(challengeCalendarYear,m,1);const days=new Date(challengeCalendarYear,m+1,0).getDate();const offset=(first.getDay()+6)%7;let cells="";for(let i=0;i<offset;i++)cells+='<div class="calendar-day empty"></div>';for(let day=1;day<=days;day++){const dt=new Date(challengeCalendarYear,m,day);const key=localDateKey(dt);const future=dt>new Date();cells+=`<div class="calendar-day ${challengeStatus(key)||""} ${key===localDateKey()?"today":""} ${future?"future":""}" title="${key}">${day}</div>`}out+=`<div class="month-card"><div class="month-title">${names[m]}</div><div class="weekday-row"><span>MA</span><span>DI</span><span>WO</span><span>DO</span><span>VR</span><span>ZA</span><span>ZO</span></div><div class="month-grid">${cells}</div></div>`}grid.innerHTML=out;const s=streakStats();document.getElementById("challengeCurrentStreak").textContent=`${s.current} dagen`;document.getElementById("challengeLongestStreak").textContent=`${s.longest} dagen`;document.getElementById("challengeCompletedDays").textContent=s.completed;updateDashboardChallenges()}
+function changeChallengeYear(delta){challengeCalendarYear+=delta;renderChallengesCalendar()}
+function updateDashboardChallenges(){const v=document.getElementById("dashChallengeValue"),m=document.getElementById("dashChallengeMeta");if(v)v.textContent=`${fixedDoneCount()}/5`;if(m)m.textContent=`bonus ${bonusDoneCount()}/2 · streak ${streakStats().current} dagen`}
+function goDashboard(page){const btn=document.querySelector(`.nav-button[data-page="${page}"]`);showPage(page,btn)}
+
 function showPage(page, button){
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  const target = document.getElementById(page);
-  if(!target) return;
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  const target=document.getElementById(page); if(!target)return;
   target.classList.add("active");
+  document.querySelectorAll(".nav-button").forEach(b=>b.classList.remove("active"));
+  if(button)button.classList.add("active");
+  if(page==="workout")renderWorkoutBuilder();
+  if(page==="weight")renderWeightPage();
+  if(page==="nutrition")renderNutritionPage();
+  if(page==="progress")updateProgressPage();
+  if(page==="challenges")renderChallengesCalendar();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 
-  document.querySelectorAll(".nav-button").forEach(b => b.classList.remove("active"));
-  if(button) button.classList.add("active");
+function loadUserName(){
+  const name=getSettings().name || localStorage.getItem("fittrackUserName") || "Jermain";
+  const title=document.getElementById("homeUserName");
+  const input=document.getElementById("settingsName");
+  if(title) title.textContent=name;
+  if(input) input.value=name;
+  document.title=`FOCUS · ${name}`;
+}
 
-  if(page === "workout") renderWorkoutBuilder();
-  if(page === "weight") renderWeightPage();
-  if(page === "nutrition") renderNutritionPage();
-  if(page === "progress") updateProgressPage();
-
-  window.scrollTo({top:0, behavior:"smooth"});
+function saveUserName(){
+  const input=document.getElementById("settingsName");
+  const name=(input?.value || "").trim();
+  if(!name){alert("Vul een naam in.");return}
+  localStorage.setItem("fittrackUserName",name);
+  loadUserName();
 }
 
 function updateHome(){
-  const weights = weightData;
-  const nutrition = nutritionData;
-  const latestWeight = weights.slice().sort((a,b) => (b.date || "").localeCompare(a.date || ""))[0];
-  const today = todayString();
-
-  const homeWeight = document.getElementById("homeWeight");
-  if(homeWeight) homeWeight.textContent = latestWeight ? `${Number(latestWeight.weight).toFixed(1)} kg` : "-- kg";
-
-  const homeCalories = document.getElementById("homeCalories");
-  const todayFood = nutrition.find(x => x.date === today);
-  if(homeCalories) homeCalories.textContent = todayFood ? `${Number(todayFood.calories || 0).toLocaleString("nl-NL")} kcal` : "--";
-
-  const weekStart = new Date();
-  const day = weekStart.getDay();
-  const diff = day === 0 ? 6 : day - 1;
-  weekStart.setDate(weekStart.getDate() - diff);
-  const weekStartString = weekStart.toISOString().slice(0,10);
-  const trainingCount = savedWorkouts.filter(w => (w.date || "") >= weekStartString).length;
-  const countEl = document.getElementById("trainingCount");
-  if(countEl) countEl.textContent = trainingCount;
+  const latestWeight=weightData.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""))[0];
+  const today=localDateKey();
+  const homeWeight=document.getElementById("homeWeight");if(homeWeight)homeWeight.textContent=latestWeight?`${Number(latestWeight.weight).toFixed(1)} kg`:"-- kg";
+  const todayFood=nutritionData.find(x=>x.date===today);const homeCalories=document.getElementById("homeCalories");if(homeCalories)homeCalories.textContent=todayFood?`${Number(todayFood.calories||0).toLocaleString("nl-NL")} kcal`:"--";
+  const ws=new Date();const diff=ws.getDay()===0?6:ws.getDay()-1;ws.setDate(ws.getDate()-diff);const weekStart=localDateKey(ws);const trainingCount=savedWorkouts.filter(w=>(w.date||"")>=weekStart).length;
+  const countEl=document.getElementById("trainingCount");if(countEl)countEl.textContent=trainingCount;
+  const dw=document.getElementById("dashWorkoutValue");if(dw)dw.textContent=trainingCount;const dwt=document.getElementById("dashWorkoutMeta");if(dwt)dwt.textContent=trainingCount===1?"training deze week":"trainingen deze week";
+  const dweight=document.getElementById("dashWeightValue");if(dweight)dweight.textContent=latestWeight?`${Number(latestWeight.weight).toFixed(1)} kg`:"-- kg";
+  const dcal=document.getElementById("dashNutritionValue");if(dcal)dcal.textContent=todayFood?`${Number(todayFood.calories||0).toLocaleString("nl-NL")} kcal`:"--";
+  const dp=document.getElementById("dashProgressValue");if(dp)dp.textContent=trainingCount;
+  renderDailyChallenges();
 }
 
 function updateProgressPage(){
@@ -1471,7 +1634,14 @@ function formatShortDay(s){
 renderWeightPage();
 renderNutritionPage();
 renderWorkoutBuilder();
+renderDailyChallenges();
+renderChallengesCalendar();
+loadUserName();
+applyTheme();
+updateAvatar();
 updateHome();
+showWelcome();
 </script>
+<div class="challenge-info-overlay" id="challengeInfoOverlay" onclick="closeChallengeInfo(event)"><div class="challenge-info-modal" onclick="event.stopPropagation()"><div class="challenge-info-head"><div><h2>Challenge inspiratie</h2><p class="muted" style="margin-top:6px;font-size:13px">Kies een challenge en klik op Toevoegen. Hij komt direct in het eerste vrije vak.</p></div><button class="challenge-info-close" onclick="closeChallengeInfo()" type="button">×</button></div><div class="challenge-example-section"><h3>Makkelijk · 50 voorbeelden</h3><div class="challenge-example-list" id="easyChallengeExamples"></div></div><div class="challenge-example-section"><h3>Moeilijk · 50 voorbeelden</h3><div class="challenge-example-list" id="hardChallengeExamples"></div></div></div></div>
 </body>
 </html>
