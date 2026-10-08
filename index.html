@@ -363,10 +363,11 @@ textarea{resize:vertical;min-height:75px}
 }
 .previous-set-hint{
   display:block;
-  margin-top:3px;
-  color:var(--muted);
-  font-size:9px;
+  margin-top:4px;
+  color:var(--blue-dark);
+  font-size:10px;
   line-height:1.2;
+  font-weight:800;
   white-space:nowrap;
 }
 .builder-table .set-number{
@@ -827,6 +828,16 @@ body.dark .calendar-day-section{border-color:var(--border)}
 .superset-group-names{font-size:10px;color:var(--muted);text-align:right;}
 .superset-group .builder-card{margin-bottom:8px;background:var(--card);}
 .superset-group .builder-card:last-child{margin-bottom:0}
+.previous-workout-summary{
+  margin-top:7px;
+  padding:6px 8px;
+  border-radius:8px;
+  background:var(--blue-soft);
+  color:var(--blue-dark);
+  font-size:10px;
+  line-height:1.35;
+  font-weight:800;
+}
 .superset-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 .superset-button{
   border:1px solid var(--border);
@@ -3059,11 +3070,15 @@ function updateWorkoutTotalsOnly(){
   }
 }
 
-function getExerciseHistory(exerciseName, currentDate){
+function getExerciseHistory(exerciseName, currentDate, excludeId=null){
   return savedWorkouts
     .filter(workout => {
       if((workout.mode || "fitness") !== workoutMode) return false;
-      if(workout.date && currentDate && workout.date >= currentDate) return false;
+      // Sluit alleen trainingen ná de gekozen datum uit.
+      // Meerdere trainingen op dezelfde dag moeten gewoon meetellen,
+      // zodat "Opnieuw doen" altijd de meest recente uitvoering laat zien.
+      if(workout.date && currentDate && workout.date > currentDate) return false;
+      if(excludeId != null && String(workout.id) === String(excludeId)) return false;
       return workout.exercises?.some(ex => ex.name === exerciseName);
     })
     .sort((a,b) => {
@@ -3293,7 +3308,11 @@ function renderWorkoutBuilder(){
 
     // Haal de meest recente opgeslagen uitvoering van deze oefening op,
     // zodat je per set direct kunt zien wat je de vorige keer deed.
-    const previousHistory = getExerciseHistory(exercise.name, document.getElementById("workoutDate")?.value || todayString());
+    const previousHistory = getExerciseHistory(
+      exercise.name,
+      document.getElementById("workoutDate")?.value || todayString(),
+      editingWorkoutId
+    );
     const previousExercise = previousHistory.length
       ? previousHistory[0].exercises?.find(ex => ex.name === exercise.name)
       : null;
@@ -3302,7 +3321,7 @@ function renderWorkoutBuilder(){
     const rows = exercise.sets.map((set, index) => {
       const previousSet = previousSets[index];
       const previousFitnessText = previousSet && (previousSet.weight !== "" || previousSet.reps !== "")
-        ? `Vorige: ${previousSet.weight || "–"} kg × ${previousSet.reps || "–"}`
+        ? `Vorige keer: ${previousSet.weight || "–"} kg × ${previousSet.reps || "–"}`
         : "Vorige: –";
 
       return `
@@ -3318,7 +3337,7 @@ function renderWorkoutBuilder(){
             autocomplete="off"
             inputmode="decimal"
             oninput="updateSet(${exercise.id},${index},'weight',this.value)">
-          <small class="previous-set-hint">${previousSet && previousSet.weight !== "" ? `Vorige: ${previousSet.weight} kg` : "Vorige: –"}</small>
+          <small class="previous-set-hint">${previousSet && previousSet.weight !== "" ? `Vorige keer: ${previousSet.weight} kg` : "Vorige keer: –"}</small>
         </td>
         <td>
           <input class="fitness-set-input" type="number" min="0" step="1" placeholder="reps"
@@ -3329,7 +3348,7 @@ function renderWorkoutBuilder(){
             autocomplete="off"
             inputmode="numeric"
             oninput="updateSet(${exercise.id},${index},'reps',this.value)">
-          <small class="previous-set-hint">${previousSet && previousSet.reps !== "" ? `Vorige: ${previousSet.reps} reps` : "Vorige: –"}</small>
+          <small class="previous-set-hint">${previousSet && previousSet.reps !== "" ? `Vorige keer: ${previousSet.reps} reps` : "Vorige keer: –"}</small>
         </td>`}
         <td>
           <button class="remove-set" onclick="removeSet(${exercise.id},${index})" title="Set verwijderen">×</button>
@@ -3343,6 +3362,7 @@ function renderWorkoutBuilder(){
         <div class="builder-title">
           <h3>${exercise.name}</h3>
           <small>${exercise.muscle} · ${exercise.secondary}</small>
+          ${previousSets.length ? `<div class="previous-workout-summary">Vorige keer · ${previousSets.map((set,i)=>`Set ${i+1}: ${set.weight || "–"} kg × ${set.reps || "–"}`).join(" · ")}</div>` : ""}
           ${getSupersetPartner(exercise) ? `<span class="superset-badge">🔗 Superset · ${getSupersetPartner(exercise).name}</span>` : ""}
         </div>
         <div class="superset-actions">
