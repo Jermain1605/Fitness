@@ -210,6 +210,21 @@ textarea{resize:vertical;min-height:75px}
 .macro-card small{color:var(--muted);display:block;font-size:11px}
 .macro-card strong{font-size:20px;display:block;margin-top:6px}
 .kcal-total{font-size:39px;font-weight:850}.kcal-total span{font-size:14px;color:var(--muted)}
+
+.nutrition-target-card{margin-top:14px}.nutrition-target-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}.nutrition-target-head h3{margin-top:3px;font-size:16px}.nutrition-target-badge{display:inline-flex;align-items:center;padding:6px 9px;border-radius:999px;background:var(--blue-soft);color:var(--blue-dark);font-size:11px;font-weight:800;white-space:nowrap}.nutrition-target-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.nutrition-target-grid>div{padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--card2)}.nutrition-target-grid small{display:block;color:var(--muted);font-size:10px;font-weight:700}.nutrition-target-grid strong{display:block;margin-top:4px;font-size:17px}.nutrition-target-grid strong.remaining-positive{color:#166534}.nutrition-target-grid strong.remaining-over{color:#b91c1c}.nutrition-target-note{margin-top:12px;color:var(--muted);font-size:11px;line-height:1.45}.nutrition-target-card .nutrition-target-grid strong{font-variant-numeric:tabular-nums}@media(max-width:640px){.nutrition-target-grid{grid-template-columns:1fr 1fr}.nutrition-target-grid>div:last-child{grid-column:1/-1}.nutrition-target-head{align-items:flex-start}.nutrition-target-head h3{font-size:14px}}
+.nutrition-training-card{margin-top:14px;border:1px solid var(--border);background:var(--card);border-radius:16px;padding:16px}
+.nutrition-training-card .nutrition-training-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.nutrition-training-card h3{margin:0;font-size:16px}
+.nutrition-training-badge{display:inline-flex;align-items:center;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:800;white-space:nowrap}
+.nutrition-training-badge.high{background:#dcfce7;color:#166534}
+.nutrition-training-badge.normal{background:var(--blue-soft);color:var(--blue-dark)}
+.nutrition-training-badge.moderate{background:#fef3c7;color:#92400e}
+.nutrition-training-summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center}
+.nutrition-training-workout{font-weight:800;font-size:14px;line-height:1.35}
+.nutrition-training-meta{font-size:12px;color:var(--muted);margin-top:3px}
+.nutrition-training-advice{font-size:13px;font-weight:800;text-align:right}
+.nutrition-training-empty{font-size:13px;color:var(--muted)}
+@media(max-width:640px){.nutrition-training-summary{grid-template-columns:1fr}.nutrition-training-advice{text-align:left}}
 .table-wrapper{overflow-x:auto}
 .data-table{width:100%;border-collapse:collapse;min-width:500px}
 .data-table th{text-align:left;color:var(--muted);font-size:10px;font-weight:700;padding:9px;border-bottom:1px solid var(--border)}
@@ -471,7 +486,9 @@ main{max-width:980px;padding:20px}.page-header{margin:18px 0 24px}.page-header s
 
 .header-actions{display:flex;align-items:center;gap:9px}.settings-button{width:40px;height:40px;border:1px solid var(--border);border-radius:12px;background:var(--card);font-size:18px;box-shadow:var(--shadow)}
 .home-name-row{display:flex;align-items:center;gap:12px}.edit-name{border:1px solid var(--border);background:var(--card);color:var(--blue-dark);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800}.edit-name:hover{background:var(--blue-soft)}
-.settings-overlay{position:fixed;inset:0;background:rgba(15,23,42,.48);backdrop-filter:blur(5px);z-index:1000;display:none;padding:20px;align-items:center;justify-content:center}.settings-overlay.open{display:flex}.settings-panel{width:min(620px,100%);max-height:90vh;overflow:auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 25px 70px rgba(15,23,42,.22)}.settings-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}.settings-head small{font-size:10px;font-weight:900;letter-spacing:1.4px;color:var(--blue-dark)}.settings-head h2{font-size:27px;margin-top:4px}.close-settings{width:34px;height:34px;border:0;border-radius:50%;background:var(--blue-soft);font-size:23px}.settings-section{padding:18px 0;border-top:1px solid var(--border)}.settings-section:first-of-type{border-top:0}.settings-section h3{font-size:14px;margin-bottom:13px}.avatar-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}.settings-avatar{width:58px;height:58px;border-radius:18px;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;overflow:hidden;background-size:cover;background-position:center}.avatar-row p{font-size:12px;color:var(--muted);margin-top:3px}.upload-btn{margin-left:auto;background:var(--blue);color:#fff;border-radius:10px;padding:10px 13px;font-size:12px;font-weight:800;cursor:pointer}.upload-btn input{display:none}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.settings-grid label,.settings-section>label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}.settings-save{width:100%;margin-top:8px;padding:13px;border:0;border-radius:12px;background:#0f172a;color:#fff;font-weight:800}.theme-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}.theme-option{padding:12px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:12px;font-weight:800}.theme-option.active{border-color:var(--blue-dark);background:var(--blue-soft)}
+.settings-overlay{position:fixed;inset:0;background:rgba(15,23,42,.48);backdrop-filter:blur(5px);z-index:1000;display:none;padding:20px;align-items:center;justify-content:center}.settings-overlay.open{display:flex}.settings-panel{width:min(620px,100%);max-height:90vh;overflow:auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 25px 70px rgba(15,23,42,.22)}.settings-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}.settings-head small{font-size:10px;font-weight:900;letter-spacing:1.4px;color:var(--blue-dark)}.settings-head h2{font-size:27px;margin-top:4px}.close-settings{width:34px;height:34px;border:0;border-radius:50%;background:var(--blue-soft);font-size:23px}.settings-section{padding:18px 0;border-top:1px solid var(--border)}.settings-section:first-of-type{border-top:0}.settings-section h3{font-size:14px;margin-bottom:13px}.avatar-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}.settings-avatar{width:58px;height:58px;border-radius:18px;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;overflow:hidden;background-size:cover;background-position:center}.avatar-row p{font-size:12px;color:var(--muted);margin-top:3px}.upload-btn{margin-left:auto;background:var(--blue);color:#fff;border-radius:10px;padding:10px 13px;font-size:12px;font-weight:800;cursor:pointer}.upload-btn input{display:none}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.settings-grid label,.settings-section>label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}.settings-save{width:100%;margin-top:8px;padding:13px;border:0;border-radius:12px;background:#0f172a;color:#fff;font-weight:800}
+.backup-last{margin-top:10px;padding:9px 11px;border:1px solid var(--border);border-radius:10px;background:var(--soft);color:var(--muted);font-size:11px;font-weight:700}
+.theme-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}.theme-option{padding:12px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:12px;font-weight:800}.theme-option.active{border-color:var(--blue-dark);background:var(--blue-soft)}
 body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f3f6fb;--muted:#9aa8ba;--blue:#2563eb;--blue-dark:#60a5fa;--blue-soft:#172554;--shadow:0 8px 25px rgba(0,0,0,.22)}body.dark .bottom-nav{background:rgba(17,24,39,.94)}body.dark .settings-button,body.dark .edit-name,body.dark .theme-option{background:var(--card);color:var(--text)}body.dark .data-input,body.dark .data-select,body.dark .data-textarea,body.dark .set input,body.dark .builder-table input{background:#0f172a;color:#f3f6fb;border-color:var(--border);-webkit-text-fill-color:#f3f6fb;caret-color:#60a5fa}body.dark .data-input::placeholder,body.dark .data-select::placeholder,body.dark .data-textarea::placeholder,body.dark .set input::placeholder,body.dark .builder-table input::placeholder{color:#9aa8ba;opacity:1}
 @media(max-width:640px){.settings-overlay{padding:10px}.settings-panel{border-radius:20px;padding:18px}.settings-grid{grid-template-columns:1fr}.home-name-row{gap:8px}.edit-name{padding:6px 9px}.settings-section .theme-option{min-height:46px}}
 .brand-lockup{display:flex;flex-direction:column;gap:2px}.brand-slogan{font-size:9px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}body.dark main,.bottom-nav,.topbar{position:relative;z-index:1}.welcome-overlay{position:fixed;inset:0;background:var(--bg);z-index:12000;display:flex;align-items:center;justify-content:center;padding:24px}.welcome-card{width:min(620px,100%);text-align:center}.welcome-brand{font-size:13px;font-weight:900;letter-spacing:4px;color:var(--blue);margin-bottom:28px}.welcome-card h1{font-size:clamp(36px,7vw,58px);letter-spacing:-.04em;margin:0 0 8px}.welcome-name{color:var(--blue-dark)}.daily-quote{font-size:clamp(21px,4vw,30px);line-height:1.35;font-weight:700;letter-spacing:-.02em;max-width:520px;margin:28px auto 12px}.quote-day{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);margin-bottom:28px}.welcome-enter{border:0;background:#0f172a;color:#fff;border-radius:14px;padding:14px 24px;font-weight:800;font-size:14px;cursor:pointer}body.dark .welcome-enter{background:#fff;color:#0b1120}
@@ -496,6 +513,7 @@ body.dark .dashboard-event-icon{background:var(--card2)}
 .challenge-slot-top{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:7px}.challenge-slot-main{display:flex;gap:8px;align-items:center}.challenge-input{width:100%;min-width:0;border:1px solid var(--border);border-radius:10px;padding:9px 10px;background:var(--card);color:var(--text);font:inherit;font-size:13px}.challenge-check{width:36px;height:36px;min-width:36px;border:1px solid var(--border);border-radius:10px;background:var(--card);cursor:pointer;font-size:20px;font-weight:900;color:#24a148}.challenge-check.done{background:#24a148;color:#fff;border-color:#24a148}.bonus-slot .challenge-check.done{background:#d6a800;border-color:#d6a800;color:#fff}
 .challenge-progress{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:13px}.challenge-progress strong{font-size:16px}
 .challenge-info-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:11000}.challenge-info-modal{width:min(760px,100%);max-height:85vh;overflow:auto;background:var(--card);border-radius:22px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.22)}.challenge-info-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.challenge-info-close{border:0;background:var(--soft);width:34px;height:34px;border-radius:50%;font-size:22px;cursor:pointer}.challenge-example-section{margin-top:18px}.challenge-example-section h3{margin:0 0 10px}.challenge-example-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}.challenge-example{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--border);border-radius:11px;padding:9px 10px}.challenge-example-text{font-size:12px}.challenge-add-btn{border:1px solid var(--blue);color:var(--blue);background:var(--card);border-radius:8px;padding:6px 8px;font-weight:800;font-size:11px;cursor:pointer;white-space:nowrap}.challenge-add-btn:disabled{opacity:.55;cursor:default}
+.calendar-page-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.calendar-header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}.calendar-event-bar{margin-bottom:14px}.calendar-event-bar>.calendar-event-toggle{display:none}
 .challenge-calendar-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.challenge-calendar-controls button{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:8px 12px;cursor:pointer}.challenge-calendar-year{font-size:20px;font-weight:900}.calendar-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted)}.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.legend-green{background:#24a148}.legend-gold{background:#d6a800}.legend-red{background:#dc3545}
 .calendar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.month-card{border:1px solid var(--border);border-radius:14px;padding:10px;background:var(--card)}.month-title{font-weight:900;margin-bottom:8px}.weekday-row,.month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.weekday-row{font-size:9px;color:var(--muted);text-align:center;margin-bottom:4px}.calendar-day{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:7px;font-size:11px;background:var(--soft)}.calendar-day.empty{background:transparent}.calendar-day.green{background:#24a148;color:#fff}.calendar-day.gold{background:#d6a800;color:#fff}.calendar-day.red{background:#dc3545;color:#fff}.calendar-day.today{outline:2px solid var(--blue);outline-offset:1px}.calendar-day.future{opacity:.45}.calendar-workout-icon{position:absolute;top:2px;right:2px;width:11px;height:11px;display:flex;align-items:center;justify-content:center;color:currentColor;z-index:3;pointer-events:none}.calendar-workout-icon svg{width:10px;height:10px;display:block;fill:currentColor}
 @media(max-width:800px){.calendar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trust-process-side{font-size:24px;left:3px}.dashboard-grid{grid-template-columns:1fr}.dashboard-wide{grid-column:auto}}
@@ -859,11 +877,11 @@ body.dark .superset-button,body.dark .superset-picker select{background:#0f172a;
 .calendar-day .calendar-activity-icons{position:absolute;left:2px;right:2px;bottom:2px;display:flex;gap:2px;justify-content:center;pointer-events:none}
 .calendar-activity-icon{font-size:8px;line-height:1}
 
-.calendar-event-card{margin-bottom:14px}.calendar-event-card h3{margin:0;font-size:15px}.calendar-event-card p{margin:3px 0 12px;font-size:11px;color:var(--muted)}
-.calendar-event-form{display:grid;grid-template-columns:1.1fr 1.1fr 1fr auto;gap:9px;align-items:end}.calendar-event-form .input-group{min-width:0}.calendar-event-form label{display:block;font-size:10px;font-weight:800;color:var(--muted);margin-bottom:5px}.calendar-event-form input{width:100%;box-sizing:border-box}.calendar-event-form .btn{width:auto;white-space:nowrap;padding:10px 14px}
+.calendar-event-bar{margin-bottom:14px}.calendar-event-bar>.calendar-event-toggle{display:inline-flex;width:auto;min-height:44px}.calendar-event-bar .calendar-event-form-wrap{margin-top:12px;padding:14px;border:1px solid var(--border);border-radius:14px;background:var(--card)}
+.calendar-event-card{margin-bottom:14px}.calendar-event-head{display:flex;align-items:center;justify-content:space-between;gap:14px}.calendar-event-kicker{display:block;color:var(--blue);font-size:9px;font-weight:900;letter-spacing:1.2px;margin-bottom:2px}.calendar-event-card h3{margin:0;font-size:15px}.calendar-event-card p{margin:3px 0 0;font-size:11px;color:var(--muted)}.calendar-event-toggle{flex:0 0 auto;white-space:nowrap}.calendar-event-form-wrap{margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}.calendar-event-form{display:grid;grid-template-columns:1.1fr 1.1fr 1fr auto;gap:9px;align-items:end}.calendar-event-form .input-group{min-width:0}.calendar-event-form label{display:block;font-size:10px;font-weight:800;color:var(--muted);margin-bottom:5px}.calendar-event-form input{width:100%;box-sizing:border-box}.calendar-event-actions{display:flex;gap:7px;align-items:center}.calendar-event-actions .btn{width:auto;white-space:nowrap;padding:10px 14px}
 .calendar-event-list{display:flex;flex-direction:column;gap:7px;margin-top:12px}.calendar-event-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:var(--card2)}.calendar-event-icon{font-size:15px;flex:0 0 auto}.calendar-event-item strong{font-size:11px;display:block}.calendar-event-item span{font-size:10px;color:var(--muted);display:block;margin-top:2px}.calendar-event-delete{margin-left:auto;border:0;background:transparent;color:var(--danger);font-size:15px;cursor:pointer;padding:4px 6px}.calendar-event-badge{position:absolute;left:2px;bottom:2px;font-size:9px;line-height:1;pointer-events:none}
 body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-item{background:var(--card2);color:var(--text);border-color:var(--border)}body.dark .calendar-event-form label{color:#b6c2d2}
-@media(max-width:760px){.calendar-event-form{grid-template-columns:1fr 1fr}.calendar-event-form .btn{grid-column:1/-1;width:100%}}@media(max-width:480px){.calendar-event-form{grid-template-columns:1fr}}
+@media(max-width:760px){.calendar-event-head{align-items:flex-start;flex-direction:column}.calendar-event-toggle{width:100%}.calendar-event-form{grid-template-columns:1fr 1fr}.calendar-event-actions{grid-column:1/-1}.calendar-event-actions .btn{flex:1;width:100%}}@media(max-width:480px){.calendar-event-form{grid-template-columns:1fr}.calendar-event-actions{grid-column:auto;flex-direction:column}.calendar-event-actions .btn{width:100%}}
 .calendar-day-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:1200}
 .calendar-day-overlay.open{display:flex}
 .calendar-day-modal{width:min(520px,100%);max-height:82vh;overflow:auto;background:var(--card);border-radius:20px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.24)}
@@ -883,11 +901,25 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 .calendar-day-entry strong{font-size:12px}.calendar-day-entry span{display:block;color:var(--muted);font-size:10px;margin-top:2px}
 .calendar-empty{color:var(--muted);font-size:12px;padding:5px 0}
 @media(max-width:560px){.calendar-summary-grid{grid-template-columns:1fr 1fr}.calendar-day-modal{padding:15px}}
+
+@media(max-width:640px){.calendar-page-header{align-items:flex-start;flex-wrap:nowrap}.calendar-header-actions{flex-direction:column;align-items:stretch;gap:7px}.calendar-header-actions .calendar-event-toggle,.calendar-header-actions .workout-back-btn{white-space:nowrap;width:auto}.calendar-header-actions .calendar-event-toggle{padding:9px 11px;font-size:11px}.calendar-header-actions .workout-back-btn{padding:9px 11px;font-size:11px}.calendar-event-bar{margin-bottom:12px}}
 </style>
 
 <!-- FOCUS mobile accessibility/polish -->
 <style>
 @media(max-width:640px){
+  /* Dashboard next-event card: stack content so title/meta never collide with countdown. */
+  .dashboard-event-card{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:14px}
+  .dashboard-event-main{width:100%;display:flex;align-items:center;gap:10px;min-width:0}
+  .dashboard-event-icon{width:38px;height:38px;min-width:38px;font-size:19px}
+  .dashboard-event-info{flex:1;min-width:0}
+  .dashboard-event-info small{font-size:8px;letter-spacing:1px}
+  .dashboard-event-info strong{font-size:14px;line-height:1.2;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+  .dashboard-event-info span{font-size:10px;line-height:1.3;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+  .dashboard-event-countdown{width:100%;box-sizing:border-box;min-width:0;flex:0 0 auto;display:flex;align-items:baseline;justify-content:flex-start;gap:6px;padding:9px 0 0;border-left:0;border-top:1px solid var(--border);text-align:left}
+  .dashboard-event-countdown strong{font-size:24px;line-height:1}
+  .dashboard-event-countdown span{font-size:10px;margin-top:0}
+
   /* Bottom navigation: keep every destination tappable without squeezing labels. */
   .bottom-nav{
     justify-content:flex-start !important;
@@ -905,8 +937,10 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 
   /* Calendar event form: one clear field per row on phones. */
   .calendar-event-form{grid-template-columns:1fr !important;gap:10px}
-  .calendar-event-form .btn{grid-column:auto !important;width:100% !important;min-height:44px}
+  .calendar-event-actions{grid-column:auto !important;display:flex;flex-direction:column;gap:8px}
+  .calendar-event-actions .btn{width:100% !important;min-height:44px}
   .calendar-event-form input{min-height:44px}
+  .calendar-event-toggle{min-height:44px}
   .calendar-event-delete{min-width:40px;min-height:40px}
 
   /* Day overview must sit above the fixed mobile navigation. */
@@ -940,9 +974,10 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 
 @media(max-width:360px){
   .nav-button{flex-basis:56px !important;min-width:56px !important}
-  .dashboard-event-countdown{flex-basis:56px;min-width:56px;padding-left:8px}
-  .dashboard-event-countdown strong{font-size:21px}
+  .dashboard-event-card{padding:13px}
+  .dashboard-event-countdown strong{font-size:22px}
 }
+.runningWorkoutArea .finish{margin-top:14px}.runningWorkoutArea .summary{margin-top:14px}.runningWorkoutArea .nutrition-target-note{margin-top:10px}
 </style>
 </head>
 <body><div class="trust-process-side">TRUST THE PROCESS</div>
@@ -1051,6 +1086,7 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 <div class="workout-mode-grid">
 <div class="workout-mode-card" id="fitnessModeCard" onclick="setWorkoutMode('fitness')"><div class="mode-icon">🏋️</div><h3>Fitness</h3><p>Je bestaande krachttraining builder met je volledige oefenendatabase.</p><span class="workout-mode-badge">Krachttraining</span></div>
 <div class="workout-mode-card" id="hyroxModeCard" onclick="setWorkoutMode('hyrox')"><div class="mode-icon">🏃</div><h3>HYROX</h3><p>Stations, running, carries, sleds, wall balls en specifieke HYROX strength.</p><span class="workout-mode-badge">HYROX training</span></div>
+<div class="workout-mode-card" id="runningModeCard" onclick="setWorkoutMode('running')"><div class="mode-icon">🏃‍♂️</div><h3>Hardlopen</h3><p>Registreer afstand en tempo. FOCUS berekent automatisch je trainingsverbruik.</p><span class="workout-mode-badge">Looptraining</span></div>
 </div>
 </div>
 
@@ -1082,6 +1118,21 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
     </div>
     <button type="button" class="btn primary" onclick="openHyroxCircuit()">＋ Circuit maken</button>
   </div>
+</div>
+
+<div id="runningWorkoutArea" class="card" style="display:none">
+  <div class="section-title"><div><h2>Hardlooptraining</h2><p class="muted">Vul je afstand en tempo in. Je calorieverbruik wordt automatisch berekend op basis van je gewicht.</p></div></div>
+  <div class="input-row">
+    <div class="input-group"><label>Naam</label><input class="data-input" id="runningWorkoutName" type="text" placeholder="Bijv. Long run"></div>
+    <div class="input-group"><label>Datum</label><input class="data-input" id="runningWorkoutDate" type="date"></div>
+  </div>
+  <div class="input-row">
+    <div class="input-group"><label>Afstand (km)</label><input class="data-input" id="runningWorkoutDistance" type="number" min="0.1" step="0.1" placeholder="18"></div>
+    <div class="input-group"><label>Gem. tempo (min/km)</label><input class="data-input" id="runningWorkoutPace" type="text" placeholder="5:30"></div>
+  </div>
+  <div class="summary" id="runningWorkoutPreview"><div class="summary-box"><small>Afstand</small><strong id="runningPreviewDistance">0 km</strong></div><div class="summary-box"><small>Geschatte tijd</small><strong id="runningPreviewDuration">—</strong></div><div class="summary-box"><small>Sportverbruik</small><strong id="runningPreviewCalories">0 kcal</strong></div></div>
+  <div class="nutrition-target-note" id="runningWorkoutFormulaNote">Formule: lichaamsgewicht × gelopen kilometers.</div>
+  <button type="button" class="finish" onclick="saveRunningWorkout()">Hardlooptraining opslaan &amp; afronden ✓</button>
 </div>
 
 <div id="workoutBuilderArea" style="display:none">
@@ -1185,6 +1236,22 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 <div class="macro-card"><small>Vetten</small><strong id="todayFat">0 g</strong></div>
 </div>
 </div>
+<div class="card nutrition-target-card" id="nutritionTargetCard">
+  <div class="nutrition-target-head"><div><small class="muted">Slim voedingsdoel</small><h3>Vandaag afgestemd op je training</h3></div><span class="nutrition-target-badge" id="nutritionTargetBadge">Rustdag</span></div>
+  <div class="nutrition-target-grid">
+    <div><small>Dagdoel</small><strong id="nutritionTargetCalories">-- kcal</strong></div>
+    <div><small>Genomen</small><strong id="nutritionConsumedCalories">0 kcal</strong></div>
+    <div><small>Nog te nemen</small><strong id="nutritionRemainingCalories">-- kcal</strong></div>
+  </div>
+  <div class="nutrition-target-note" id="nutritionTargetNote">Vul je gewicht in bij Instellingen voor een persoonlijk doel.</div>
+</div>
+<div class="nutrition-training-card" id="nutritionTrainingCard">
+  <div class="nutrition-training-head">
+    <h3>Training vandaag</h3>
+    <span class="nutrition-training-badge normal" id="nutritionTrainingBadge">Normaal</span>
+  </div>
+  <div id="nutritionTrainingContent"></div>
+</div>
 <div class="input-card">
 <h3>Dagelijkse inname</h3>
 <div class="input-row">
@@ -1231,8 +1298,8 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 </div>
 </section>
 <section class="page" id="calendar">
-<div class="page-header"><div><small>GEWOONTES &amp; CONSISTENTIE</small><h1>Kalender</h1><p class="muted" style="font-size:12px;margin-top:5px">Centraal overzicht van je trainingen en challenges per dag.</p></div><button type="button" class="btn secondary workout-back-btn" onclick="showPage('home')">← Home</button></div>
-<div class="card calendar-event-card"><h3>Evenement toevoegen</h3><p>Plan handmatig een sportmoment, afspraak of ander evenement in je kalender.</p><div class="calendar-event-form"><div class="input-group"><label for="calendarEventSport">Sport</label><input class="data-input" id="calendarEventSport" type="text" maxlength="60" placeholder="Bijv. HYROX"></div><div class="input-group"><label for="calendarEventPlace">Plaats</label><input class="data-input" id="calendarEventPlace" type="text" maxlength="80" placeholder="Bijv. Amsterdam"></div><div class="input-group"><label for="calendarEventDate">Datum</label><input class="data-input" id="calendarEventDate" type="date"></div><button type="button" class="btn primary" onclick="addCalendarEvent()">＋ Toevoegen</button></div><div id="calendarEventList" class="calendar-event-list"></div></div>
+<div class="page-header calendar-page-header"><div><small>GEWOONTES &amp; CONSISTENTIE</small><h1>Kalender</h1><p class="muted" style="font-size:12px;margin-top:5px">Centraal overzicht van je trainingen en challenges per dag.</p></div><div class="calendar-header-actions"><button type="button" class="btn primary calendar-event-toggle" id="calendarEventToggle" onclick="toggleCalendarEventForm()" aria-expanded="false">＋ Evenement toevoegen</button><button type="button" class="btn secondary workout-back-btn" onclick="showPage('home')">← Home</button></div></div>
+<div class="calendar-event-bar"><div class="calendar-event-form-wrap" id="calendarEventFormWrap" hidden><div class="calendar-event-form"><div class="input-group"><label for="calendarEventSport">Sport</label><input class="data-input" id="calendarEventSport" type="text" maxlength="60" placeholder="Bijv. HYROX"></div><div class="input-group"><label for="calendarEventPlace">Plaats</label><input class="data-input" id="calendarEventPlace" type="text" maxlength="80" placeholder="Bijv. Amsterdam"></div><div class="input-group"><label for="calendarEventDate">Datum</label><input class="data-input" id="calendarEventDate" type="date"></div><div class="calendar-event-actions"><button type="button" class="btn secondary" onclick="toggleCalendarEventForm(false)">Annuleren</button><button type="button" class="btn primary" onclick="addCalendarEvent()">＋ Toevoegen</button></div></div></div><div id="calendarEventList" class="calendar-event-list" hidden></div></div>
 <div class="card">
 <div class="challenge-calendar-controls"><button onclick="changeChallengeYear(-1)" type="button">←</button><div class="challenge-calendar-year" id="challengeYearLabel"></div><button onclick="changeChallengeYear(1)" type="button">→</button></div>
 <div class="macro-grid"><div class="macro-card"><small>Huidige streak</small><strong id="challengeCurrentStreak">0 dagen</strong></div><div class="macro-card"><small>Langste streak</small><strong id="challengeLongestStreak">0 dagen</strong></div><div class="macro-card"><small>Voltooide dagen</small><strong id="challengeCompletedDays">0</strong></div></div>
@@ -1317,6 +1384,7 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 <label>Geslacht<select class="data-select" id="settingsGender"><option value="">Niet opgegeven</option><option>Man</option><option>Vrouw</option><option>Anders</option></select></label>
 <label>Leeftijd<input class="data-input" id="settingsAge" max="120" min="1" type="number"/></label>
 <label>Gewicht (kg)<input class="data-input" id="settingsWeight" max="300" min="20" step="0.1" type="number"/></label>
+<label>Lengte (cm)<input class="data-input" id="settingsHeight" max="250" min="120" step="1" type="number" placeholder="175"/></label>
 <label>Doelgewicht (kg)<input class="data-input" id="settingsGoalWeight" max="300" min="20" step="0.1" type="number" placeholder="75.0"/></label>
 </div>
 </div>
@@ -1331,6 +1399,7 @@ body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-
 <button type="button" class="theme-option" onclick="exportAppBackup()">⬇️ Back-up maken</button>
 <button type="button" class="theme-option" onclick="openBackupFile()">⬆️ Back-up terugzetten</button>
 </div>
+<div class="backup-last" id="backupLastStatus">Laatste back-up: Nog geen back-up gemaakt</div>
 <input id="backupFileInput" type="file" accept="application/json,.json" style="display:none" onchange="importAppBackup(this)">
 </div>
 <div class="settings-section">
@@ -1369,16 +1438,34 @@ function getAppBackupData(){
   return data;
 }
 
+function formatBackupDate(iso){
+  if(!iso) return "Nog geen back-up gemaakt";
+  const d=new Date(iso);
+  if(Number.isNaN(d.getTime())) return "Nog geen back-up gemaakt";
+  return d.toLocaleDateString("nl-NL",{day:"numeric",month:"long",year:"numeric"})+" – "+d.toLocaleTimeString("nl-NL",{hour:"2-digit",minute:"2-digit"});
+}
+
+function updateBackupStatus(){
+  const el=document.getElementById("backupLastStatus");
+  if(!el) return;
+  const last=localStorage.getItem("focusLastBackupAt");
+  el.textContent=`Laatste back-up: ${formatBackupDate(last)}`;
+}
+
 function exportAppBackup(){
+  const exportedAt=new Date().toISOString();
   const data=getAppBackupData();
+  data.exportedAt=exportedAt;
   const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
   const url=URL.createObjectURL(blob);
   const a=document.createElement("a");
   a.href=url;
-  a.download=`FOCUS-backup-${new Date().toISOString().slice(0,10)}.json`;
+  a.download=`FOCUS-backup-${exportedAt.slice(0,10)}.json`;
   document.body.appendChild(a);
   a.click();
   a.remove();
+  localStorage.setItem("focusLastBackupAt",exportedAt);
+  updateBackupStatus();
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 
@@ -1394,10 +1481,12 @@ function importAppBackup(input){
     try{
       const data=JSON.parse(reader.result);
       if(data?.app!=="FOCUS" || !data.storage || typeof data.storage!=="object") throw new Error("invalid");
-      if(!confirm("Deze back-up terugzetten? Je huidige gegevens in FOCUS worden overschreven door de gegevens uit de back-up.")){input.value="";return;}
+      const backupDate=data.exportedAt?formatBackupDate(data.exportedAt):"een onbekende datum";
+      if(!confirm(`⚠️ Deze back-up bevat gegevens van ${backupDate}.\n\nWil je je huidige gegevens overschrijven met deze back-up?`)){input.value="";return;}
       Object.entries(data.storage).forEach(([key,value])=>{
         if(typeof value==="string") localStorage.setItem(key,value);
       });
+      if(data.exportedAt) localStorage.setItem("focusLastBackupAt",data.exportedAt);
       alert("Back-up teruggezet. FOCUS wordt opnieuw geladen.");
       location.reload();
     }catch(e){
@@ -1406,6 +1495,8 @@ function importAppBackup(input){
   };
   reader.readAsText(file);
 }
+
+updateBackupStatus();
 
 function getSettings(){
   return JSON.parse(localStorage.getItem("fittrackSettings") || "{}");
@@ -1437,6 +1528,7 @@ function openSettings(focus){
   document.getElementById("settingsGender").value=s.gender || "";
   document.getElementById("settingsAge").value=s.age || "";
   document.getElementById("settingsWeight").value=s.weight || "";
+  document.getElementById("settingsHeight").value=s.height || "";
   document.getElementById("settingsGoalWeight").value=s.goalWeight || "75";
   document.getElementById("settingsGym").value=s.gym || "";
   document.getElementById("settingsOverlay").classList.add("open"); document.body.classList.add("settings-open");
@@ -1464,6 +1556,7 @@ function saveSettings(){
   s.gender=document.getElementById("settingsGender").value;
   s.age=document.getElementById("settingsAge").value;
   s.weight=document.getElementById("settingsWeight").value;
+  s.height=document.getElementById("settingsHeight").value;
   s.goalWeight=document.getElementById("settingsGoalWeight").value || "75";
   s.gym=(document.getElementById("settingsGym").value||"").trim();
   localStorage.setItem("fittrackSettings",JSON.stringify(s));
@@ -1550,7 +1643,8 @@ function addChallengeIdea(text){const a=challengeState();const i=a.findIndex(x=>
 const CALENDAR_EVENTS_KEY="focusCalendarEventsV1";
 function getCalendarEvents(){try{const parsed=JSON.parse(localStorage.getItem(CALENDAR_EVENTS_KEY)||"[]");return Array.isArray(parsed)?parsed:[]}catch(e){return []}}
 function saveCalendarEvents(events){localStorage.setItem(CALENDAR_EVENTS_KEY,JSON.stringify(events))}
-function addCalendarEvent(){const sport=(document.getElementById('calendarEventSport')?.value||'').trim(),place=(document.getElementById('calendarEventPlace')?.value||'').trim(),date=document.getElementById('calendarEventDate')?.value||'';if(!sport||!place||!date){alert('Vul sport, plaats en datum in.');return}const events=getCalendarEvents();events.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),sport,place,date});events.sort((a,b)=>(a.date||'').localeCompare(b.date||''));saveCalendarEvents(events);document.getElementById('calendarEventSport').value='';document.getElementById('calendarEventPlace').value='';document.getElementById('calendarEventDate').value='';renderCalendarEventList();renderChallengesCalendar();updateHome()}
+function toggleCalendarEventForm(force){const wrap=document.getElementById('calendarEventFormWrap'),btn=document.getElementById('calendarEventToggle');if(!wrap||!btn)return;const open=typeof force==='boolean'?force:wrap.hidden;if(open){wrap.hidden=false;btn.setAttribute('aria-expanded','true');btn.textContent='× Sluiten';setTimeout(()=>document.getElementById('calendarEventSport')?.focus(),0)}else{wrap.hidden=true;btn.setAttribute('aria-expanded','false');btn.textContent='＋ Evenement toevoegen'}}
+function addCalendarEvent(){const sport=(document.getElementById('calendarEventSport')?.value||'').trim(),place=(document.getElementById('calendarEventPlace')?.value||'').trim(),date=document.getElementById('calendarEventDate')?.value||'';if(!sport||!place||!date){alert('Vul sport, plaats en datum in.');return}const events=getCalendarEvents();events.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),sport,place,date});events.sort((a,b)=>(a.date||'').localeCompare(b.date||''));saveCalendarEvents(events);document.getElementById('calendarEventSport').value='';document.getElementById('calendarEventPlace').value='';document.getElementById('calendarEventDate').value='';toggleCalendarEventForm(false);renderCalendarEventList();renderChallengesCalendar();updateHome()}
 function deleteCalendarEvent(id){saveCalendarEvents(getCalendarEvents().filter(e=>e.id!==id));renderCalendarEventList();renderChallengesCalendar();updateHome()}
 function renderCalendarEventList(){const el=document.getElementById('calendarEventList');if(!el)return;const events=getCalendarEvents().sort((a,b)=>(a.date||'').localeCompare(b.date||''));if(!events.length){el.innerHTML='';return}el.innerHTML=events.map(e=>{const d=new Date(`${e.date}T12:00:00`),dateLabel=Number.isNaN(d.getTime())?e.date:d.toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});return `<div class="calendar-event-item"><div class="calendar-event-icon">📅</div><div><strong>${esc(e.sport)}</strong><span>${esc(e.place)} · ${dateLabel}</span></div><button type="button" class="calendar-event-delete" onclick="deleteCalendarEvent('${esc(e.id)}')" aria-label="Evenement verwijderen">×</button></div>`}).join('')}
 let challengeCalendarYear=new Date().getFullYear();
@@ -2548,6 +2642,8 @@ function openHyroxCircuit(){
 }
 
 function workoutBack(){
+  const running=document.getElementById("runningWorkoutArea");
+  if(running && running.style.display!=="none"){ showWorkoutChoice(); return; }
   const circuit=document.getElementById("hyroxCircuitArea");
   const circuitVisible=circuit && circuit.style.display!=="none";
   if(circuitVisible){
@@ -2565,19 +2661,23 @@ function showWorkoutChoice(){
   workoutMode = null;
   const selector = document.getElementById("workoutModeSelector");
   const builder = document.getElementById("workoutBuilderArea");
+  const running = document.getElementById("runningWorkoutArea");
   if(selector) selector.style.display = "block";
   if(builder) builder.style.display = "none";
+  if(running) running.style.display = "none";
   const launch=document.getElementById("hyroxCircuitLaunch"); if(launch)launch.style.display="none";
   const circuit=document.getElementById("hyroxCircuitArea"); if(circuit)circuit.style.display="none";
   document.querySelectorAll(".workout-mode-card").forEach(c=>c.classList.remove("active"));
 }
 
 function setWorkoutMode(mode){
-  workoutMode = mode === "hyrox" ? "hyrox" : "fitness";
+  workoutMode = ["hyrox","running"].includes(mode) ? mode : "fitness";
   const selector = document.getElementById("workoutModeSelector");
   const builder = document.getElementById("workoutBuilderArea");
+  const running = document.getElementById("runningWorkoutArea");
   if(selector) selector.style.display = "none";
-  if(builder) builder.style.display = "block";
+  if(builder) builder.style.display = workoutMode === "running" ? "none" : "block";
+  if(running) running.style.display = workoutMode === "running" ? "block" : "none";
   const circuit=document.getElementById("hyroxCircuitArea"); if(circuit)circuit.style.display="none";
   const launch=document.getElementById("hyroxCircuitLaunch");
   if(launch) launch.style.display = workoutMode==="hyrox" ? "block" : "none";
@@ -2586,13 +2686,65 @@ function setWorkoutMode(mode){
   const heading = document.querySelector('#workout .page-header h1');
   const name = document.getElementById("workoutName");
   const search = document.getElementById("exerciseSearch");
-  if(title) title.textContent = workoutMode === "hyrox" ? "HYROX TRAINING" : "KRACHTTRAINING";
-  if(heading) heading.textContent = workoutMode === "hyrox" ? "HYROX workout builder" : "Workout builder";
+  if(title) title.textContent = workoutMode === "hyrox" ? "HYROX TRAINING" : workoutMode === "running" ? "HARDLOPEN" : "KRACHTTRAINING";
+  if(heading) heading.textContent = workoutMode === "hyrox" ? "HYROX workout builder" : workoutMode === "running" ? "Hardlooptraining" : "Workout builder";
   if(name) name.placeholder = workoutMode === "hyrox" ? "Bijv. HYROX Engine A" : "Bijv. Push A";
   if(search) search.placeholder = workoutMode === "hyrox" ? "Zoek sled, wall ball, run, carry..." : "Zoek bijvoorbeeld squat, borst, rug...";
   document.querySelectorAll('.workout-mode-card').forEach(c=>c.classList.remove('active'));
   document.getElementById(workoutMode+"ModeCard")?.classList.add('active');
-  renderWorkoutBuilder();
+  if(workoutMode === "running"){
+    const d=document.getElementById("runningWorkoutDate"); if(d) d.value=todayString();
+    ["runningWorkoutDistance","runningWorkoutPace"].forEach(id=>document.getElementById(id)?.addEventListener("input",updateRunningPreview));
+    updateRunningPreview();
+    renderSavedWorkouts();
+  }else{
+    renderWorkoutBuilder();
+  }
+}
+
+function parsePaceToSeconds(value){
+  const parts=String(value||"").trim().split(":").map(Number);
+  if(parts.length!==2 || parts.some(n=>!Number.isFinite(n)) || parts[0]<0 || parts[1]<0 || parts[1]>=60) return null;
+  return parts[0]*60+parts[1];
+}
+function formatDurationFromSeconds(sec){
+  if(!Number.isFinite(sec)||sec<=0)return "—";
+  const total=Math.round(sec),h=Math.floor(total/3600),m=Math.floor((total%3600)/60),s=total%60;
+  return h>0?`${h}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`:`${m}:${String(s).padStart(2,"0")}`;
+}
+function getRunningWorkoutWeight(){ return getNutritionWeight(); }
+function calculateRunningCalories(distanceKm,weight){ return Math.round(Math.max(0,Number(distanceKm)||0)*Math.max(0,Number(weight)||0)); }
+function updateRunningPreview(){
+  const km=Number(document.getElementById("runningWorkoutDistance")?.value)||0;
+  const pace=parsePaceToSeconds(document.getElementById("runningWorkoutPace")?.value);
+  const weight=getRunningWorkoutWeight();
+  const dist=document.getElementById("runningPreviewDistance");
+  const dur=document.getElementById("runningPreviewDuration");
+  const cal=document.getElementById("runningPreviewCalories");
+  if(dist)dist.textContent=`${km.toLocaleString("nl-NL",{maximumFractionDigits:1})} km`;
+  if(dur)dur.textContent=pace&&km?formatDurationFromSeconds(pace*km):"—";
+  if(cal)cal.textContent=`${calculateRunningCalories(km,weight).toLocaleString("nl-NL")} kcal`;
+}
+function saveRunningWorkout(){
+  const date=document.getElementById("runningWorkoutDate")?.value||todayString();
+  const distance=Number(document.getElementById("runningWorkoutDistance")?.value)||0;
+  const pace=document.getElementById("runningWorkoutPace")?.value.trim()||"";
+  const paceSec=parsePaceToSeconds(pace);
+  if(distance<=0){alert("Vul eerst een afstand in.");return;}
+  if(!paceSec){alert("Vul je tempo in als min/km, bijvoorbeeld 5:30.");return;}
+  const name=(document.getElementById("runningWorkoutName")?.value||"").trim()||"Hardlooptraining";
+  const weight=getRunningWorkoutWeight();
+  const workout={id:Date.now(),name,date,mode:"running",distanceKm:distance,pace,durationSeconds:paceSec*distance,calories:calculateRunningCalories(distance,weight),exercises:[{name:"Hardlopen",sets:[{distance:distance*1000,pace}]}],volume:0};
+  savedWorkouts.unshift(workout);
+  localStorage.setItem("savedWorkouts",JSON.stringify(savedWorkouts));
+  alert(`Hardlooptraining opgeslagen ✓\n\n${distance} km · circa ${workout.calories.toLocaleString("nl-NL")} kcal sportverbruik.`);
+  document.getElementById("runningWorkoutName").value="";
+  document.getElementById("runningWorkoutDistance").value="";
+  document.getElementById("runningWorkoutPace").value="";
+  updateRunningPreview();
+  renderSavedWorkouts();
+  renderNutritionPage();
+  updateHome();
 }
 function openWorkout(){
   showPage("workout", document.querySelectorAll(".nav-button")[1]);
@@ -3334,8 +3486,8 @@ function renderSavedWorkouts(){
 
   const modeWorkouts = savedWorkouts.filter(w => (w.mode || "fitness") === workoutMode);
   container.innerHTML = modeWorkouts.slice(0, 20).map(workout => {
-    const sets = workout.exercises.reduce(
-      (sum, ex) => sum + ex.sets.length, 0
+    const sets = (workout.exercises||[]).reduce(
+      (sum, ex) => sum + (ex.sets||[]).length, 0
     );
 
     return `
@@ -3373,10 +3525,12 @@ function renderSavedWorkouts(){
             <strong>${sets}</strong>
           </div>
           <div>
-            <span>${(workout.mode||"fitness")==="hyrox" ? "Afstand" : "Volume"}</span><br>
+            <span>${(workout.mode||"fitness")==="running" ? "Afstand" : (workout.mode||"fitness")==="hyrox" ? "Afstand" : "Volume"}</span><br>
             <strong>${
-              (workout.mode||"fitness")==="hyrox"
-              ? workout.exercises.reduce((sum,ex)=>sum+hyroxDistance(ex),0).toLocaleString("nl-NL")+" m"
+              (workout.mode||"fitness")==="running"
+              ? Number(workout.distanceKm||0).toLocaleString("nl-NL",{maximumFractionDigits:1})+" km"
+              : (workout.mode||"fitness")==="hyrox"
+              ? (workout.exercises||[]).reduce((sum,ex)=>sum+hyroxDistance(ex),0).toLocaleString("nl-NL")+" m"
               : Number(workout.volume).toLocaleString("nl-NL")+" kg"
             }</strong>
           </div>
@@ -3542,6 +3696,120 @@ function renderTodayNutrition(){
   document.getElementById("todayCarbs").textContent=e?e.carbs+" g":"0 g";
   document.getElementById("todayProtein").textContent=e?e.protein+" g":"0 g";
   document.getElementById("todayFat").textContent=e?e.fat+" g":"0 g";
+  renderNutritionTrainingAdvice();
+  renderNutritionTarget();
+}
+
+function getNutritionWeight(){
+  const sorted=[...weightData].filter(x=>Number.isFinite(Number(x.weight))).sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const latest=sorted[0]?.weight;
+  const settings=getSettings();
+  return Number(latest)||Number(settings.weight)||0;
+}
+
+function getTodayNutritionTraining(){
+  const today=todayString();
+  return savedWorkouts.filter(w=>w && w.date===today);
+}
+function classifyNutritionTraining(workouts){
+  if(!workouts.length) return {level:"normal",label:"Normaal",title:"Rustdag",meta:"Geen training geregistreerd vandaag.",advice:"Normale koolhydraatinname"};
+  const stats=getNutritionTrainingStats(workouts);
+  const km=stats.runningKm;
+  const hard=stats.hard || stats.hyroxCount>0;
+  if(km>=14) return {level:"high",label:"Hoog",title:workouts.map(w=>w.name||"Hardlooptraining").join(" + "),meta:`${km.toLocaleString("nl-NL",{maximumFractionDigits:1})} km hardlopen`,advice:"Koolhydraten vandaag: hoog"};
+  if(km>=8 || hard) return {level:"moderate",label:"Verhoogd",title:workouts.map(w=>w.name||"Training").join(" + "),meta:km?`${km.toLocaleString("nl-NL",{maximumFractionDigits:1})} km hardlopen`:`${workouts.length} training${workouts.length===1?"":"en"}`,advice:"Koolhydraten vandaag: verhoogd"};
+  return {level:"normal",label:"Normaal",title:workouts.map(w=>w.name||"Training").join(" + "),meta:`${workouts.length} training${workouts.length===1?"":"en"}`,advice:"Koolhydraten vandaag: normaal"};
+}
+function getNutritionTrainingStats(workouts){
+  let runningKm=0, hyroxKm=0, fitnessCount=0, hyroxCount=0, hard=false;
+  workouts.forEach(w=>{
+    const mode=String(w.mode||"fitness").toLowerCase();
+    if(mode==="running"){ runningKm += Number(w.distanceKm)||0; hard = hard || runningKm>=8; return; }
+    if(mode==="hyrox") hyroxCount++; else fitnessCount++;
+    const name=String(w.name||"").toLowerCase();
+    const text=`${name} ${(w.exercises||[]).map(ex=>String(ex.name||"")).join(" ")}`.toLowerCase();
+    (w.exercises||[]).forEach(ex=>(ex.sets||[]).forEach(set=>{
+      const d=Number(set.distance)||0, exName=String(ex.name||"").toLowerCase();
+      if(/run|hardlopen|running|long run|duur/.test(exName+" "+text)) runningKm += d>=100 ? d/1000 : d;
+      else if(mode==="hyrox") hyroxKm += d>=100 ? d/1000 : d;
+    }));
+    if(mode==="hyrox" || /long run|longrun|lange duur|interval|tempo|marathon|halve marathon/.test(text)) hard=true;
+  });
+  return {runningKm,hyroxKm,fitnessCount,hyroxCount,hard};
+}
+function getNutritionTrainingCalories(workouts,weight){
+  if(!workouts.length||!weight)return 0;
+  let total=0;
+  workouts.forEach(w=>{
+    if(w.mode==="running" && Number(w.distanceKm)>0){ total += calculateRunningCalories(w.distanceKm,weight); return; }
+    if(w.mode==="hyrox") total += Math.round(weight*6);
+    else total += Math.round(weight*3.5);
+  });
+  return Math.round(total);
+}
+function getNutritionTargets(){
+  const weight=getNutritionWeight();
+  const settings=getSettings();
+  const age=Number(settings.age)||35;
+  const height=Number(settings.height)||0;
+  const sex=String(settings.gender||"").toLowerCase();
+  const goal=Number(settings.goalWeight)||weight;
+  const workouts=getTodayNutritionTraining();
+  if(!weight) return {weight:0,base:0,trainingBonus:0,total:0,carbsMin:0,carbsMax:0,protein:0,level:"normal",label:"Profiel aanvullen"};
+  // BMR via Mifflin-St Jeor. Zonder lengte gebruiken we een expliciete fallback van 30 kcal/kg.
+  let bmr=height>0 ? (10*weight + 6.25*height - 5*age + (sex==="vrouw"?-161:sex==="man"?5:-78)) : weight*22;
+  // Niet-trainingsactiviteit: lichte dagelijkse activiteit. Trainingsverbruik wordt apart toegevoegd.
+  let base=Math.round(bmr*1.35);
+  if(goal<weight) base-=300;
+  if(goal>weight) base+=200;
+  base=Math.max(1200,base);
+  const trainingBonus=getNutritionTrainingCalories(workouts,weight);
+  const total=base+trainingBonus;
+  const result=classifyNutritionTraining(workouts);
+  let carbRange=[3,4];
+  if(result.level==="moderate") carbRange=[4,6];
+  if(result.level==="high") carbRange=[5,7];
+  if(result.level==="high" && workouts.some(w=>(w.mode==="running"&&Number(w.distanceKm)>=14)||getNutritionTrainingStats([w]).runningKm>=14)) carbRange=[6,8];
+  const protein=Math.round(weight*1.8);
+  return {weight,base,trainingBonus,total,carbsMin:Math.round(weight*carbRange[0]),carbsMax:Math.round(weight*carbRange[1]),protein,level:result.level,label:result.label};
+}
+
+function renderNutritionTarget(){
+  const targetEl=document.getElementById("nutritionTargetCalories");
+  const consumedEl=document.getElementById("nutritionConsumedCalories");
+  const remainingEl=document.getElementById("nutritionRemainingCalories");
+  const noteEl=document.getElementById("nutritionTargetNote");
+  const badge=document.getElementById("nutritionTargetBadge");
+  if(!targetEl||!consumedEl||!remainingEl||!noteEl||!badge)return;
+  const t=getNutritionTargets();
+  const today=nutritionData.find(x=>x.date===todayString());
+  const consumed=Number(today?.calories)||0;
+  if(!t.weight){targetEl.textContent="-- kcal";consumedEl.textContent=`${consumed.toLocaleString("nl-NL")} kcal`;remainingEl.textContent="-- kcal";noteEl.textContent="Vul je gewicht in bij Instellingen voor een persoonlijk voedingsdoel.";badge.textContent="Profiel aanvullen";return;}
+  const remaining=t.total-consumed;
+  targetEl.textContent=`${t.total.toLocaleString("nl-NL")} kcal`;
+  consumedEl.textContent=`${consumed.toLocaleString("nl-NL")} kcal`;
+  remainingEl.textContent=remaining>=0?`${remaining.toLocaleString("nl-NL")} kcal`:`${Math.abs(remaining).toLocaleString("nl-NL")} kcal te veel`;
+  remainingEl.className=remaining>=0?"remaining-positive":"remaining-over";
+  badge.textContent=t.label;
+  const trainingText=t.trainingBonus?`Je training voegt ongeveer ${t.trainingBonus.toLocaleString("nl-NL")} kcal toe aan je dagdoel.`:"Geen extra trainingsverbruik toegevoegd.";
+  noteEl.innerHTML=`Basisdoel ${t.base.toLocaleString("nl-NL")} kcal · ${trainingText}<br><strong>KH-richtlijn: ${t.carbsMin}–${t.carbsMax} g</strong> · Eiwit: ±${t.protein} g`;
+}
+
+function renderNutritionTrainingAdvice(){
+  const content=document.getElementById("nutritionTrainingContent");
+  const badge=document.getElementById("nutritionTrainingBadge");
+  if(!content||!badge)return;
+  const workouts=getTodayNutritionTraining();
+  const result=classifyNutritionTraining(workouts);
+  badge.className=`nutrition-training-badge ${result.level}`;
+  badge.textContent=result.label;
+  if(!workouts.length){
+    content.innerHTML=`<div class="nutrition-training-empty"><strong>Rustdag</strong><br>${result.meta}</div>`;
+    return;
+  }
+  const display=result.title.length>80?result.title.slice(0,77)+"…":result.title;
+  const t=getNutritionTargets();
+  content.innerHTML=`<div class="nutrition-training-summary"><div><div class="nutrition-training-workout">${esc(display)}</div><div class="nutrition-training-meta">${esc(result.meta)}</div></div><div class="nutrition-training-advice">${esc(result.advice)}<br><small>Richtlijn: ${t.carbsMin}–${t.carbsMax} g KH</small></div></div>`;
 }
 
 function renderNutritionStats(){
