@@ -139,6 +139,54 @@ main{max-width:920px;margin:auto;padding:18px}
   background:var(--card2);color:var(--muted)
 }
 .set button.completed{background:var(--blue);color:#20313f;border-color:var(--blue)}
+/* FOCUS button system — consistent across the app */
+.btn{
+  appearance:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:40px;
+  padding:10px 14px;
+  border:1px solid transparent;
+  border-radius:11px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.1;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible,.settings-button:focus-visible,.delete-btn:focus-visible,.edit-workout:focus-visible,.delete-workout:focus-visible,.upload-btn:focus-within,.theme-option:focus-visible,.challenge-add-btn:focus-visible,.icon-btn:focus-visible,.superset-button:focus-visible{outline:3px solid rgba(37,99,235,.18);outline-offset:2px}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 4px 10px rgba(37,99,235,.12)}
+.btn.primary:hover{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
+.btn.secondary{background:var(--card);border-color:var(--border);color:var(--text);box-shadow:none}
+.btn.secondary:hover{background:var(--blue-soft);border-color:var(--blue);color:var(--blue-dark)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.delete-btn,.delete-workout{appearance:none;min-height:34px;padding:7px 10px;border-radius:9px;font:inherit;font-size:11px;font-weight:800;cursor:pointer;transition:.18s ease}
+.delete-btn{background:transparent;border:1px solid rgba(220,38,38,.22);color:var(--danger)}
+.delete-btn:hover{background:rgba(220,38,38,.07);border-color:rgba(220,38,38,.4);transform:translateY(-1px)}
+.delete-workout{border:1px solid rgba(220,38,38,.22);background:transparent;color:var(--danger)}
+.delete-workout:hover{background:rgba(220,38,38,.07);border-color:rgba(220,38,38,.4);transform:translateY(-1px)}
+.edit-workout{appearance:none;min-height:34px;padding:7px 10px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:9px;font:inherit;font-size:11px;font-weight:800;cursor:pointer;transition:.18s ease}
+.edit-workout:hover{background:var(--blue-soft);color:var(--blue-dark);border-color:var(--blue);transform:translateY(-1px)}
+.upload-btn{border:1px solid var(--blue);background:var(--blue);color:#fff;border-radius:10px;padding:10px 13px;font-size:12px;font-weight:800;cursor:pointer;transition:.18s ease}
+.upload-btn:hover{background:var(--blue-dark);border-color:var(--blue-dark);transform:translateY(-1px)}
+.settings-save{appearance:none;width:100%;min-height:44px;margin-top:8px;padding:12px 14px;border:1px solid var(--blue);border-radius:11px;background:var(--blue);color:#fff;font:inherit;font-weight:800;cursor:pointer;box-shadow:0 4px 10px rgba(37,99,235,.12);transition:.18s ease}
+.settings-save:hover{background:var(--blue-dark);border-color:var(--blue-dark);transform:translateY(-1px)}
+.theme-option{cursor:pointer;transition:.18s ease}
+.theme-option:hover{border-color:var(--blue);background:var(--blue-soft)}
+.challenge-add-btn{border:1px solid var(--border);color:var(--text);background:var(--card);border-radius:9px;padding:7px 9px;font-weight:800;font-size:11px;cursor:pointer;white-space:nowrap;transition:.18s ease}
+.challenge-add-btn:hover{border-color:var(--blue);color:var(--blue-dark);background:var(--blue-soft);transform:translateY(-1px)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(220,38,38,.22);background:transparent;color:var(--danger);border-radius:9px;font:inherit;font-weight:800;cursor:pointer;transition:.18s ease}
+.icon-btn:hover{background:rgba(220,38,38,.07);border-color:rgba(220,38,38,.4);transform:translateY(-1px)}
+.superset-button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:9px;padding:7px 9px;font-size:10px;font-weight:800;white-space:nowrap;cursor:pointer;transition:.18s ease}
+.superset-button:hover{background:var(--blue-soft);border-color:var(--blue);color:var(--blue-dark);transform:translateY(-1px)}
+
 .finish,.save-btn{
   width:100%;padding:15px;border:none;border-radius:12px;
   background:var(--blue);color:#20313f;font-weight:800;font-size:15px
@@ -388,23 +436,6 @@ textarea{resize:vertical;min-height:75px}
 }
 .saved-workout-stats strong{font-size:13px}
 .saved-workout-stats span{color:var(--muted);font-size:10px}
-.delete-workout{
-  border:none;
-  background:transparent;
-  color:var(--danger);
-  font-size:11px;
-}
-.edit-workout{
-  border:1px solid var(--border);
-  background:var(--blue-soft);
-  color:var(--blue-dark);
-  border-radius:8px;
-  padding:7px 9px;
-  font-size:11px;
-  font-weight:800;
-}
-.edit-workout:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
-body.dark .edit-workout{background:#172554;color:#93c5fd;border-color:#273449}
 
 
 @media(max-width:650px){
@@ -452,6 +483,12 @@ body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f
 .dashboard-card .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.dashboard-card .dash-icon{font-size:22px}.dashboard-card .dash-arrow{font-size:18px;color:var(--muted)}
 .dashboard-card h3{margin:0 0 5px;font-size:16px}.dashboard-card p{margin:0;color:var(--muted);font-size:12px}.dashboard-value{font-size:24px;font-weight:900;margin-top:6px}
 .dashboard-wide{grid-column:1/-1}
+.dashboard-event-card{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid var(--border);background:linear-gradient(135deg,var(--card),var(--blue-soft));border-radius:18px;padding:15px 18px;cursor:pointer;transition:.18s;box-shadow:0 5px 18px rgba(15,23,42,.04)}
+.dashboard-event-card:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 9px 24px rgba(15,23,42,.08)}
+.dashboard-event-main{display:flex;align-items:center;gap:12px;min-width:0}.dashboard-event-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--card);font-size:21px;flex:0 0 auto}.dashboard-event-info{min-width:0}.dashboard-event-info small{display:block;color:var(--blue);font-size:9px;font-weight:900;letter-spacing:1.2px;margin-bottom:3px}.dashboard-event-info strong{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dashboard-event-info span{display:block;color:var(--muted);font-size:11px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dashboard-event-countdown{text-align:center;min-width:66px;padding-left:15px;border-left:1px solid var(--border)}.dashboard-event-countdown strong{display:block;font-size:26px;line-height:1;font-weight:900;color:var(--blue-dark)}.dashboard-event-countdown span{display:block;color:var(--muted);font-size:9px;font-weight:800;margin-top:4px}
+body.dark .dashboard-event-card{background:linear-gradient(135deg,var(--card),#172554);border-color:var(--border)}
+body.dark .dashboard-event-icon{background:var(--card2)}
+@media(max-width:600px){.dashboard-event-card{padding:13px 14px;gap:10px}.dashboard-event-info strong{font-size:13px}.dashboard-event-countdown{min-width:58px;padding-left:10px}.dashboard-event-countdown strong{font-size:23px}}
 .challenges-home-card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:17px;margin-bottom:26px}.challenges-home-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.challenges-home-head h2{margin:0}.challenge-home-status{font-size:13px;font-weight:800;color:var(--blue-dark)}
 .challenge-info-button{border:0;background:var(--blue);color:#fff;border-radius:999px;width:30px;height:30px;font-weight:900;font-size:16px;cursor:pointer}.challenge-info-button:hover{filter:brightness(.94)}
 .challenge-table-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.challenge-table-group{border:1px solid var(--border);border-radius:16px;padding:12px;background:var(--soft)}.challenge-table-group.bonus-group{border-color:#d6a800}.challenge-group-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px;font-weight:900;letter-spacing:.08em}.challenge-group-label b{background:var(--card);border:1px solid var(--border);border-radius:999px;padding:3px 8px}.bonus-group .challenge-group-label{color:#9a6d00}
@@ -583,25 +620,8 @@ body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f
 .hyrox-circuit-row input:focus,.hyrox-circuit-row select:focus{outline:2px solid var(--blue);outline-offset:1px}
 #hyroxCircuitLaunch{margin-bottom:12px}
 .workout-page-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.workout-back-btn{
-  white-space:nowrap;
-  border:1px solid var(--border);
-  background:var(--blue-soft);
-  color:var(--blue-dark);
-  border-radius:10px;
-  padding:10px 14px;
-  font-weight:800;
-  font-size:13px;
-  box-shadow:none;
-  transition:.18s ease;
-}
-.workout-back-btn:hover{
-  background:var(--blue);
-  border-color:var(--blue);
-  color:#20313f;
-  transform:translateY(-1px);
-}
-@media(max-width:640px){.workout-page-header{align-items:flex-start}.workout-back-btn{padding:8px 11px;font-size:12px}}
+.workout-back-btn{white-space:nowrap;}
+@media(max-width:640px){.workout-page-header{align-items:flex-start}.workout-back-btn{min-height:38px;padding:9px 12px;font-size:12px}}
 
 
 /* Personal records */
@@ -616,23 +636,7 @@ body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f
 .pr-hero-card strong{display:block;color:var(--gold);font-size:18px;letter-spacing:-.2px}
 .pr-hero-card span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
 .pr-page-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
-.pr-back-btn{
-  white-space:nowrap;
-  border:1px solid var(--border);
-  background:var(--blue-soft);
-  color:var(--blue-dark);
-  border-radius:10px;
-  padding:10px 14px;
-  font-weight:800;
-  font-size:13px;
-  box-shadow:none;
-  transition:.18s ease;
-}
-.pr-back-btn:hover{
-  background:var(--blue);
-  border-color:var(--blue);
-  color:#20313f;
-  transform:translateY(-1px);
+.pr-back-btn{white-space:nowrap;}
 }
 .pr-section{border:1px solid rgba(215,169,60,.24);background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--card) 88%,var(--gold) 12%));overflow:hidden}
 .pr-section-head{display:flex;align-items:center;gap:10px;margin-bottom:15px}.pr-section-head>div:nth-child(2){flex:1}.pr-section-head .pr-icon{font-size:21px}.pr-section-head h2{font-size:18px}.pr-section-head p{font-size:11px;color:var(--muted);margin-top:2px}.pr-table-wrap{overflow-x:auto}.pr-table{width:100%;border-collapse:separate;border-spacing:0;font-size:12px;min-width:620px}.pr-table th{text-align:left;padding:10px 12px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.7px;border-bottom:1px solid var(--border);white-space:nowrap}.pr-table td{padding:10px 12px;border-bottom:1px solid rgba(148,163,184,.12);vertical-align:middle}.pr-table tbody tr:last-child td{border-bottom:0}.pr-table tbody tr:hover{background:rgba(215,169,60,.045)}.pr-table .pr-label{font-weight:850}.pr-table .pr-value{color:var(--gold);font-weight:900;white-space:nowrap}.pr-table .pr-muted{color:var(--muted)}
@@ -640,6 +644,20 @@ body.dark{--bg:#0b1120;--card:#111827;--card2:#172033;--border:#273449;--text:#f
 .pr-input-sm{min-width:95px}.pr-save-note{font-size:10px;color:var(--muted);margin-top:12px}.pr-gold{color:var(--gold)!important}.pr-choice-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pr-choice-card{min-height:170px}.pr-category-back{margin:0 0 14px}.pr-category-section{display:none}.pr-auto-note{font-size:10px;color:var(--muted);font-weight:700;white-space:nowrap}@media(max-width:760px){.pr-choice-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.hero{align-items:flex-start;flex-direction:column}.pr-hero-card{width:100%;flex-basis:auto}.pr-table{min-width:560px}}
 
+
+
+/* Progressie 2.0 */
+.progress-highlight-card{background:linear-gradient(145deg,var(--card),var(--blue-soft));border-color:rgba(74,134,232,.22)}
+.progress-highlight-head,.progress-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.progress-kicker{font-size:10px;font-weight:900;letter-spacing:1.2px;color:var(--blue-dark)}
+.progress-highlight-head h3{margin-top:3px}
+.progress-trend-badge,.progress-period-badge{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:6px 9px;background:var(--blue-soft);color:var(--blue-dark);font-size:10px;font-weight:900;white-space:nowrap}
+.progress-trend-badge.good,.trend-good{color:#16803a!important}.progress-trend-badge.bad,.trend-bad{color:#c0392b!important}.trend-neutral{color:var(--muted)!important}
+.progress-highlight-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-top:18px}.progress-highlight-grid>div{display:flex;flex-direction:column;gap:4px}.progress-highlight-grid small,.progress-stat span,.progress-period span,.progress-volume-summary small{font-size:10px;color:var(--muted)}
+.progress-big-number{font-size:31px;line-height:1.05}.progress-chart{margin-top:14px}.progress-line-wrap{height:205px;position:relative;padding:8px 6px 28px 30px}.progress-line-wrap svg{width:100%;height:150px;display:block;overflow:visible}.progress-line-wrap polyline{fill:none;stroke:var(--blue-dark);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.progress-line-wrap .progress-axis{stroke:var(--border);stroke-width:1}.progress-line-point{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--blue-dark);border:2px solid var(--card);transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(15,23,42,.16)}.progress-y-label{position:absolute;left:0;font-size:9px;color:var(--muted);font-weight:800}.progress-y-label.top{top:3px}.progress-y-label.bottom{bottom:30px}.progress-x-labels{position:absolute;left:30px;right:6px;bottom:0;height:20px}.progress-chart-label{position:absolute;transform:translateX(-50%);font-size:9px;color:var(--muted);font-weight:700;white-space:nowrap}.progress-empty{padding:45px 12px;text-align:center;color:var(--muted);font-size:12px}
+.progress-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.progress-stat{padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--card);display:flex;flex-direction:column;gap:3px}.progress-stat small{font-size:9px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.4px}.progress-stat strong{font-size:19px}.progress-bars{height:175px;display:flex;align-items:flex-end;gap:7px;margin-top:18px;padding:0 2px 25px;border-bottom:1px solid var(--border);overflow:hidden}.progress-bar-col{height:100%;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative}.progress-bar-value{height:17px;font-size:8px;color:var(--muted);font-weight:800;white-space:nowrap;overflow:hidden;max-width:100%;text-overflow:ellipsis}.progress-bar-track{height:128px;width:min(24px,75%);display:flex;align-items:flex-end;justify-content:center}.progress-bar-fill{width:100%;min-height:0;background:var(--blue);border-radius:6px 6px 2px 2px;transition:height .25s ease}.progress-bar-col small{position:absolute;bottom:-21px;font-size:8px;color:var(--muted);white-space:nowrap}.progress-volume-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}.progress-volume-summary>div{display:flex;flex-direction:column;gap:3px}.progress-volume-summary strong{font-size:16px}.progress-period-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.progress-period{padding:14px;border:1px solid var(--border);border-radius:13px;background:var(--blue-soft);display:flex;flex-direction:column;gap:5px}.progress-period small{font-size:10px;font-weight:900;color:var(--blue-dark);text-transform:uppercase}.progress-period strong{font-size:20px}.progress-pr-button{font-size:10px;padding:7px 9px}.progress-pr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}.progress-pr-item{padding:11px;border:1px solid var(--border);border-radius:12px;background:var(--card);min-width:0}.progress-pr-item span{display:block;font-size:10px;color:var(--muted);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.progress-pr-item strong{display:block;margin-top:5px;font-size:14px}.volume-bars .progress-bar-fill{background:var(--blue-dark)}
+@media(max-width:760px){.progress-mini-grid{grid-template-columns:repeat(2,1fr)}.progress-pr-grid{grid-template-columns:repeat(2,1fr)}.progress-period-grid{grid-template-columns:1fr}.progress-highlight-grid{grid-template-columns:1fr 1fr}.progress-card-head{align-items:flex-start}.progress-card-head>div{min-width:0}.progress-period-badge{font-size:9px}.progress-bars{gap:4px}.progress-bar-track{width:min(20px,70%)}}
+@media(max-width:430px){.progress-highlight-grid{gap:9px}.progress-big-number{font-size:27px}.progress-volume-summary{grid-template-columns:1fr 1fr}.progress-volume-summary>div:last-child{grid-column:1/-1}.progress-line-wrap{padding-left:26px}.progress-x-labels{left:26px}.progress-stat{padding:10px}.progress-stat strong{font-size:17px}.progress-pr-item{padding:10px}}
 
 /* Final mobile polish — layout only, no functionality changes */
 html,body{overflow-x:hidden}
@@ -696,7 +714,7 @@ html,body{overflow-x:hidden}
   .header-actions{gap:4px}
   .settings-button{width:36px;height:36px;font-size:16px}
   .page-header h1{font-size:25px}
-  .workout-back-btn{padding:7px 9px;font-size:11px}
+  .workout-back-btn{min-height:36px;padding:8px 10px;font-size:11px}
   .dashboard-card .dash-icon{font-size:17px}
   .dashboard-card h3{font-size:12px}
   .dashboard-card .dashboard-value{font-size:17px}
@@ -751,6 +769,24 @@ html,body{overflow-x:hidden}
 .custom-exercise-launch{margin-top:10px;text-align:center}.custom-exercise-add{border:1px dashed var(--border);background:var(--card2);color:var(--blue-dark);border-radius:10px;padding:10px 13px;font-size:11px;font-weight:800;width:100%}.custom-exercise-add:hover{background:var(--blue-soft);border-color:var(--blue)}
 .custom-exercise-form{margin-top:10px;padding:14px;border:1px solid var(--border);background:var(--card2);border-radius:14px}.custom-exercise-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:13px}.custom-exercise-head strong{display:block;font-size:13px}.custom-exercise-head small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.custom-exercise-close{border:0;background:transparent;color:var(--muted);font-size:22px;line-height:1}.custom-exercise-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.custom-exercise-actions .btn{width:auto;padding:10px 13px}
 body.dark .custom-exercise-add{background:#0f172a;color:#93c5fd}
+/* Kalender leesbaarheid in donkere modus */
+body.dark .challenge-calendar-controls button{background:var(--card);color:var(--text);border-color:var(--border)}
+body.dark .challenge-calendar-year{color:var(--text)}
+body.dark .month-card{background:var(--card);border-color:var(--border)}
+body.dark .month-title{color:var(--text)}
+body.dark .weekday-row{color:#cbd5e1}
+body.dark .calendar-day{color:var(--text);background:var(--card2)}
+body.dark .calendar-day.empty{background:transparent;color:var(--muted)}
+body.dark .calendar-day.green,body.dark .calendar-day.gold,body.dark .calendar-day.red{color:#fff}
+body.dark .calendar-day.today{outline-color:#60a5fa}
+body.dark .calendar-day-overlay{background:rgba(2,6,23,.72)}
+body.dark .calendar-day-modal{background:var(--card);color:var(--text)}
+body.dark .calendar-day-modal-head small{color:#60a5fa}
+body.dark .calendar-day-close{background:var(--card2);color:var(--text)}
+body.dark .calendar-summary-item,.dark .calendar-day-entry{background:var(--card2);border-color:var(--border)}
+body.dark .calendar-summary-item small,body.dark .calendar-day-entry span{color:#b6c2d2}
+body.dark .calendar-day-section{border-color:var(--border)}
+
 @media(max-width:640px){.custom-exercise-form .input-row{grid-template-columns:1fr}.custom-exercise-actions{flex-direction:column}.custom-exercise-actions .btn{width:100%}}
 
 /* Superset styling */
@@ -817,6 +853,96 @@ body.dark .superset-button,body.dark .superset-picker select{background:#0f172a;
 #exerciseAddSection h3{display:flex;align-items:center;gap:8px;}
 #exerciseAddSection h3::before{content:"＋";display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;background:var(--blue-soft);color:var(--blue-dark);font-weight:900;}
 
+
+.calendar-day.has-activity{cursor:pointer}
+.calendar-day.has-activity:hover{filter:brightness(.97);transform:translateY(-1px)}
+.calendar-day .calendar-activity-icons{position:absolute;left:2px;right:2px;bottom:2px;display:flex;gap:2px;justify-content:center;pointer-events:none}
+.calendar-activity-icon{font-size:8px;line-height:1}
+
+.calendar-event-card{margin-bottom:14px}.calendar-event-card h3{margin:0;font-size:15px}.calendar-event-card p{margin:3px 0 12px;font-size:11px;color:var(--muted)}
+.calendar-event-form{display:grid;grid-template-columns:1.1fr 1.1fr 1fr auto;gap:9px;align-items:end}.calendar-event-form .input-group{min-width:0}.calendar-event-form label{display:block;font-size:10px;font-weight:800;color:var(--muted);margin-bottom:5px}.calendar-event-form input{width:100%;box-sizing:border-box}.calendar-event-form .btn{width:auto;white-space:nowrap;padding:10px 14px}
+.calendar-event-list{display:flex;flex-direction:column;gap:7px;margin-top:12px}.calendar-event-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:var(--card2)}.calendar-event-icon{font-size:15px;flex:0 0 auto}.calendar-event-item strong{font-size:11px;display:block}.calendar-event-item span{font-size:10px;color:var(--muted);display:block;margin-top:2px}.calendar-event-delete{margin-left:auto;border:0;background:transparent;color:var(--danger);font-size:15px;cursor:pointer;padding:4px 6px}.calendar-event-badge{position:absolute;left:2px;bottom:2px;font-size:9px;line-height:1;pointer-events:none}
+body.dark .calendar-event-card{background:var(--card)}body.dark .calendar-event-item{background:var(--card2);color:var(--text);border-color:var(--border)}body.dark .calendar-event-form label{color:#b6c2d2}
+@media(max-width:760px){.calendar-event-form{grid-template-columns:1fr 1fr}.calendar-event-form .btn{grid-column:1/-1;width:100%}}@media(max-width:480px){.calendar-event-form{grid-template-columns:1fr}}
+.calendar-day-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:1200}
+.calendar-day-overlay.open{display:flex}
+.calendar-day-modal{width:min(520px,100%);max-height:82vh;overflow:auto;background:var(--card);border-radius:20px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.24)}
+.calendar-day-modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
+.calendar-day-modal-head small{font-size:9px;letter-spacing:1.4px;color:var(--blue);font-weight:900}
+.calendar-day-modal-head h2{font-size:22px;margin-top:3px}
+.calendar-day-close{width:34px;height:34px;border:0;border-radius:50%;background:var(--card2);color:var(--text);font-size:23px;line-height:1;cursor:pointer}
+.calendar-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-bottom:14px}
+.calendar-summary-item{border:1px solid var(--border);border-radius:13px;padding:11px;background:var(--card2)}
+.calendar-summary-item small{display:block;color:var(--muted);font-size:10px;margin-bottom:3px}
+.calendar-summary-item strong{font-size:14px}
+.calendar-day-section{border-top:1px solid var(--border);padding-top:13px;margin-top:13px}
+.calendar-day-section h3{font-size:13px;margin-bottom:8px}
+.calendar-day-list{display:grid;gap:7px}
+.calendar-day-entry{display:flex;align-items:center;gap:9px;border:1px solid var(--border);border-radius:11px;padding:9px 10px}
+.calendar-day-entry-icon{font-size:17px;width:24px;text-align:center}
+.calendar-day-entry strong{font-size:12px}.calendar-day-entry span{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+.calendar-empty{color:var(--muted);font-size:12px;padding:5px 0}
+@media(max-width:560px){.calendar-summary-grid{grid-template-columns:1fr 1fr}.calendar-day-modal{padding:15px}}
+</style>
+
+<!-- FOCUS mobile accessibility/polish -->
+<style>
+@media(max-width:640px){
+  /* Bottom navigation: keep every destination tappable without squeezing labels. */
+  .bottom-nav{
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .bottom-nav::-webkit-scrollbar{display:none}
+  .nav-button{
+    flex:0 0 58px !important;
+    min-width:58px !important;
+    min-height:56px;
+  }
+
+  /* Calendar event form: one clear field per row on phones. */
+  .calendar-event-form{grid-template-columns:1fr !important;gap:10px}
+  .calendar-event-form .btn{grid-column:auto !important;width:100% !important;min-height:44px}
+  .calendar-event-form input{min-height:44px}
+  .calendar-event-delete{min-width:40px;min-height:40px}
+
+  /* Day overview must sit above the fixed mobile navigation. */
+  .calendar-day-overlay{z-index:12000;padding:12px;align-items:flex-end}
+  .calendar-day-modal{
+    width:100%;
+    max-width:none;
+    max-height:calc(100dvh - 24px);
+    border-radius:18px 18px 0 0;
+    padding:15px;
+  }
+  .calendar-day-modal-head h2{font-size:20px}
+  .calendar-day-close{min-width:40px;min-height:40px}
+  .calendar-day-entry{min-height:44px}
+
+  /* Event countdown remains readable on narrow screens. */
+  .dashboard-event-card{align-items:stretch;gap:9px}
+  .dashboard-event-main{flex:1;min-width:0}
+  .dashboard-event-countdown{flex:0 0 62px;min-width:62px}
+
+  /* Keep the vertical slogan subtle so it never blocks content. */
+  .trust-process-side{font-size:13px !important;left:1px !important;opacity:.38 !important;letter-spacing:.12em}
+
+  /* Comfortable tap targets for compact controls. */
+  .challenge-calendar-controls button,
+  .challenge-check,
+  .challenge-info-button,
+  .close-settings,
+  .calendar-day-close{min-height:40px}
+}
+
+@media(max-width:360px){
+  .nav-button{flex-basis:56px !important;min-width:56px !important}
+  .dashboard-event-countdown{flex-basis:56px;min-width:56px;padding-left:8px}
+  .dashboard-event-countdown strong{font-size:21px}
+}
 </style>
 </head>
 <body><div class="trust-process-side">TRUST THE PROCESS</div>
@@ -868,6 +994,17 @@ body.dark .superset-button,body.dark .superset-picker select{background:#0f172a;
 <div class="dashboard-card" onclick="goDashboard('nutrition')"><div class="dash-top"><span class="dash-icon">🔥</span><span class="dash-arrow">→</span></div><h3>Voeding</h3><div class="dashboard-value" id="dashNutritionValue">--</div><p>calorieën vandaag</p></div>
 <div class="dashboard-card" onclick="goDashboard('progress')"><div class="dash-top"><span class="dash-icon">📈</span><span class="dash-arrow">→</span></div><h3>Progressie</h3><div class="dashboard-value" id="dashProgressValue">0</div><p>trainingen deze week</p></div>
 <div class="dashboard-card dashboard-wide" onclick="goDashboard('challenges')"><div class="dash-top"><span class="dash-icon">🎯</span><span class="dash-arrow">→</span></div><h3>Challenges</h3><div class="dashboard-value" id="dashChallengeValue">0/5</div><p id="dashChallengeMeta">vaste challenges voltooid</p></div>
+<div class="dashboard-event-card dashboard-wide" onclick="goDashboard('calendar')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')goDashboard('calendar')">
+  <div class="dashboard-event-main">
+    <div class="dashboard-event-icon">📅</div>
+    <div class="dashboard-event-info">
+      <small>EERSTVOLGENDE EVENEMENT</small>
+      <strong id="dashEventTitle">Geen evenement gepland</strong>
+      <span id="dashEventMeta">Voeg een evenement toe via Kalender</span>
+    </div>
+  </div>
+  <div class="dashboard-event-countdown"><strong id="dashEventDays">—</strong><span id="dashEventDaysLabel">dagen</span></div>
+</div>
 </div>
 
 </section>
@@ -1094,7 +1231,8 @@ body.dark .superset-button,body.dark .superset-picker select{background:#0f172a;
 </div>
 </section>
 <section class="page" id="calendar">
-<div class="page-header"><div><small>GEWOONTES &amp; CONSISTENTIE</small><h1>Kalender</h1><p class="muted" style="font-size:12px;margin-top:5px">Overzicht van je challengehistorie.</p></div><button type="button" class="btn secondary workout-back-btn" onclick="showPage('home')">← Home</button></div>
+<div class="page-header"><div><small>GEWOONTES &amp; CONSISTENTIE</small><h1>Kalender</h1><p class="muted" style="font-size:12px;margin-top:5px">Centraal overzicht van je trainingen en challenges per dag.</p></div><button type="button" class="btn secondary workout-back-btn" onclick="showPage('home')">← Home</button></div>
+<div class="card calendar-event-card"><h3>Evenement toevoegen</h3><p>Plan handmatig een sportmoment, afspraak of ander evenement in je kalender.</p><div class="calendar-event-form"><div class="input-group"><label for="calendarEventSport">Sport</label><input class="data-input" id="calendarEventSport" type="text" maxlength="60" placeholder="Bijv. HYROX"></div><div class="input-group"><label for="calendarEventPlace">Plaats</label><input class="data-input" id="calendarEventPlace" type="text" maxlength="80" placeholder="Bijv. Amsterdam"></div><div class="input-group"><label for="calendarEventDate">Datum</label><input class="data-input" id="calendarEventDate" type="date"></div><button type="button" class="btn primary" onclick="addCalendarEvent()">＋ Toevoegen</button></div><div id="calendarEventList" class="calendar-event-list"></div></div>
 <div class="card">
 <div class="challenge-calendar-controls"><button onclick="changeChallengeYear(-1)" type="button">←</button><div class="challenge-calendar-year" id="challengeYearLabel"></div><button onclick="changeChallengeYear(1)" type="button">→</button></div>
 <div class="macro-grid"><div class="macro-card"><small>Huidige streak</small><strong id="challengeCurrentStreak">0 dagen</strong></div><div class="macro-card"><small>Langste streak</small><strong id="challengeLongestStreak">0 dagen</strong></div><div class="macro-card"><small>Voltooide dagen</small><strong id="challengeCompletedDays">0</strong></div></div>
@@ -1103,24 +1241,57 @@ body.dark .superset-button,body.dark .superset-picker select{background:#0f172a;
 <div class="calendar-grid" id="challengeCalendar"></div>
 
 </section>
+<div class="calendar-day-overlay" id="calendarDayOverlay" onclick="closeCalendarDay(event)">
+  <div class="calendar-day-modal" role="dialog" aria-modal="true" aria-labelledby="calendarDayTitle">
+    <div class="calendar-day-modal-head"><div><small id="calendarDayKicker">DAGOVERZICHT</small><h2 id="calendarDayTitle">8 oktober</h2></div><button type="button" class="calendar-day-close" onclick="closeCalendarDay()" aria-label="Sluiten">×</button></div>
+    <div id="calendarDayContent"></div>
+  </div>
+</div>
 <section class="page" id="progress">
-<div class="page-header"><div><small>JOUW DATA</small><h1>Progressie</h1></div><button type="button" class="btn secondary workout-back-btn" onclick="showPage('home')">← Terug</button></div>
+<div class="page-header"><div><small>JOUW DATA</small><h1>Progressie</h1><p class="muted" style="font-size:12px;margin-top:5px">Je ontwikkeling in gewicht, kracht en trainingsconsistentie.</p></div><button type="button" class="btn secondary workout-back-btn" onclick="showPage('home')">← Terug</button></div>
+
+<div class="card progress-highlight-card">
+<div class="progress-highlight-head"><div><small class="progress-kicker">GEWICHT</small><h3>Je ontwikkeling</h3></div><span class="progress-trend-badge" id="progressWeightTrend">--</span></div>
+<div class="progress-highlight-grid">
+<div><strong class="progress-big-number" id="progressWeight">-- kg</strong><small>laatste meting</small></div>
+<div><strong id="progressWeightChange">--</strong><small>verandering sinds eerste meting</small></div>
+</div>
+</div>
+
 <div class="card">
-<h3>Overzicht</h3>
-<div class="macro-grid">
-<div class="macro-card"><small>Gewicht</small><strong id="progressWeight">-- kg</strong></div>
-<div class="macro-card"><small>Weekvolume</small><strong id="progressKm">0 kg</strong></div>
-<div class="macro-card"><small>Trainingen</small><strong id="progressRuns">0</strong></div>
+<div class="progress-card-head"><div><h3>Gewichtstrend</h3><p class="muted">Vanaf je eerste meting · alleen opgeslagen gewichten</p></div><span class="progress-period-badge" id="progressWeightPeriodBadge">Vanaf start</span></div>
+<div class="progress-chart" id="progressWeightChart"></div>
 </div>
-</div>
+
 <div class="card">
-<h3>Krachttraining</h3>
-<p class="muted">Je trainingen en totale trainingsvolume worden automatisch bijgehouden in Workout.</p>
-<div class="macro-grid">
-<div class="macro-card"><small>Deze week</small><strong id="progressWorkoutCount">0</strong></div>
-<div class="macro-card"><small>Oefeningen</small><strong id="progressExerciseCount">0</strong></div>
-<div class="macro-card"><small>Volume</small><strong id="progressVolume">0 kg</strong></div>
+<div class="progress-card-head"><div><h3>Trainingsconsistentie</h3><p class="muted">Alle opgeslagen Fitness- en HYROX-trainingen</p></div><span class="progress-period-badge">12 weken</span></div>
+<div class="progress-mini-grid">
+<div class="progress-stat"><small>Deze week</small><strong id="progressWorkoutCount">0</strong><span>trainingen</span></div>
+<div class="progress-stat"><small>Fitness</small><strong id="progressFitnessCount">0</strong><span>deze week</span></div>
+<div class="progress-stat"><small>HYROX</small><strong id="progressHyroxCount">0</strong><span>deze week</span></div>
+<div class="progress-stat"><small>Oefeningen</small><strong id="progressExerciseCount">0</strong><span>deze week</span></div>
 </div>
+<div class="progress-bars" id="progressWorkoutChart"></div>
+</div>
+
+<div class="card">
+<div class="progress-card-head"><div><h3>Fitness volume</h3><p class="muted">Totale krachtvolume per week</p></div><span class="progress-period-badge">12 weken</span></div>
+<div class="progress-bars volume-bars" id="progressVolumeChart"></div>
+<div class="progress-volume-summary"><div><small>Deze week</small><strong id="progressVolume">0 kg</strong></div><div><small>Gem. per training</small><strong id="progressAverageVolume">0 kg</strong></div><div><small>Trend 4 weken</small><strong id="progressVolumeTrend">--</strong></div></div>
+</div>
+
+<div class="card">
+<div class="progress-card-head"><div><h3>4 / 8 / 12 weken</h3><p class="muted">Verandering ten opzichte van de periode ervoor</p></div></div>
+<div class="progress-period-grid">
+<div class="progress-period"><small>4 weken</small><strong id="progressTrend4">--</strong><span id="progressTrend4Meta">Geen data</span></div>
+<div class="progress-period"><small>8 weken</small><strong id="progressTrend8">--</strong><span id="progressTrend8Meta">Geen data</span></div>
+<div class="progress-period"><small>12 weken</small><strong id="progressTrend12">--</strong><span id="progressTrend12Meta">Geen data</span></div>
+</div>
+</div>
+
+<div class="card">
+<div class="progress-card-head"><div><h3>Persoonlijke records</h3><p class="muted">Je belangrijkste fitness-PR's</p></div><button type="button" class="btn secondary progress-pr-button" onclick="showPage('personal-records')">Bekijk PR's →</button></div>
+<div class="progress-pr-grid" id="progressPRGrid"></div>
 </div>
 </section>
 </main>
@@ -1376,11 +1547,104 @@ function openChallengeInfo(){const o=document.getElementById("challengeInfoOverl
 function closeChallengeInfo(e){if(e&&e.target!==e.currentTarget)return;const o=document.getElementById("challengeInfoOverlay");if(o)o.style.display="none"}
 function renderChallengeExamples(id,list){const el=document.getElementById(id);if(!el)return;const current=challengeState();el.innerHTML=list.map(x=>{const added=current.includes(x);return `<div class="challenge-example"><div class="challenge-example-text">${esc(x)}</div><button type="button" class="challenge-add-btn" ${added?"disabled":""} data-challenge="${esc(x)}" onclick="addChallengeIdea(this.dataset.challenge)">${added?"Toegevoegd":"Toevoegen"}</button></div>`}).join("")}
 function addChallengeIdea(text){const a=challengeState();const i=a.findIndex(x=>!x);if(i===-1){alert("Alle 7 challenge-vakken zijn gevuld.");return}a[i]=text;saveChallengeState(a);renderDailyChallenges();renderChallengeExamples("easyChallengeExamples",CHALLENGE_EXAMPLES.easy);renderChallengeExamples("hardChallengeExamples",CHALLENGE_EXAMPLES.hard);updateHome()}
+const CALENDAR_EVENTS_KEY="focusCalendarEventsV1";
+function getCalendarEvents(){try{const parsed=JSON.parse(localStorage.getItem(CALENDAR_EVENTS_KEY)||"[]");return Array.isArray(parsed)?parsed:[]}catch(e){return []}}
+function saveCalendarEvents(events){localStorage.setItem(CALENDAR_EVENTS_KEY,JSON.stringify(events))}
+function addCalendarEvent(){const sport=(document.getElementById('calendarEventSport')?.value||'').trim(),place=(document.getElementById('calendarEventPlace')?.value||'').trim(),date=document.getElementById('calendarEventDate')?.value||'';if(!sport||!place||!date){alert('Vul sport, plaats en datum in.');return}const events=getCalendarEvents();events.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),sport,place,date});events.sort((a,b)=>(a.date||'').localeCompare(b.date||''));saveCalendarEvents(events);document.getElementById('calendarEventSport').value='';document.getElementById('calendarEventPlace').value='';document.getElementById('calendarEventDate').value='';renderCalendarEventList();renderChallengesCalendar();updateHome()}
+function deleteCalendarEvent(id){saveCalendarEvents(getCalendarEvents().filter(e=>e.id!==id));renderCalendarEventList();renderChallengesCalendar();updateHome()}
+function renderCalendarEventList(){const el=document.getElementById('calendarEventList');if(!el)return;const events=getCalendarEvents().sort((a,b)=>(a.date||'').localeCompare(b.date||''));if(!events.length){el.innerHTML='';return}el.innerHTML=events.map(e=>{const d=new Date(`${e.date}T12:00:00`),dateLabel=Number.isNaN(d.getTime())?e.date:d.toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});return `<div class="calendar-event-item"><div class="calendar-event-icon">📅</div><div><strong>${esc(e.sport)}</strong><span>${esc(e.place)} · ${dateLabel}</span></div><button type="button" class="calendar-event-delete" onclick="deleteCalendarEvent('${esc(e.id)}')" aria-label="Evenement verwijderen">×</button></div>`}).join('')}
 let challengeCalendarYear=new Date().getFullYear();
 function streakStats(){const h=getChallengeHistory();const keys=Object.keys(h).filter(k=>["green","gold"].includes(challengeStatus(k))).sort();let longest=0,run=0,prev=null;for(const k of keys){const d=new Date(k+"T12:00:00");if(prev){const p=new Date(prev+"T12:00:00");const diff=Math.round((d-p)/86400000);run=diff===1?run+1:1}else run=1;longest=Math.max(longest,run);prev=k}let current=0;const t=new Date();for(let i=0;i<370;i++){const d=new Date(t);d.setDate(t.getDate()-i);const k=localDateKey(d);if(["green","gold"].includes(challengeStatus(k)))current++;else break}return {current,longest,completed:keys.length}}
 
 
-function renderChallengesCalendar(){const grid=document.getElementById("challengeCalendar");if(!grid)return;document.getElementById("challengeYearLabel").textContent=challengeCalendarYear;const names=["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus","September","Oktober","November","December"];let out="";const now=new Date();const startMonth=challengeCalendarYear===now.getFullYear()?now.getMonth():0;for(let m=startMonth;m<12;m++){const first=new Date(challengeCalendarYear,m,1);const days=new Date(challengeCalendarYear,m+1,0).getDate();const offset=(first.getDay()+6)%7;let cells="";for(let i=0;i<offset;i++)cells+='<div class="calendar-day empty"></div>';for(let day=1;day<=days;day++){const dt=new Date(challengeCalendarYear,m,day);const key=localDateKey(dt);const future=dt>new Date();const hasWorkout=savedWorkouts.some(w=>w&&w.date===key);const workoutIcon=hasWorkout?`<span class="calendar-workout-icon" title="Training uitgevoerd op ${key}" aria-label="Training uitgevoerd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h2v16H7v-2H5v-3H3V9h2V6h2V4Zm10 0h-2v16h2v-2h2v-3h2V9h-2V6h-2V4ZM9 10h6v4H9v-4Z"/></svg></span>`:"";cells+=`<div class="calendar-day ${challengeStatus(key)||""} ${key===localDateKey()?"today":""} ${future?"future":""}" title="${key}">${day}${workoutIcon}</div>`}out+=`<div class="month-card"><div class="month-title">${names[m]}</div><div class="weekday-row"><span>MA</span><span>DI</span><span>WO</span><span>DO</span><span>VR</span><span>ZA</span><span>ZO</span></div><div class="month-grid">${cells}</div></div>`}grid.innerHTML=out;const s=streakStats();document.getElementById("challengeCurrentStreak").textContent=`${s.current} dagen`;document.getElementById("challengeLongestStreak").textContent=`${s.longest} dagen`;document.getElementById("challengeCompletedDays").textContent=s.completed;updateDashboardChallenges()}
+function getCalendarDayData(key){
+  const workouts=savedWorkouts.filter(w=>w&&w.date===key);
+  const events=getCalendarEvents().filter(e=>e&&e.date===key);
+  const history=getChallengeHistory();
+  const done=Array.isArray(history[key])?history[key]:null;
+  const fixed=done?done.slice(0,FIXED_CHALLENGE_COUNT).filter(Boolean).length:0;
+  const bonus=done?done.slice(FIXED_CHALLENGE_COUNT).filter(Boolean).length:0;
+  return {workouts,events,done,fixed,bonus};
+}
+function openCalendarDay(key){
+  const data=getCalendarDayData(key);
+  const overlay=document.getElementById('calendarDayOverlay');
+  const title=document.getElementById('calendarDayTitle');
+  const content=document.getElementById('calendarDayContent');
+  if(!overlay||!title||!content)return;
+  const date=new Date(`${key}T12:00:00`);
+  title.textContent=date.toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+  const trainingCount=data.workouts.length;
+  const challengeKnown=data.done!==null;
+  let html=`<div class="calendar-summary-grid">
+    <div class="calendar-summary-item"><small>Training</small><strong>${trainingCount||'Geen'}</strong></div>
+    <div class="calendar-summary-item"><small>Challenges</small><strong>${challengeKnown?`${data.fixed}/5 · ${data.bonus}/2 bonus`:'Geen data'}</strong></div>
+  </div>`;
+  if(trainingCount){
+    html+=`<div class="calendar-day-section"><h3>🏋️ Training</h3><div class="calendar-day-list">`;
+    data.workouts.forEach(w=>{
+      const mode=w.mode==='hyrox'?'HYROX':'Fitness';
+      const volume=Number(w.volume)||0;
+      const exerciseCount=Array.isArray(w.exercises)?w.exercises.length:0;
+      html+=`<div class="calendar-day-entry"><div class="calendar-day-entry-icon">${w.mode==='hyrox'?'⚡':'🏋️'}</div><div><strong>${esc(w.name||mode)}</strong><span>${mode}${exerciseCount?` · ${exerciseCount} oefeningen`:''}${volume?` · ${Math.round(volume).toLocaleString('nl-NL')} kg volume`:''}</span></div></div>`;
+    });
+    html+='</div></div>';
+  }
+  if(data.events.length){
+    html+=`<div class="calendar-day-section"><h3>📅 Evenementen</h3><div class="calendar-day-list">`;
+    data.events.forEach(e=>{html+=`<div class="calendar-day-entry"><div class="calendar-day-entry-icon">📅</div><div><strong>${esc(e.sport)}</strong><span>${esc(e.place)}</span></div></div>`});
+    html+='</div></div>';
+  }
+  if(challengeKnown){
+    html+=`<div class="calendar-day-section"><h3>🎯 Challenges</h3><div class="calendar-day-list"><div class="calendar-day-entry"><div class="calendar-day-entry-icon">🎯</div><div><strong>${data.fixed}/5 vaste challenges</strong><span>${data.bonus}/2 bonus challenges</span></div></div></div></div>`;
+  }
+  if(!trainingCount&&!data.events.length&&!challengeKnown)html+='<div class="calendar-empty">Geen opgeslagen activiteit voor deze dag.</div>';
+  content.innerHTML=html;
+  overlay.classList.add('open');
+}
+function closeCalendarDay(e){
+  if(e&&e.target!==e.currentTarget)return;
+  const overlay=document.getElementById('calendarDayOverlay');
+  if(overlay)overlay.classList.remove('open');
+}
+function renderChallengesCalendar(){
+  const grid=document.getElementById('challengeCalendar');
+  if(!grid)return;
+  document.getElementById('challengeYearLabel').textContent=challengeCalendarYear;
+  const names=['Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
+  let out='';
+  const now=new Date();
+  const startMonth=challengeCalendarYear===now.getFullYear()?now.getMonth():0;
+  for(let m=startMonth;m<12;m++){
+    const first=new Date(challengeCalendarYear,m,1);
+    const days=new Date(challengeCalendarYear,m+1,0).getDate();
+    const offset=(first.getDay()+6)%7;
+    let cells='';
+    for(let i=0;i<offset;i++)cells+='<div class="calendar-day empty"></div>';
+    for(let day=1;day<=days;day++){
+      const dt=new Date(challengeCalendarYear,m,day);
+      const key=localDateKey(dt);
+      const future=dt>new Date();
+      const data=getCalendarDayData(key);
+      const hasWorkout=data.workouts.length>0;
+      const hasEvent=data.events.length>0;
+      const hasChallenge=data.done!==null;
+      const hasActivity=hasWorkout||hasEvent||hasChallenge;
+      const workoutIcon=hasWorkout?`<span class="calendar-workout-icon" title="Training uitgevoerd" aria-label="Training uitgevoerd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h2v16H7v-2H5v-3H3V9h2V6h2V4Zm10 0h-2v16h-2v-2h-2v-3h-2V9h2V6h2V4ZM9 10h6v4H9v-4Z"/></svg></span>`:'';
+      const challengeIcon=hasChallenge?`<span class="calendar-activity-icons"><span class="calendar-activity-icon" title="Challenges opgeslagen">🎯</span></span>`:'';
+      const eventIcon=hasEvent?`<span class="calendar-event-badge" title="Evenement gepland">📅</span>`:'';
+      const status=challengeStatus(key)||'';
+      cells+=`<button type="button" class="calendar-day ${status} ${key===localDateKey()?'today':''} ${future?'future':''} ${hasActivity?'has-activity':''}" title="${key}" onclick="openCalendarDay('${key}')">${day}${workoutIcon}${challengeIcon}${eventIcon}</button>`;
+    }
+    out+=`<div class="month-card"><div class="month-title">${names[m]}</div><div class="weekday-row"><span>MA</span><span>DI</span><span>WO</span><span>DO</span><span>VR</span><span>ZA</span><span>ZO</span></div><div class="month-grid">${cells}</div></div>`;
+  }
+  grid.innerHTML=out;
+  const s=streakStats();
+  document.getElementById('challengeCurrentStreak').textContent=`${s.current} dagen`;
+  document.getElementById('challengeLongestStreak').textContent=`${s.longest} dagen`;
+  document.getElementById('challengeCompletedDays').textContent=s.completed;
+  updateDashboardChallenges();
+}
 function changeChallengeYear(delta){challengeCalendarYear+=delta;renderChallengesCalendar()}
 function updateDashboardChallenges(){const v=document.getElementById("dashChallengeValue"),m=document.getElementById("dashChallengeMeta");if(v)v.textContent=`${fixedDoneCount()}/5`;if(m)m.textContent=`bonus ${bonusDoneCount()}/2 · streak ${streakStats().current} dagen`}
 function goDashboard(page){const btn=document.querySelector(`.nav-button[data-page="${page}"]`);showPage(page,btn)}
@@ -1495,7 +1759,7 @@ function showPage(page, button){
   if(page==="nutrition")renderNutritionPage();
   if(page==="progress")updateProgressPage();
   if(page==="challenges")renderDailyChallenges();
-  if(page==="calendar")renderChallengesCalendar();
+  if(page==="calendar"){renderCalendarEventList();renderChallengesCalendar();}
   if(page==="personal-records"){renderPersonalRecords();showPRChoices();}
   window.scrollTo({top:0,behavior:"smooth"});
 }
@@ -1517,6 +1781,33 @@ function saveUserName(){
   loadUserName();
 }
 
+function updateDashboardNextEvent(){
+  const title=document.getElementById("dashEventTitle");
+  const meta=document.getElementById("dashEventMeta");
+  const daysEl=document.getElementById("dashEventDays");
+  const labelEl=document.getElementById("dashEventDaysLabel");
+  if(!title||!meta||!daysEl||!labelEl)return;
+  const today=localDateKey();
+  const next=getCalendarEvents()
+    .filter(e=>e&&e.date&&e.date>=today)
+    .sort((a,b)=>a.date.localeCompare(b.date))[0];
+  if(!next){
+    title.textContent="Geen evenement gepland";
+    meta.textContent="Voeg een evenement toe via Kalender";
+    daysEl.textContent="—";
+    labelEl.textContent="dagen";
+    return;
+  }
+  const eventDate=new Date(`${next.date}T12:00:00`);
+  const todayDate=new Date(`${today}T12:00:00`);
+  const days=Math.max(0,Math.round((eventDate-todayDate)/86400000));
+  const dateLabel=eventDate.toLocaleDateString("nl-NL",{weekday:"long",day:"numeric",month:"long"});
+  title.textContent=next.sport;
+  meta.textContent=`${next.place} · ${dateLabel}`;
+  daysEl.textContent=days;
+  labelEl.textContent=days===1?"dag":"dagen";
+}
+
 function updateHome(){
   const latestWeight=weightData.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""))[0];
   const today=localDateKey();
@@ -1529,37 +1820,212 @@ function updateHome(){
   const dcal=document.getElementById("dashNutritionValue");if(dcal)dcal.textContent=todayFood?`${Number(todayFood.calories||0).toLocaleString("nl-NL")} kcal`:"--";
   const dp=document.getElementById("dashProgressValue");if(dp)dp.textContent=trainingCount;
   renderDailyChallenges();
+  updateDashboardNextEvent();
+}
+
+function getProgressWeekStart(date){
+  const d=new Date(date);
+  const day=d.getDay();
+  const diff=day===0?6:day-1;
+  d.setHours(0,0,0,0);
+  d.setDate(d.getDate()-diff);
+  return d;
+}
+
+function getProgressWeekKey(date){
+  return localDateKey(getProgressWeekStart(new Date(date)));
+}
+
+function formatProgressKg(value){
+  return `${Number(value||0).toLocaleString("nl-NL",{minimumFractionDigits:1,maximumFractionDigits:1})} kg`;
+}
+
+function formatProgressSigned(value,unit="kg"){
+  const n=Number(value)||0;
+  const sign=n>0?"+":n<0?"−":"";
+  return `${sign}${Math.abs(n).toLocaleString("nl-NL",{minimumFractionDigits:1,maximumFractionDigits:1})} ${unit}`;
+}
+
+function renderProgressWeightChart(){
+  const el=document.getElementById("progressWeightChart");
+  if(!el)return;
+  const entries=[...weightData]
+    .filter(e=>e && e.date && Number.isFinite(Number(e.weight)))
+    .sort((a,b)=>a.date.localeCompare(b.date));
+  if(!entries.length){
+    el.innerHTML='<div class="progress-empty">Nog geen gewichtsmetingen.</div>';
+    return;
+  }
+  const recent=entries.slice(-12);
+  const values=recent.map(e=>Number(e.weight));
+  const min=Math.min(...values), max=Math.max(...values);
+  const pad=Math.max((max-min)*.18,.4), lo=min-pad, hi=max+pad, range=Math.max(hi-lo,.8);
+  const x=i=>recent.length===1?50:(i/(recent.length-1))*100;
+  const y=v=>88-((v-lo)/range)*72;
+  const pts=recent.map((e,i)=>`${x(i)},${y(Number(e.weight))}`).join(" ");
+  const labels=recent.map((e,i)=>{
+    const d=new Date(`${e.date}T00:00:00`);
+    const label=d.toLocaleDateString("nl-NL",{day:"numeric",month:"short"});
+    return `<span class="progress-chart-label" style="left:${x(i)}%">${label}</span>`;
+  }).join("");
+  el.innerHTML=`<div class="progress-line-wrap"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-label="Gewichtstrend"><polyline points="${pts}"/><line x1="0" y1="88" x2="100" y2="88" class="progress-axis"/></svg>${recent.map((e,i)=>`<span class="progress-line-point" style="left:${x(i)}%;top:${y(Number(e.weight))}%" title="${Number(e.weight).toFixed(1)} kg · ${formatDate(e.date)}"></span>`).join("")}<div class="progress-y-label top">${hi.toFixed(1)}</div><div class="progress-y-label bottom">${lo.toFixed(1)}</div><div class="progress-x-labels">${labels}</div></div>`;
+}
+
+function renderProgressBars(targetId,data,formatter){
+  const el=document.getElementById(targetId);
+  if(!el)return;
+  if(!data.length){el.innerHTML='<div class="progress-empty">Nog geen trainingsdata.</div>';return;}
+  const max=Math.max(...data.map(x=>x.value),1);
+  el.innerHTML=data.map(x=>`<div class="progress-bar-col"><div class="progress-bar-value">${formatter(x.value)}</div><div class="progress-bar-track"><div class="progress-bar-fill" style="height:${Math.max(x.value/max*100,x.value>0?6:0)}%"></div></div><small>${x.label}</small></div>`).join("");
+}
+
+function renderProgressPRs(){
+  const el=document.getElementById("progressPRGrid");
+  if(!el)return;
+  const prs=getPersonalRecords().fitness||{};
+  const defs=[...fitnessPRDefinitions];
+  el.innerHTML=defs.map(name=>{
+    const pr=prs[name]||{};
+    const weight=Number(pr.weight)||0;
+    const reps=Number(pr.reps)||0;
+    return `<div class="progress-pr-item"><span>${name}</span><strong>${weight?`${weight} kg`:"—"}${reps?` × ${reps}`:""}</strong></div>`;
+  }).join("");
+}
+
+function renderProgressTrends(weeklyWeights,weekKeys){
+  const validWeights=weightData
+    .filter(e=>e&&e.date&&Number.isFinite(Number(e.weight)))
+    .map(e=>({date:e.date,weight:Number(e.weight)}))
+    .sort((a,b)=>a.date.localeCompare(b.date));
+  const latest=validWeights[validWeights.length-1];
+
+  [4,8,12].forEach(period=>{
+    const valueEl=document.getElementById(`progressTrend${period}`);
+    const metaEl=document.getElementById(`progressTrend${period}Meta`);
+    if(!valueEl||!metaEl)return;
+
+    if(!latest){
+      valueEl.textContent="--";
+      valueEl.className="trend-neutral";
+      metaEl.textContent="Nog geen data";
+      return;
+    }
+
+    // Trend = laatste meting minus de eerste beschikbare meting binnen
+    // het betreffende tijdvenster. We gebruiken echte datums, niet alleen
+    // kalenderweken, zodat een meting op bijvoorbeeld dinsdag ook meetelt.
+    const latestDate=new Date(`${latest.date}T00:00:00`);
+    const cutoff=new Date(latestDate);
+    cutoff.setDate(cutoff.getDate()-period*7);
+    const startCandidates=validWeights.filter(e=>new Date(`${e.date}T00:00:00`)>=cutoff);
+    const start=startCandidates[0];
+
+    if(!start||start.date===latest.date){
+      valueEl.textContent="--";
+      valueEl.className="trend-neutral";
+      metaEl.textContent=`Nog onvoldoende data voor ${period} weken`;
+      return;
+    }
+
+    const delta=latest.weight-start.weight;
+    const pct=start.weight?delta/start.weight*100:0;
+    valueEl.textContent=formatProgressSigned(delta,"kg");
+    valueEl.className=delta<0?"trend-good":delta>0?"trend-bad":"trend-neutral";
+    metaEl.textContent=`${pct>0?"+":""}${pct.toFixed(1)}% · ${formatDate(start.date)} → ${formatDate(latest.date)}`;
+  });
+
+  const badge=document.getElementById("progressWeightTrend");
+  if(badge&&latest&&validWeights.length>1){
+    const first=validWeights[0];
+    const delta=latest.weight-first.weight;
+    badge.textContent=`${formatProgressSigned(delta,"kg")} sinds start`;
+    badge.className=`progress-trend-badge ${delta<0?"good":delta>0?"bad":"neutral"}`;
+  }
 }
 
 function updateProgressPage(){
-  const weights = weightData;
-  const latestWeight = weights.slice().sort((a,b) => (b.date || "").localeCompare(a.date || ""))[0];
+  const latest=weightData.slice().filter(e=>e&&e.date&&Number.isFinite(Number(e.weight))).sort((a,b)=>(a.date||"").localeCompare(b.date||"")).slice(-1)[0];
+  const first=weightData.slice().filter(e=>e&&e.date&&Number.isFinite(Number(e.weight))).sort((a,b)=>(a.date||"").localeCompare(b.date||""))[0];
+  const weightEl=document.getElementById("progressWeight");
+  if(weightEl)weightEl.textContent=latest?formatProgressKg(latest.weight):"-- kg";
 
-  const weightEl = document.getElementById("progressWeight");
-  if(weightEl) weightEl.textContent = latestWeight ? `${Number(latestWeight.weight).toFixed(1)} kg` : "-- kg";
+  const changeEl=document.getElementById("progressWeightChange");
+  if(changeEl){
+    if(first&&latest){
+      const delta=Number(latest.weight)-Number(first.weight);
+      const pct=Number(first.weight)?delta/Number(first.weight)*100:0;
+      changeEl.textContent=`${formatProgressSigned(delta,"kg")} · ${pct>0?"+":""}${pct.toFixed(1)}%`;
+      changeEl.className=delta<0?"trend-good":delta>0?"trend-bad":"trend-neutral";
+    }else changeEl.textContent="--";
+  }
 
-  const weekStart = new Date();
-  const day = weekStart.getDay();
-  const diff = day === 0 ? 6 : day - 1;
-  weekStart.setDate(weekStart.getDate() - diff);
-  const weekStartString = weekStart.toISOString().slice(0,10);
-  const weekWorkouts = savedWorkouts.filter(w => (w.date || "") >= weekStartString);
-  const count = weekWorkouts.length;
-  const exerciseCount = weekWorkouts.reduce((sum,w) => sum + (w.exercises?.length || 0), 0);
-  const volume = weekWorkouts.reduce((sum,w) => sum + (Number(w.volume) || 0), 0);
+  const now=new Date();
+  const currentWeek=getProgressWeekStart(now);
 
-  const kmEl = document.getElementById("progressKm");
-  const runsEl = document.getElementById("progressRuns");
-  if(kmEl) kmEl.textContent = "—";
-  if(runsEl) runsEl.textContent = count;
-  const workoutEl = document.getElementById("progressWorkoutCount");
-  const exerciseEl = document.getElementById("progressExerciseCount");
-  const volumeEl = document.getElementById("progressVolume");
-  if(workoutEl) workoutEl.textContent = count;
-  if(exerciseEl) exerciseEl.textContent = exerciseCount;
-  if(volumeEl) volumeEl.textContent = volume.toLocaleString("nl-NL") + " kg";
+  // Laat de progressiegrafieken beginnen bij de eerste week waarin er
+  // daadwerkelijk relevante data is. Zo tonen we geen lege weken vóór de start.
+  const workoutDates=savedWorkouts.filter(w=>w&&w.date).map(w=>new Date(`${w.date}T00:00:00`)).filter(d=>!Number.isNaN(d.getTime()));
+  const weightDates=weightData.filter(e=>e&&e.date&&Number.isFinite(Number(e.weight))).map(e=>new Date(`${e.date}T00:00:00`)).filter(d=>!Number.isNaN(d.getTime()));
+  const allProgressDates=[...workoutDates,...weightDates];
+  const firstProgressWeek=allProgressDates.length
+    ? getProgressWeekStart(new Date(Math.min(...allProgressDates.map(d=>d.getTime()))))
+    : currentWeek;
+  const weekKeys=[];
+  for(let d=new Date(firstProgressWeek);d<=currentWeek;d.setDate(d.getDate()+7)){
+    weekKeys.push(localDateKey(d));
+  }
+  if(!weekKeys.length)weekKeys.push(localDateKey(currentWeek));
+
+  const weeklyWorkouts=weekKeys.map(key=>{
+    const list=savedWorkouts.filter(w=>w&&getProgressWeekKey(w.date||todayString())===key);
+    return {key,value:list.length,label:new Date(`${key}T00:00:00`).toLocaleDateString("nl-NL",{day:"numeric",month:"short"}),fitness:list.filter(w=>w.mode==="fitness"),hyrox:list.filter(w=>w.mode==="hyrox")};
+  });
+  const current=weeklyWorkouts[weeklyWorkouts.length-1];
+  const allFitness=current.fitness;
+  const exerciseCount=allFitness.reduce((sum,w)=>sum+(w.exercises?.length||0),0);
+  const totalVolume=allFitness.reduce((sum,w)=>sum+(Number(w.volume)||0),0);
+  const hyroxCount=current.hyrox.length;
+  const fitnessCount=allFitness.length;
+  const totalTrainingCount=current.value;
+
+  const wc=document.getElementById("progressWorkoutCount");if(wc)wc.textContent=totalTrainingCount;
+  const fc=document.getElementById("progressFitnessCount");if(fc)fc.textContent=fitnessCount;
+  const hc=document.getElementById("progressHyroxCount");if(hc)hc.textContent=hyroxCount;
+  const ec=document.getElementById("progressExerciseCount");if(ec)ec.textContent=exerciseCount;
+  const vol=document.getElementById("progressVolume");if(vol)vol.textContent=formatProgressKg(totalVolume);
+  const avg=document.getElementById("progressAverageVolume");if(avg)avg.textContent=formatProgressKg(fitnessCount?totalVolume/fitnessCount:0);
+
+  const weeksWithData=weekKeys.length;
+  ["progressWeightPeriodBadge","progressWorkoutPeriodBadge","progressVolumePeriodBadge"].forEach(id=>{
+    const badge=document.getElementById(id);
+    if(badge)badge.textContent=weeksWithData===1?"1 week":`Vanaf start · ${weeksWithData} weken`;
+  });
+
+  renderProgressWeightChart();
+
+  // Verwijder alleen lege weken vóór de eerste relevante training.
+  // Lege weken ná de start blijven zichtbaar zodat de trend tot vandaag loopt.
+  const firstWorkoutIndex=weeklyWorkouts.findIndex(x=>x.value>0);
+  const workoutChartData=firstWorkoutIndex>=0?weeklyWorkouts.slice(firstWorkoutIndex):[];
+  const firstVolumeIndex=weeklyWorkouts.findIndex(x=>x.fitness.some(w=>Number(w.volume)>0));
+  const volumeChartData=firstVolumeIndex>=0?weeklyWorkouts.slice(firstVolumeIndex):[];
+  renderProgressBars("progressWorkoutChart",workoutChartData.map(x=>({label:x.label,value:x.value})),v=>String(v));
+  renderProgressBars("progressVolumeChart",volumeChartData.map(x=>({label:x.label,value:x.fitness.reduce((sum,w)=>sum+(Number(w.volume)||0),0)})),v=>v?`${Math.round(v).toLocaleString("nl-NL")} kg`:"0");
+
+  const weeklyWeights=weekKeys.map(key=>{
+    const list=weightData.filter(e=>e&&e.date&&getProgressWeekKey(e.date)===key).map(e=>Number(e.weight)).filter(Number.isFinite);
+    return {key,avg:list.length?list.reduce((a,b)=>a+b,0)/list.length:null};
+  }).filter(x=>x.avg!==null);
+  renderProgressTrends(weeklyWeights,weekKeys);
+
+  const volumeLast4=weeklyWorkouts.slice(-4).reduce((s,w)=>s+w.fitness.reduce((a,x)=>a+(Number(x.volume)||0),0),0);
+  const volumePrev4=weeklyWorkouts.slice(-8,-4).reduce((s,w)=>s+w.fitness.reduce((a,x)=>a+(Number(x.volume)||0),0),0);
+  const vt=document.getElementById("progressVolumeTrend");
+  if(vt){
+    if(volumePrev4>0){const pct=(volumeLast4-volumePrev4)/volumePrev4*100;vt.textContent=`${pct>0?"+":""}${pct.toFixed(1)}%`;vt.className=pct>0?"trend-good":pct<0?"trend-bad":"trend-neutral";}else{vt.textContent="--";vt.className="trend-neutral";}
+  }
+  renderProgressPRs();
 }
-
 
 /* =====================================================
    WORKOUT BUILDER
@@ -3152,3 +3618,4 @@ showWelcome();
 <div class="challenge-info-overlay" id="challengeInfoOverlay" onclick="closeChallengeInfo(event)"><div class="challenge-info-modal" onclick="event.stopPropagation()"><div class="challenge-info-head"><div><h2>Challenge inspiratie</h2><p class="muted" style="margin-top:6px;font-size:13px">Kies een challenge en klik op Toevoegen. Hij komt direct in het eerste vrije vak.</p></div><button class="challenge-info-close" onclick="closeChallengeInfo()" type="button">×</button></div><div class="challenge-example-section"><h3>Makkelijk · 50 voorbeelden</h3><div class="challenge-example-list" id="easyChallengeExamples"></div></div><div class="challenge-example-section"><h3>Moeilijk · 50 voorbeelden</h3><div class="challenge-example-list" id="hardChallengeExamples"></div></div></div></div>
 </body>
 </html>
+
